@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 12/15 · One Sentence — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E8442E;--ink:#16130F;--dim:#7A2A1D;--acc:#FFF6EC;--card:#FFF6EC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,sans-serif;min-height:100vh;display:grid;place-items:center;padding:8vh 6vw}
+.s{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:clamp(30px,5.2vw,64px);line-height:1.45;max-width:20em}
+.w{color:var(--acc);cursor:pointer;border-bottom:3px solid var(--acc);position:relative;white-space:nowrap}
+.w:hover{background:rgba(255,246,236,.15)}
+.pop{position:absolute;left:50%;bottom:calc(100% + 14px);transform:translateX(-50%) translateY(8px);width:min(360px,80vw);background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px 18px;font:14.5px/1.55 Inter,sans-serif;color:var(--ink);opacity:0;pointer-events:none;transition:.25s;box-shadow:0 24px 50px -22px rgba(20,20,18,.3);z-index:5;white-space:normal;text-align:left}
+.w.on .pop{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+.pop img{width:100%;border-radius:8px;margin-bottom:10px}
+.pop a{color:#B42318;font-weight:500;text-decoration:none}
+.pop a:hover{text-decoration:underline}
+.tail{position:fixed;bottom:26px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,246,236,.75)}
+.tail a{color:var(--acc)}
+.sig{display:block;margin-top:5vh;font-size:clamp(16px,1.8vw,20px);color:var(--dim);font-style:italic}
+.sig a{color:var(--acc);border-bottom:2px solid var(--acc);text-decoration:none}
+</style>
+</head>
+<body>
+<div>
+<p class="s">For <span class="w">eleven years<span class="pop">2015–2026: T-Mobile, Western Union, Genentech, Roche, GSK, BMS, Alexion, two ventures of my own. <a href="../about.html">The career →</a></span></span> I have made <span class="w">tangled<span class="pop">Eligibility logic, legal review, legacy formats, and org politics wearing a UI. That kind of tangled. <a href="../case-studies/tmobile-trade-in.html">Example: four systems, one flow →</a></span></span> enterprise systems feel <span class="w">obvious<span class="pop"><img src="../images/hero-wu.webp" alt="">Obvious = the system confesses its rules before you invest effort. <a href="../case-studies/western-union.html">The locator that answers early →</a></span></span> — lately for <span class="w">customers who are not human<span class="pop"><img src="../images/hero-api.webp" alt="">AI agents order; interfaces verify; humans confirm. <a href="../case-studies/api-marketplace.html">The API Marketplace →</a></span></span>, with <span class="w">working prototypes<span class="pop">Koé's anonymity gate and FindMyBike's recovery agent run right on their pages — rule-based stand-ins, honestly labeled. <a href="../case-studies/koe-2026.html">Try Koé →</a></span></span> and an <span class="w">AI pair<span class="pop"><img src="../images/hero-rebuild.webp" alt="">This site: 20+ build passes with an AI pair, governed by a written taste file, failures logged. <a href="../rebuild-log.html">The build log →</a></span></span> at the desk.
+<span class="sig">— Steven Long Tran · <a href="mailto:hello@steveux.com">hello@steveux.com</a></span></p>
+</div>
+<div class="tail">Exploration 12/15 · one sentence, six doors · <a href="../index.html">the long version →</a></div>
+<script>
+document.querySelectorAll('.w').forEach(function(w){
+ w.addEventListener('click',function(e){
+  if(e.target.closest('.pop a'))return;
+  var on=w.classList.contains('on');
+  document.querySelectorAll('.w.on').forEach(function(o){o.classList.remove('on')});
+  if(!on)w.classList.add('on');
+ });
+});
+document.addEventListener('click',function(e){if(!e.target.closest('.w'))document.querySelectorAll('.w.on').forEach(function(o){o.classList.remove('on')})});
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

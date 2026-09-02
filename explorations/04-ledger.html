@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 04/15 · Ledger — Steven Long Tran</title>
+<style>
+:root{--bg:#F4F2EA;--ink:#0B3D2E;--dim:#5E6E62;--acc:#B3261E;--hair:#0B3D2E}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 'Courier New',Courier,monospace;padding:0 0 120px}
+.top{padding:60px 4vw 30px;border-bottom:4px solid var(--ink)}
+h1{font-size:clamp(34px,7vw,92px);margin:0;letter-spacing:-.04em;line-height:.95;text-transform:uppercase}
+h1 span{color:var(--acc)}
+.sub{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:18px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-align:left;padding:14px 4vw 14px 0;border-bottom:2px solid var(--ink);color:var(--dim);cursor:pointer;user-select:none}
+th:first-child,td:first-child{padding-left:4vw}
+th:hover{color:var(--acc)}
+td{padding:0;border-bottom:1px solid var(--ink);vertical-align:top}
+tr.r{cursor:pointer}
+tr.r>td{padding:20px 4vw 20px 0;transition:background .15s}
+tr.r:hover>td{background:#EAF0E7}
+tr.r:hover .nm{color:var(--acc)}
+.nm{font-weight:600;font-size:clamp(16px,2.2vw,24px);letter-spacing:-.01em}
+.yr{font-variant-numeric:tabular-nums;color:var(--dim)}
+.tg{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.ai{color:var(--acc);font-weight:600}
+tr.x td{padding:0 4vw 26px;border-bottom:1px solid var(--ink)}
+tr.x{display:none}
+tr.x.on{display:table-row}
+.xin{display:grid;grid-template-columns:1fr 260px;gap:30px;align-items:start;padding-top:4px}
+.xin p{margin:0;max-width:60em;color:#3B3830}
+.xin img{width:100%;border:1px solid var(--ink)}
+.xin a{display:inline-block;margin-top:12px;color:var(--acc);font-weight:600;text-decoration:none;text-transform:uppercase;font-size:13px;letter-spacing:.1em}
+.foot{padding:40px 4vw 0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.foot a{color:var(--ink)}
+@media(max-width:700px){.xin{grid-template-columns:1fr}.hidep{display:none}}
+</style>
+</head>
+<body>
+<div class="top">
+ <h1>Tran, Steven Long —<br>ledger of <span>work</span>, 2015–2026</h1>
+ <div class="sub"><span>Exploration 04/05 · every row is real · click a row to open its receipt</span><span>Sort: click a column header</span></div>
+</div>
+<table id="tb">
+ <thead><tr><th data-k="n">No.</th><th data-k="t">Engagement</th><th data-k="y" class="hidep">Year</th><th data-k="a">Class</th></tr></thead>
+ <tbody>
+  <tr class="r" data-y="2026" data-a="1"><td>01</td><td><span class="nm">API marketplace for human + machine customers</span><div class="tg">T-Mobile · platform</div></td><td class="yr hidep">2025–26</td><td class="tg ai">AI-native</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>T-Mobile inverted its integration model: stop building bespoke flows, open the system. Designed legible to enterprise developers and to the AI agents ordering on their behalf — interfaces verify, humans confirm.</p><a href="../case-studies/api-marketplace.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-api.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2026" data-a="1"><td>05</td><td><span class="nm">Compas — planning that shows its consequences</span><div class="tg">Own venture · discovery</div></td><td class="yr hidep">2026</td><td class="tg ai">AI-native</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>Plans live on a map AND a clock; every tool shows one. Compas links them — drag either surface, the other reacts, the zigzag shows its time and money cost before you commit. Five field conversations in, bias footnoted.</p><a href="../case-studies/compas.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-compas.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2026" data-a="1"><td>06</td><td><span class="nm">Koé — five voices in, one protected theme out</span><div class="tg">Rebuilt 2015→2026 · prototype on page</div></td><td class="yr hidep">2026</td><td class="tg ai">AI-native</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>Anonymous feedback rebuilt for a world where AI can synthesize candor and identify writers. Three rules: five voices before visibility, paraphrase over quotes, submitter confirms meaning survived. Working simulated prototype embedded.</p><a href="../case-studies/koe-2026.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-koe.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2026" data-a="1"><td>07</td><td><span class="nm">FindMyBike — recovery as an agentic workflow</span><div class="tg">Rebuilt 2015→2026 · prototype on page</div></td><td class="yr hidep">2026</td><td class="tg ai">AI-native</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>The agent files the serial-numbered police report, verifies sightings by photo match, preps insurance — owner approves each step. The live dot routes to police, never to the owner. The paternalism trade is named, not hidden.</p><a href="../case-studies/findmybike-2026.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-fmb.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2024" data-a="0"><td>02</td><td><span class="nm">One trade-in flow for four systems</span><div class="tg">T-Mobile · commerce</div></td><td class="yr hidep">2021–24</td><td class="tg">Enterprise</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>One shared flow instead of four forks; spreadsheet bulk upload that met legacy formats where they were; a modal argument lost well. Roughly 10% order-completion lift per business client.</p><a href="../case-studies/tmobile-trade-in.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-tradein.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2020" data-a="0"><td>03</td><td><span class="nm">The locator that answers before the tap</span><div class="tg">Western Union · payments</div></td><td class="yr hidep">2019–20</td><td class="tg">Enterprise</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>A pin map reframed as an eligibility product: payout limits, services, and hours on the result card itself, across 200+ countries and 40+ languages. People trust money interfaces that tell the truth early.</p><a href="../case-studies/western-union.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-wu.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2018" data-a="0"><td>04</td><td><span class="nm">Rare-disease content under full NDA, still human</span><div class="tg">Pharma · regulated</div></td><td class="yr hidep">2017–18</td><td class="tg">Regulated</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>Sixteen weeks, every pattern defensible in writing, research designed so the client could re-sell decisions internally. A two-year extension earned on the result.</p><a href="../case-studies/rare-disease.html">Open the case study →</a></div><img loading="lazy" src="../images/hero-rd.webp" alt=""></div></td></tr>
+  <tr class="r" data-y="2026" data-a="1"><td>S2</td><td><span class="nm">This site — rebuilt with an AI pair, logged in public</span><div class="tg">Meta · twenty-plus passes</div></td><td class="yr hidep">2026</td><td class="tg ai">AI-native</td></tr>
+  <tr class="x"><td colspan="4"><div class="xin"><div><p>A written taste file that wins every argument, a pass-by-pass build log with the failures kept in, and documentation excerpts as exhibits. The deliverable demonstrates the method.</p><a href="../rebuild-log.html">Read the log →</a></div><img loading="lazy" src="../images/hero-rebuild.webp" alt=""></div></td></tr>
+ </tbody>
+</table>
+<div class="foot">Plus ~114 smaller engagements in the ledger's long tail · <a href="../about.html">the human behind the rows</a> · <a href="mailto:hello@steveux.com">hello@steveux.com</a> · <a href="../index.html">return to the standing site →</a></div>
+<script>
+document.querySelectorAll('tr.r').forEach(function(r){
+ r.addEventListener('click',function(){var x=r.nextElementSibling;var on=x.classList.contains('on');
+  document.querySelectorAll('tr.x.on').forEach(function(o){o.classList.remove('on')});
+  if(!on)x.classList.add('on');
+ });
+});
+document.querySelectorAll('th').forEach(function(th){
+ th.addEventListener('click',function(){
+  var tb=document.querySelector('#tb tbody');
+  var pairs=[];var rows=[].slice.call(tb.children);
+  for(var i=0;i<rows.length;i+=2)pairs.push([rows[i],rows[i+1]]);
+  var k=th.getAttribute('data-k');
+  pairs.sort(function(a,b){
+   if(k==='y')return (b[0].getAttribute('data-y'))-(a[0].getAttribute('data-y'));
+   if(k==='a')return (b[0].getAttribute('data-a'))-(a[0].getAttribute('data-a'));
+   if(k==='n')return a[0].cells[0].textContent.localeCompare(b[0].cells[0].textContent);
+   return a[0].querySelector('.nm').textContent.localeCompare(b[0].querySelector('.nm').textContent);
+  });
+  pairs.forEach(function(p){tb.appendChild(p[0]);tb.appendChild(p[1])});
+ });
+});
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

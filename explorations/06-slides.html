@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 06/15 · Slides — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--ink:#F5F5F2;--dim:#9A9AA3;--acc:#FFD60A}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 'Space Grotesk',sans-serif}
+.slide{position:absolute;inset:0;display:grid;place-items:center;padding:8vh 8vw;opacity:0;transform:translateY(24px);transition:opacity .5s cubic-bezier(.22,.9,.24,1),transform .5s cubic-bezier(.22,.9,.24,1);pointer-events:none}
+.slide.on{opacity:1;transform:none;pointer-events:auto}
+.slide .inner{max-width:900px;width:100%}
+.k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);font-weight:600}
+h1{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;font-size:clamp(34px,6vw,72px);line-height:1.08;margin:16px 0}
+h1 em{color:var(--acc)}
+p{color:var(--dim);max-width:36em;font-size:clamp(16px,1.6vw,20px)}
+img{max-width:min(640px,80%);display:block;margin-top:26px;border:1px solid #2A2A32;border-radius:14px}
+a.go{display:inline-block;margin-top:20px;color:var(--acc);font-weight:600;text-decoration:none;border-bottom:1px solid var(--acc);padding-bottom:2px}
+#bar{position:fixed;top:0;left:0;height:3px;background:var(--acc);transition:width .4s;z-index:9}
+#ctl{position:fixed;bottom:26px;right:26px;display:flex;gap:8px;z-index:9}
+#ctl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--dim);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer}
+#ctl button:hover{border-color:var(--acc);color:var(--acc)}
+#pg{position:fixed;bottom:38px;left:26px;font-size:12px;letter-spacing:.16em;color:var(--dim);z-index:9}
+</style>
+</head>
+<body>
+<div id="bar"></div><div id="pg"></div>
+<div id="ctl"><button id="pv">←</button><button id="nx">→</button></div>
+
+<section class="slide on"><div class="inner"><span class="k">Steven Long Tran · a portfolio in 9 slides · → or space</span><h1>I make complex software feel <em>intuitive</em>.</h1><p>Eleven years. Telecom commerce, payments, API platforms, design systems. This deck is exploration 06/05+10 — the pitch, with nothing to hide behind.</p></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 1 · AI-native</span><h1>I design for customers who <em>might not be human</em>.</h1><p>T-Mobile's API Marketplace: AI agents order, real-time UI verifies, humans confirm.</p><img src="../images/hero-api.webp" alt=""><a class="go" href="../case-studies/api-marketplace.html">The receipt →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 2 · Consequences</span><h1>Good planning tools <em>confess their costs</em>.</h1><p>Compas links the map and the clock — drag either, the other reacts, the zigzag shows its price.</p><img src="../images/hero-compas.webp" alt=""><a class="go" href="../case-studies/compas.html">The receipt →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 3 · Trust</span><h1>Five voices in, <em>one protected theme</em> out.</h1><p>Koé rebuilt for the AI era: k-anonymity as a UI primitive, paraphrase over quotes, a working prototype.</p><img src="../images/hero-koe.webp" alt=""><a class="go" href="../case-studies/koe-2026.html">The receipt →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 4 · Safety</span><h1>The agent gets the paperwork; the police <em>get the dot</em>.</h1><p>FindMyBike 2026 — recovery as an agentic workflow with a human checkpoint at every step.</p><img src="../images/hero-fmb.webp" alt=""><a class="go" href="../case-studies/findmybike-2026.html">The receipt →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 5 · Scale</span><h1>Four systems became <em>one flow</em> — completion rose ~10%.</h1><p>Trade-in at T-Mobile: bulk uploads that met legacy formats where they lived.</p><img src="../images/hero-tradein.webp" alt=""><a class="go" href="../case-studies/tmobile-trade-in.html">The receipt →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 6 · Truth, early</span><h1>The best map answer is <em>"it will work when you arrive."</em></h1><p>Western Union's locator, reframed as an eligibility product across 200+ countries.</p><img src="../images/hero-wu.webp" alt=""><a class="go" href="../case-studies/western-union.html">The receipt →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Claim 7 · Method</span><h1>This site was <em>built with an AI pair</em> — and logged in public.</h1><p>Twenty-plus passes, a taste file that wins arguments, failures kept in.</p><img src="../images/hero-rebuild.webp" alt=""><a class="go" href="../rebuild-log.html">The log →</a></div></section>
+<section class="slide"><div class="inner"><span class="k">Last slide</span><h1>Questions? <em>hello@steveux.com</em></h1><p>Or the long version, with depth controls and prototypes:</p><a class="go" href="../index.html">Open the standing site →</a></div></section>
+
+<script>
+var S=[].slice.call(document.querySelectorAll('.slide')),i=0;
+function go(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach(function(s,j){s.classList.toggle('on',j===i)});
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('pg').textContent=(i+1)+' / '+S.length;}
+go(0);
+addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key===' ')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
+document.getElementById('nx').onclick=function(){go(i+1)};
+document.getElementById('pv').onclick=function(){go(i-1)};
+addEventListener('wheel',function(e){if(Math.abs(e.deltaY)>40)go(i+(e.deltaY>0?1:-1))},{passive:true});
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

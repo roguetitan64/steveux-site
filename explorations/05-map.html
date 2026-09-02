@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 05/15 · The Map — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F0E6CE;--ink:#41321F;--dim:#8A7A5E;--acc:#A93B4A;--hair:#CDBD9C}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,sans-serif;cursor:grab}
+body.drag{cursor:grabbing}
+#hud{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px 3vw;z-index:10;pointer-events:none}
+#hud>*{pointer-events:auto}
+#hud .t{font-family:'Fraunces',serif;font-size:22px}
+#hud a{color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);border-radius:99px;padding:9px 16px;background:var(--bg)}
+#hud a:hover{color:var(--acc);border-color:var(--acc)}
+#hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);z-index:10;background:var(--bg);padding:8px 18px;border:1px solid var(--hair);border-radius:99px}
+#world{position:absolute;width:3000px;height:2000px;transition:transform .08s linear}
+svg.paths{position:absolute;inset:0;width:100%;height:100%}
+.isle{position:absolute;width:300px;background:#FAF3E3;border:1px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 8px 30px -14px rgba(20,20,18,.3);transition:transform .3s cubic-bezier(.22,.9,.24,1),box-shadow .3s}
+.isle:hover{transform:translateY(-6px) rotate(0deg)!important;box-shadow:0 26px 60px -24px rgba(20,20,18,.4);z-index:5}
+.isle img{width:100%;height:130px;object-fit:cover;display:block;border-bottom:1px solid var(--ink);filter:sepia(.35)}
+.isle .in{padding:14px 16px 16px}
+.isle .k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.isle b{display:block;font-size:16px;line-height:1.3;margin-top:4px}
+.isle a{position:absolute;inset:0}
+.city{position:absolute;font-family:'Fraunces',serif;font-style:italic;font-size:56px;color:transparent;-webkit-text-stroke:1px var(--hair);user-select:none}
+#you{position:absolute;width:340px;text-align:center}
+#you img{width:150px;height:150px;object-fit:cover;object-position:38% 20%;border-radius:50%;border:2px solid var(--ink);background:#FAF3E3;filter:sepia(.35)}
+#you h1{font-family:'Fraunces',serif;font-weight:400;font-size:30px;margin:14px 0 0;line-height:1.25}
+#you h1 em{color:var(--acc)}
+#you p{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+</style>
+</head>
+<body>
+<div id="hud"><span class="t">The Territory of Work — exploration 05/05</span><a href="../index.html">Back to the standing site</a></div>
+<div id="hint">Drag to travel · everything is where it wants to be</div>
+<div id="world">
+ <svg class="paths" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#C9C4B2" stroke-width="1.5" stroke-dasharray="3 7">
+   <path d="M1500 1000 C 1250 850, 1100 700, 950 560"/>
+   <path d="M1500 1000 C 1750 830, 1950 760, 2080 640"/>
+   <path d="M1500 1000 C 1300 1180, 1150 1300, 1000 1400"/>
+   <path d="M1500 1000 C 1740 1170, 1900 1280, 2050 1380"/>
+   <path d="M950 560 C 1200 480, 1700 470, 2080 640"/>
+   <path d="M1500 1000 C 1520 780, 1560 640, 1620 470"/>
+   <path d="M1000 1400 C 1400 1520, 1800 1500, 2050 1380"/>
+  </g>
+ </svg>
+ <span class="city" style="left:600px;top:380px">enterprise</span>
+ <span class="city" style="left:1950px;top:360px">ai-native</span>
+ <span class="city" style="left:760px;top:1520px">payments</span>
+ <span class="city" style="left:1980px;top:1560px">side quests</span>
+
+ <div id="you" style="left:1330px;top:860px">
+  <img src="../images/hero-portrait-tile.webp" alt="Steven">
+  <h1>I make complex software feel <em>intuitive</em></h1>
+  <p>11 years · SF ↔ Medellín · start anywhere</p>
+ </div>
+
+ <div class="isle" style="left:800px;top:420px;transform:rotate(-2deg)"><img loading="lazy" src="../images/hero-tradein.webp" alt=""><div class="in"><span class="k">Enterprise · 2021–24</span><b>One trade-in flow for four systems</b></div><a href="../case-studies/tmobile-trade-in.html" aria-label="Trade-in"></a></div>
+ <div class="isle" style="left:1480px;top:330px;transform:rotate(1.5deg)"><img loading="lazy" src="../images/hero-api.webp" alt=""><div class="in"><span class="k">AI-native · 2025–26</span><b>A marketplace for customers who might not be human</b></div><a href="../case-studies/api-marketplace.html" aria-label="API"></a></div>
+ <div class="isle" style="left:2000px;top:520px;transform:rotate(-1.4deg)"><img loading="lazy" src="../images/hero-compas.webp" alt=""><div class="in"><span class="k">AI-first · in progress</span><b>Compas: planning that shows its consequences</b></div><a href="../case-studies/compas.html" aria-label="Compas"></a></div>
+ <div class="isle" style="left:2140px;top:900px;transform:rotate(2deg)"><img loading="lazy" src="../images/hero-koe.webp" alt=""><div class="in"><span class="k">Rebuilt 2015→2026</span><b>Five voices in, one protected theme out</b></div><a href="../case-studies/koe-2026.html" aria-label="Koe"></a></div>
+ <div class="isle" style="left:1950px;top:1280px;transform:rotate(-2.2deg)"><img loading="lazy" src="../images/hero-fmb.webp" alt=""><div class="in"><span class="k">Rebuilt 2015→2026</span><b>Theft recovery as an agentic workflow</b></div><a href="../case-studies/findmybike-2026.html" aria-label="FindMyBike"></a></div>
+ <div class="isle" style="left:850px;top:1300px;transform:rotate(1.8deg)"><img loading="lazy" src="../images/hero-wu.webp" alt=""><div class="in"><span class="k">Payments · 200+ countries</span><b>The locator that answers before the tap</b></div><a href="../case-studies/western-union.html" aria-label="WU"></a></div>
+ <div class="isle" style="left:560px;top:850px;transform:rotate(-1.2deg)"><img loading="lazy" src="../images/hero-rd.webp" alt=""><div class="in"><span class="k">Regulated · 16 weeks</span><b>Rare-disease content, still human</b></div><a href="../case-studies/rare-disease.html" aria-label="RD"></a></div>
+ <div class="isle" style="left:1450px;top:1470px;transform:rotate(1deg)"><img loading="lazy" src="../images/hero-rebuild.webp" alt=""><div class="in"><span class="k">Meta · with an AI pair</span><b>The site that documents its own making</b></div><a href="../rebuild-log.html" aria-label="Log"></a></div>
+ <div class="isle" style="left:2380px;top:1180px;transform:rotate(-1.8deg)"><img loading="lazy" src="../images/hero-tt.webp" alt=""><div class="in"><span class="k">Side quest · brand</span><b>Tail &amp; Trot — quiet luxury for dogs</b></div><a href="https://www.tailandtrot.com" aria-label="TT"></a></div>
+ <div class="isle" style="left:1150px;top:600px;transform:rotate(2.4deg)"><img loading="lazy" src="../images/hero-about.webp" alt=""><div class="in"><span class="k">About</span><b>I like the hard parts of product design</b></div><a href="../about.html" aria-label="About"></a></div>
+</div>
+<script>
+var w=document.getElementById('world');
+var x=-(1500-innerWidth/2),y=-(1000-innerHeight/2),px,py,drag=false,z=1;
+function apply(){
+ x=Math.min(80,Math.max(innerWidth-3080,x));
+ y=Math.min(80,Math.max(innerHeight-2080,y));
+ w.style.transformOrigin='0 0';w.style.transform='translate('+x+'px,'+y+'px) scale('+z+')';
+}
+apply();
+addEventListener('pointerdown',function(e){if(e.target.closest('a,#hud'))return;drag=true;px=e.clientX;py=e.clientY;document.body.classList.add('drag')});
+addEventListener('pointermove',function(e){if(!drag)return;x+=e.clientX-px;y+=e.clientY-py;px=e.clientX;py=e.clientY;apply()});
+addEventListener('pointerup',function(){drag=false;document.body.classList.remove('drag')});
+function zoomAt(cx,cy,nz){nz=Math.min(1.8,Math.max(.45,nz));x=cx-(cx-x)*nz/z;y=cy-(cy-y)*nz/z;z=nz;apply()}
+addEventListener('wheel',function(e){e.preventDefault();if(e.ctrlKey||e.metaKey){zoomAt(e.clientX,e.clientY,z*(e.deltaY<0?1.12:.89))}else{x-=e.deltaX;y-=e.deltaY;apply()}},{passive:false});
+window.__zoom=function(d){zoomAt(innerWidth/2,innerHeight/2,d?z*1.25:z/1.25)};
+</script>
+<script src="skins.js"></script>
+<div style="position:fixed;right:20px;bottom:24px;z-index:11;display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--hair);border-radius:12px;overflow:hidden;box-shadow:0 8px 26px -12px rgba(20,20,18,.35)">
+<button onclick="__zoom(1)" aria-label="Zoom in" style="width:44px;height:44px;border:0;background:none;color:var(--ink);font:600 20px/1 inherit;cursor:pointer">+</button>
+<button onclick="__zoom(0)" aria-label="Zoom out" style="width:44px;height:44px;border:0;border-top:1px solid var(--hair);background:none;color:var(--ink);font:600 20px/1 inherit;cursor:pointer">−</button>
+</div>
+</body>
+</html>

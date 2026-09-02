@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 11/15 · The Pinboard — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#C89A66;--ink:#2A1F14;--dim:#6E5335;--acc:#B42318;--tape:rgba(255,255,255,.5)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);background-image:radial-gradient(rgba(0,0,0,.08) 1px,transparent 1.4px);background-size:7px 7px;color:var(--ink);font:15px/1.5 Inter,sans-serif;min-height:100vh;overflow-x:hidden}
+.hd{text-align:center;padding:44px 5vw 8px}
+.hd h1{font-family:Caveat,cursive;font-weight:700;font-size:clamp(36px,6vw,60px);margin:0;transform:rotate(-1.5deg)}
+.hd h1 i{color:var(--acc);font-style:normal}
+.hd p{color:var(--dim);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.board{position:relative;max-width:1240px;margin:20px auto 0;height:1180px}
+.pin{position:absolute;background:#FFFDF4;border:1px solid #B8A88C;padding:14px;width:260px;box-shadow:0 10px 26px -12px rgba(20,20,18,.35);cursor:grab;transition:box-shadow .25s}
+.pin:active{cursor:grabbing}
+.pin.drag{box-shadow:0 30px 60px -20px rgba(20,20,18,.5);z-index:20!important}
+.pin::before{content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);width:80px;height:24px;background:var(--tape)}
+.pin img{width:100%;display:block;pointer-events:none}
+.pin .cap2{font-family:Caveat,cursive;font-size:20px;line-height:1.15;margin-top:10px}
+.pin .cap2 a{color:var(--ink);text-decoration:none}
+.pin .cap2 a:hover{color:var(--acc)}
+.pin .meta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:4px}
+.card-note{background:#FFF3A8;font-family:Caveat,cursive;font-size:21px;line-height:1.25;width:220px;padding:18px}
+svg.str{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.pin{z-index:2}
+.foot{text-align:center;padding:40px 0 80px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.foot a{color:var(--acc)}
+@media(max-width:800px){.board{height:auto;display:flex;flex-direction:column;align-items:center;gap:26px;padding-bottom:20px}.pin{position:static!important;transform:none!important}svg.str{display:none}}
+</style>
+</head>
+<body>
+<div class="hd"><h1>The case against <i>tangled systems</i> — evidence wall</h1><p>Exploration 11/15 · drag anything · the string follows</p></div>
+<div class="board" id="bd">
+ <svg class="str" id="str" xmlns="http://www.w3.org/2000/svg"></svg>
+ <div class="pin" style="left:4%;top:30px;transform:rotate(-2.4deg)" data-k="a"><img src="../images/hero-api.webp" alt=""><div class="cap2"><a href="../case-studies/api-marketplace.html">Exhibit A — they let the robots order ↗</a></div><div class="meta">API Marketplace · 2025–26</div></div>
+ <div class="pin" style="left:38%;top:120px;transform:rotate(1.8deg)" data-k="b"><img src="../images/hero-compas.webp" alt=""><div class="cap2"><a href="../case-studies/compas.html">Exhibit B — the plan confessed ↗</a></div><div class="meta">Compas · in progress</div></div>
+ <div class="pin" style="left:71%;top:40px;transform:rotate(-1.2deg)" data-k="c"><img src="../images/hero-koe.webp" alt=""><div class="cap2"><a href="../case-studies/koe-2026.html">Exhibit C — five voices, one gate ↗</a></div><div class="meta">Koé rebuilt · prototype</div></div>
+ <div class="pin" style="left:8%;top:430px;transform:rotate(1.5deg)" data-k="d"><img src="../images/hero-fmb.webp" alt=""><div class="cap2"><a href="../case-studies/findmybike-2026.html">Exhibit D — the dot went to the police ↗</a></div><div class="meta">FindMyBike rebuilt</div></div>
+ <div class="pin" style="left:42%;top:520px;transform:rotate(-2deg)" data-k="e"><img src="../images/hero-tradein.webp" alt=""><div class="cap2"><a href="../case-studies/tmobile-trade-in.html">Exhibit E — four doors, one conveyor ↗</a></div><div class="meta">Trade-in · +~10%</div></div>
+ <div class="pin" style="left:74%;top:470px;transform:rotate(2.2deg)" data-k="f"><img src="../images/hero-wu.webp" alt=""><div class="cap2"><a href="../case-studies/western-union.html">Exhibit F — the one pin that works ↗</a></div><div class="meta">WU Locator · 200+ countries</div></div>
+ <div class="pin card-note" style="left:26%;top:870px;transform:rotate(-3deg)" data-k="g">motive: eleven years of systems making people feel stupid.<br>suspect: complexity.<br>verdict: <a href="../about.html" style="color:var(--acc)">designer did it ↗</a></div>
+ <div class="pin" style="left:58%;top:830px;transform:rotate(1deg)" data-k="h"><img src="../images/hero-portrait-tile.webp" alt=""><div class="cap2"><a href="../about.html">Person of interest ↗</a></div><div class="meta">Last seen: SF ↔ Medellín</div></div>
+</div>
+<div class="foot">Full case files: <a href="../index.html">the standing site →</a> · tips: <a href="mailto:hello@steveux.com">hello@steveux.com</a></div>
+<script>
+var bd=document.getElementById('bd'),svg=document.getElementById('str');
+var pins=[].slice.call(document.querySelectorAll('.pin'));
+var LINKS=[['a','b'],['b','c'],['a','d'],['b','e'],['c','f'],['e','g'],['f','h'],['g','h']];
+function center(p){return {x:p.offsetLeft+p.offsetWidth/2,y:p.offsetTop+p.offsetHeight/2}}
+function draw(){
+ if(innerWidth<800)return;
+ var by={};pins.forEach(function(p){by[p.getAttribute('data-k')]=p});
+ svg.innerHTML=LINKS.map(function(l){
+  var a=center(by[l[0]]),b=center(by[l[1]]);
+  var mx=(a.x+b.x)/2,my=Math.max(a.y,b.y)+40;
+  return '<path d="M'+a.x+' '+a.y+' Q '+mx+' '+my+' '+b.x+' '+b.y+'" fill="none" stroke="#C33B2A" stroke-width="1.5" opacity=".55"/>';
+ }).join('');
+}
+draw();addEventListener('resize',draw);
+var cur=null,ox,oy;
+pins.forEach(function(p){
+ p.addEventListener('pointerdown',function(e){
+  if(e.target.closest('a'))return;
+  cur=p;ox=e.clientX-p.offsetLeft;oy=e.clientY-p.offsetTop;
+  p.classList.add('drag');p.setPointerCapture(e.pointerId);
+ });
+});
+addEventListener('pointermove',function(e){if(!cur)return;
+ cur.style.left=(e.clientX-ox)+'px';cur.style.top=(e.clientY-oy)+'px';draw();});
+addEventListener('pointerup',function(){if(cur)cur.classList.remove('drag');cur=null});
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

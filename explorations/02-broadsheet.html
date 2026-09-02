@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 02/15 · Broadsheet — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFDF6;--ink:#141210;--dim:#6E6A5E;--rule:#141210;--acc:#8C1D18}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,serif;padding:0 5vw 90px}
+.masthead{text-align:center;padding:34px 0 18px;border-bottom:3px double var(--rule)}
+.masthead h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(40px,7vw,84px);margin:0;letter-spacing:-.01em}
+.folio{display:flex;justify-content:space-between;font:600 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);padding:10px 0;border-bottom:1px solid var(--rule)}
+.lead{display:grid;grid-template-columns:2fr 1fr;gap:0;border-bottom:1px solid var(--rule)}
+.lead .main{padding:30px 34px 30px 0;border-right:1px solid var(--rule)}
+.kicker{font:600 12px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.lead h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(30px,4.6vw,54px);line-height:1.08;margin:12px 0 14px}
+.lead h2 a{color:inherit;text-decoration:none}
+.lead h2 a:hover{color:var(--acc)}
+.deck{font-style:italic;font-size:19px;color:var(--dim);line-height:1.5}
+.lead img{width:100%;display:block;filter:none;border:0;margin-top:26px}
+.side{padding:30px 0 30px 30px;font-size:15px}
+.side .item{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid #C9C4B2}
+.side .item:last-child{border:0}
+.side b{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;display:block;line-height:1.25}
+.side a{color:inherit;text-decoration:none}
+.side a:hover b{color:var(--acc)}
+.side .cm{color:var(--dim);font-size:13.5px}
+.cols{columns:3;column-gap:34px;column-rule:1px solid #C9C4B2;padding:30px 0;border-bottom:1px solid var(--rule)}
+.story{break-inside:avoid;margin-bottom:26px}
+.story b{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;line-height:1.2;display:block;margin-bottom:6px}
+.story a{color:inherit;text-decoration:none}
+.story a:hover b{color:var(--acc)}
+.story p{margin:0;font-size:14.5px;color:#3B3830}
+.story p::first-letter{font-family:'Playfair Display',serif;font-size:44px;float:left;line-height:.85;padding:3px 7px 0 0;font-weight:900}
+.foot{font:600 11px/1.8 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;padding-top:26px}
+.foot a{color:var(--ink)}
+@media(max-width:800px){.lead{grid-template-columns:1fr}.lead .main{border:0;padding-right:0}.side{padding-left:0}.cols{columns:1}}
+</style>
+</head>
+<body>
+<div class="folio"><span>San Francisco &amp; Medellín</span><span>steveux.com — exploration 02/05</span><span>Monday, July 6, 2026</span></div>
+<div class="masthead"><h1>The Tangled Times</h1></div>
+<div class="folio"><span>All the complexity fit to untangle</span><span>Eleven years · one designer</span><span>Price: one conversation</span></div>
+
+<div class="lead">
+ <div class="main">
+  <span class="kicker">The Wedge · Front Page</span>
+  <h2><a href="../case-studies/api-marketplace.html">Marketplace opens its doors to customers who might not be human</a></h2>
+  <p class="deck">T-MOBILE — In a reversal of decades of bespoke integration, the carrier's API Marketplace was designed from the first sketch for two species of customer: enterprise developers, and the AI agents ordering on their behalf. Interfaces verify; humans confirm.</p>
+  <img src="../images/hero-api.webp" alt="Humans and robots approach the same open door.">
+ </div>
+ <div class="side">
+  <span class="kicker">Latest dispatches</span>
+  <div class="item" style="margin-top:14px"><a href="../case-studies/compas.html"><b>Compas: the plan that confesses its cost</b></a><span class="cm">AI-first planning on a map and a clock. Discovery underway; five conversations in.</span></div>
+  <div class="item"><a href="../case-studies/koe-2026.html"><b>Five voices enter, one theme leaves</b></a><span class="cm">Koé rebuilt for the AI era. Working prototype inside.</span></div>
+  <div class="item"><a href="../case-studies/findmybike-2026.html"><b>Stolen bike? The agent files the paperwork</b></a><span class="cm">FindMyBike 2026 routes the live dot to police — never to the owner's fist.</span></div>
+  <div class="item"><a href="../about.html"><b>Portrait of the designer as a systems untangler</b></a><span class="cm">Who he is, how he works with AI, three rules he designs by.</span></div>
+ </div>
+</div>
+
+<div class="cols">
+ <div class="story"><a href="../case-studies/tmobile-trade-in.html"><b>Four systems, one trade-in flow; completion up a tenth</b></a><p>Bulk uploads met legacy formats where they lived — in spreadsheets. A modal argument was lost well, then won in the numbers. Business clients saw roughly ten percent more orders finish.</p></div>
+ <div class="story"><a href="../case-studies/western-union.html"><b>The pin map that tells the truth early</b></a><p>Across 200 countries and 40 languages, the locator stopped answering "where" and started answering "will it work when I get there" — payout limits, services, and hours on the card itself.</p></div>
+ <div class="story"><a href="../case-studies/rare-disease.html"><b>Under full NDA, content that still reads like care</b></a><p>Sixteen weeks of pharma discipline: every pattern defensible in writing, every claim reviewed, and a two-year extension earned on the result.</p></div>
+ <div class="story"><a href="../rebuild-log.html"><b>This newspaper was assembled by an AI pair</b></a><p>Twenty-plus build passes, a written taste file that wins every argument, and a public log of decisions — including the failures. The deliverable is the proof.</p></div>
+ <div class="story"><a href="https://www.tailandtrot.com"><b>Quiet luxury arrives for dogs</b></a><p>Tail &amp; Trot, an LLC in customer validation: craftsmanship, provenance, and no discounts, ever. Correspondents report the collars are numbered.</p></div>
+ <div class="story"><a href="mailto:hello@steveux.com"><b>Letters to the editor</b></a><p>The editor answers his own mail: hello@steveux.com — or the professional wire at linkedin.com/in/stevenlongtran.</p></div>
+</div>
+
+<div class="foot">The Tangled Times is set in Playfair Display &amp; Georgia · no modals were harmed · <a href="../index.html">return to the standing edition →</a></div>
+<script src="skins.js"></script>
+</body>
+</html>

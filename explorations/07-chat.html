@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 07/15 · The Interview — Steven Long Tran</title>
+<style>
+:root{--bg:#F2F2F7;--ink:#1C1C1E;--dim:#8E8E93;--acc:#0A84FF;--card:#FFFFFF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,Inter,sans-serif}
+.chat{max-width:640px;margin:0 auto;padding:40px 20px 160px}
+.hd{text-align:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:30px}
+.msg{max-width:82%;padding:13px 17px;border-radius:18px;margin:10px 0;opacity:0;transform:translateY(10px);animation:in .4s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.q{background:var(--acc);color:#fff;margin-left:auto;border-bottom-right-radius:5px}
+.a{background:#E9E9EB;border:0;border-bottom-left-radius:5px}
+.a img{width:100%;border-radius:10px;margin-top:10px}
+.a a{color:var(--acc);font-weight:600;text-decoration:none}
+.typing{display:inline-flex;gap:4px;padding:14px 16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--dim);animation:tp 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{30%{transform:translateY(-4px)}}
+#chips{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(transparent,var(--bg) 30%);padding:30px 20px 24px}
+.chiprow{max-width:640px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip{border:1px solid var(--acc);color:var(--acc);background:var(--card);border-radius:99px;padding:10px 18px;font:inherit;font-size:14.5px;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<div class="chat" id="log">
+ <div class="hd">Exploration 07/15 · you're interviewing Steven · replies are pre-written, honestly</div>
+</div>
+<div id="chips"><div class="chiprow" id="chiprow"></div></div>
+<script>
+var log=document.getElementById('log'),row=document.getElementById('chiprow');
+var QA={
+"Who are you?":"Senior product designer, 11 years — telecom commerce, payments, API platforms, and the design systems that hold them together. I make complex software feel intuitive. Split between San Francisco and Medellín. <a href='../about.html'>Longer version →</a>",
+"Show me your best work":"The API Marketplace — designed for customers who might not be human. AI agents order, interfaces verify, humans confirm.<img src='../images/hero-api.webp'><a href='../case-studies/api-marketplace.html'>Read the case →</a>",
+"What's the AI angle?":"Three working prototypes on the site, a personal AI OS running daily, and this whole portfolio was built with an AI pair against a written taste file — decisions logged in public. <a href='../rebuild-log.html'>The receipts →</a>",
+"Ever lost an argument?":"Yes, and I keep it on the site: a modal argument at T-Mobile was settled as a pattern preference when it was a scalability decision in a UI costume. Losing well reads more senior than winning vaguely. <a href='../case-studies/tmobile-trade-in.html'>That story →</a>",
+"What would you change at my company?":"Can't know yet — but the method is consistent: find where the system makes people feel stupid, make it confess its rules early, and measure what changes. First call is free: <a href='mailto:hello@steveux.com'>hello@steveux.com</a>",
+"Numbers?":"~10% order-completion lift per business client on trade-in. 200+ countries on the WU locator. 118+ shipped projects at T-Mobile. Flagged where I can't verify — invented metrics are a firing offense on my own site.",
+"Something personal":"A golden retriever features heavily in my brand research. Spanish is infrastructure, not a hobby — there's a wedding to plan. And I draw better with a robot arm than I ever did alone.<img src='../images/hero-portrait-tile.webp'>",
+"How do I reach you?":"hello@steveux.com · <a href='https://www.linkedin.com/in/stevenlongtran/'>LinkedIn</a> · or the full site with the depth controls: <a href='../index.html'>steveux.com →</a>"};
+function chips(){row.innerHTML='';Object.keys(QA).forEach(function(q){
+ var b=document.createElement('button');b.className='chip';b.textContent=q;
+ b.onclick=function(){ask(q)};row.appendChild(b)})}
+function ask(q){
+ var m=document.createElement('div');m.className='msg q';m.textContent=q;log.appendChild(m);
+ var t=document.createElement('div');t.className='msg a typing';t.innerHTML='<i></i><i></i><i></i>';log.appendChild(t);
+ scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+ setTimeout(function(){t.classList.remove('typing');t.innerHTML=QA[q];
+  scrollTo({top:document.body.scrollHeight,behavior:'smooth'});},700+Math.random()*500);
+ delete QA[q];chips();
+ if(!Object.keys(QA).length)row.innerHTML='<span style="color:var(--dim);font-size:14px">You asked everything. hello@steveux.com for the rest.</span>';
+}
+chips();
+setTimeout(function(){ask("Who are you?")},600);
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

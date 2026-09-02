@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 15/15 · End Credits — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070604;--ink:#EFE6C8;--dim:#93876A;--acc:#D4AF37}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 Inter,sans-serif}
+#roll{position:absolute;left:0;right:0;text-align:center;will-change:transform}
+.gap{height:16vh}
+.k{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.name{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);margin:6px 0 0;line-height:1.2}
+.name em{color:var(--acc)}
+.pair{display:grid;grid-template-columns:1fr 24px 1fr;max-width:760px;margin:12px auto;gap:10px;font-size:clamp(15px,1.8vw,19px)}
+.pair .l{text-align:right;color:var(--dim)}
+.pair .r{text-align:left}
+.pair .r a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--dim)}
+.pair .r a:hover{color:var(--acc);border-color:var(--acc)}
+img.poster{width:min(420px,70vw);border:1px solid #4A4230;filter:sepia(.5) contrast(1.05);border-radius:10px;margin:10px auto;display:block}
+#hint{position:fixed;bottom:20px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);z-index:5}
+#logo{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,80px)}
+.end a{color:var(--acc);text-decoration:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,32px)}
+</style>
+</head>
+<body>
+<div id="roll">
+ <div class="gap"></div><div class="gap"></div>
+ <div id="logo">steveux<span style="color:var(--acc)">.</span></div>
+ <p class="k">presents · eleven years · in order of appearance</p>
+ <div class="gap"></div>
+ <p class="k">A film about</p><p class="name">Making complex software feel <em>intuitive</em></p>
+ <div class="gap"></div>
+ <p class="k">Starring</p>
+ <div class="pair"><span class="l">The dual-species marketplace</span><span>·</span><span class="r"><a href="../case-studies/api-marketplace.html">API Marketplace, 2025–26</a></span></div>
+ <div class="pair"><span class="l">The plan that confesses</span><span>·</span><span class="r"><a href="../case-studies/compas.html">Compas, in progress</a></span></div>
+ <div class="pair"><span class="l">The anonymity gate</span><span>·</span><span class="r"><a href="../case-studies/koe-2026.html">Koé, rebuilt</a></span></div>
+ <div class="pair"><span class="l">The agent with the paperwork</span><span>·</span><span class="r"><a href="../case-studies/findmybike-2026.html">FindMyBike, rebuilt</a></span></div>
+ <div class="pair"><span class="l">Four doors, one conveyor</span><span>·</span><span class="r"><a href="../case-studies/tmobile-trade-in.html">Trade-in, 2021–24</a></span></div>
+ <div class="pair"><span class="l">The pin that tells the truth</span><span>·</span><span class="r"><a href="../case-studies/western-union.html">WU Locator</a></span></div>
+ <div class="pair"><span class="l">The botanical under glass</span><span>·</span><span class="r"><a href="../case-studies/rare-disease.html">Rare disease, NDA</a></span></div>
+ <div class="gap"></div>
+ <img class="poster" loading="lazy" src="../images/hero-portrait-scene.webp" alt="">
+ <p class="k">Written, designed &amp; argued by</p><p class="name">Steven Long Tran</p>
+ <div class="gap"></div>
+ <p class="k">Production credits</p>
+ <div class="pair"><span class="l">AI pair</span><span>·</span><span class="r">Claude (taste-file supervised)</span></div>
+ <div class="pair"><span class="l">Cinematography</span><span>·</span><span class="r">21 illustrations, one blue</span></div>
+ <div class="pair"><span class="l">Continuity</span><span>·</span><span class="r"><a href="../rebuild-log.html">The build log</a></span></div>
+ <div class="pair"><span class="l">Locations</span><span>·</span><span class="r">San Francisco · Medellín</span></div>
+ <div class="pair"><span class="l">Best boy</span><span>·</span><span class="r">A golden retriever</span></div>
+ <div class="pair"><span class="l">Stunts</span><span>·</span><span class="r">Performed by working prototypes. No modals were harmed.</span></div>
+ <div class="gap"></div>
+ <p class="k">The sequel is greenlit</p>
+ <p class="end"><a href="mailto:hello@steveux.com">hello@steveux.com</a></p>
+ <div class="gap"></div>
+ <p class="end"><a href="../index.html">← watch the full feature</a></p>
+ <div class="gap"></div><div class="gap"></div>
+</div>
+<div id="hint">Exploration 15/15 · scroll or hover to direct the speed · space pauses</div>
+<script>
+var roll=document.getElementById('roll'),y=innerHeight,speed=.55,paused=false,boost=0;
+function tick(){
+ if(!paused)y-=speed+boost;
+ var h=roll.offsetHeight;
+ if(y< -h)y=innerHeight;
+ roll.style.transform='translateY('+y+'px)';
+ requestAnimationFrame(tick);
+}
+tick();
+addEventListener('keydown',function(e){if(e.key===' '){e.preventDefault();paused=!paused}});
+addEventListener('wheel',function(e){y-=e.deltaY*.6},{passive:true});
+addEventListener('mousemove',function(e){boost=(e.clientY/innerHeight-.5)*1.4});
+document.addEventListener('mouseleave',function(){boost=0});
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

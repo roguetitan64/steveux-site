@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 13/15 · StevenOS — Steven Long Tran</title>
+<style>
+:root{--desk:#9E9FA3;--win:#FFFFFF;--ink:#000;--dim:#555;--acc:#2456E6;--bar:#F2F2F2}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden}
+body{background:var(--desk);background-image:repeating-linear-gradient(45deg,#9A9B9F 0 6px,#A4A5A9 6px 12px);font:14px/1.5 'Helvetica Neue',Arial,sans-serif;color:var(--ink)}
+#menubar{position:fixed;top:0;left:0;right:0;height:30px;background:var(--bar);border-bottom:1px solid #C9C4B2;display:flex;align-items:center;gap:20px;padding:0 14px;font-size:13px;z-index:99}
+#menubar b{font-weight:700}
+#menubar .r{margin-left:auto;color:var(--dim)}
+.icon{position:absolute;width:88px;text-align:center;color:#000;cursor:pointer;user-select:none}
+.icon .gl{font-size:34px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.4))}
+.icon span{display:block;font-size:12px;margin-top:4px;background:#fff;color:#000;border:1px solid #000;border-radius:2px;padding:2px 4px}
+.icon:hover span{background:var(--acc)}
+.win{position:absolute;background:var(--win);border:2px solid #000;border-radius:2px;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);min-width:300px;max-width:min(560px,92vw);display:none;overflow:hidden}
+.win.on{display:block}
+.tb{background:repeating-linear-gradient(#F8F8F8 0 2px,#DFDFDF 2px 4px);border-bottom:2px solid #000;padding:8px 12px;display:flex;align-items:center;gap:8px;cursor:grab;user-select:none}
+.tb:active{cursor:grabbing}
+.tb .dot{width:12px;height:12px;border-radius:0;background:#fff;border:2px solid #000;cursor:pointer}
+.tb .ttl{font-size:13px;font-weight:600;margin:0 auto}
+.body{padding:16px 18px;max-height:56vh;overflow:auto}
+.body img{width:100%;border-radius:8px;border:1px solid #D8D4C8}
+.body h2{font-size:17px;margin:10px 0 6px}
+.body p{margin:0 0 8px;color:#3B3830;font-size:13.5px}
+.body a.open{color:var(--acc);font-weight:600;text-decoration:none}
+#dock{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:#F2F2F2;border:2px solid #000;border-radius:4px;padding:8px 12px;display:flex;gap:14px;z-index:99}
+#dock .di{font-size:26px;cursor:pointer;transition:transform .2s}
+#dock .di:hover{transform:translateY(-8px) scale(1.25)}
+</style>
+</head>
+<body>
+<div id="menubar"><b> StevenOS</b><span>File</span><span>Work</span><span>About</span><span class="r" id="clk"></span></div>
+
+<div class="icon" style="left:24px;top:60px" data-w="w1"><div class="gl">📁</div><span>Case Studies</span></div>
+<div class="icon" style="left:24px;top:180px" data-w="w2"><div class="gl">🤖</div><span>AI-native.app</span></div>
+<div class="icon" style="left:24px;top:300px" data-w="w3"><div class="gl">👤</div><span>About Steven</span></div>
+<div class="icon" style="left:24px;top:420px" data-w="w4"><div class="gl">🗑️</div><span>Trash (empty-ish)</span></div>
+
+<div class="win" id="w1" style="left:16vw;top:12vh">
+ <div class="tb"><span class="dot"></span><span class="ttl">Case Studies — 7 items</span></div>
+ <div class="body">
+  <p>📄 <a class="open" href="../case-studies/api-marketplace.html">api-marketplace.html</a> — customers who might not be human</p>
+  <p>📄 <a class="open" href="../case-studies/compas.html">compas.html</a> — planning that shows its consequences</p>
+  <p>📄 <a class="open" href="../case-studies/koe-2026.html">koe-2026.html</a> — five voices in, one theme out ▶ prototype</p>
+  <p>📄 <a class="open" href="../case-studies/findmybike-2026.html">findmybike-2026.html</a> — agentic recovery ▶ prototype</p>
+  <p>📄 <a class="open" href="../case-studies/tmobile-trade-in.html">tmobile-trade-in.html</a> — four systems, one flow</p>
+  <p>📄 <a class="open" href="../case-studies/western-union.html">western-union.html</a> — answers before the tap</p>
+  <p>📄 <a class="open" href="../case-studies/rare-disease.html">rare-disease.html</a> — regulated, still human</p>
+ </div>
+</div>
+<div class="win" id="w2" style="left:34vw;top:20vh">
+ <div class="tb"><span class="dot"></span><span class="ttl">AI-native.app</span></div>
+ <div class="body"><img src="../images/hero-api.webp" alt=""><h2>Agents order. Interfaces verify. Humans confirm.</h2><p>The pattern under the recent work — marketplace, Compas, the Rebuilt prototypes, and this very site (built with an AI pair, logged in public).</p><a class="open" href="../rebuild-log.html">Open build log →</a></div>
+</div>
+<div class="win" id="w3" style="left:26vw;top:30vh">
+ <div class="tb"><span class="dot"></span><span class="ttl">About Steven</span></div>
+ <div class="body"><img src="../images/hero-portrait-tile.webp" alt=""><h2>I like the hard parts of product design.</h2><p>11 years · SF ↔ Medellín · 3 languages. StevenOS 1.0 — no updates required, learns continuously.</p><a class="open" href="../about.html">Full profile →</a> · <a class="open" href="mailto:hello@steveux.com">Send mail →</a></div>
+</div>
+<div class="win" id="w4" style="left:44vw;top:38vh">
+ <div class="tb"><span class="dot"></span><span class="ttl">Trash</span></div>
+ <div class="body"><p>🗑️ 4 forked trade-in flows (2024)</p><p>🗑️ every modal, on principle</p><p>🗑️ "passionate team player" — deleted from all documents</p><p>🗑️ gradients (do not restore)</p><p style="color:var(--dim)">Items in the Trash are gone for taste reasons and cannot be recovered.</p></div>
+</div>
+
+<div id="dock">
+ <span class="di" data-w="w1" title="Case Studies">📁</span>
+ <span class="di" data-w="w2" title="AI-native">🤖</span>
+ <span class="di" data-w="w3" title="About">👤</span>
+ <span class="di" title="Standing site" onclick="location='../index.html'">🌐</span>
+ <span class="di" title="Mail" onclick="location='mailto:hello@steveux.com'">✉️</span>
+</div>
+<script>
+function clk(){document.getElementById('clk').textContent=new Date().toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit'})}
+clk();setInterval(clk,30000);
+var z=10;
+function openW(id){var w=document.getElementById(id);w.classList.add('on');w.style.zIndex=++z}
+document.querySelectorAll('[data-w]').forEach(function(el){el.addEventListener('click',function(){openW(el.getAttribute('data-w'))})});
+document.querySelectorAll('.win').forEach(function(w){
+ w.addEventListener('pointerdown',function(){w.style.zIndex=++z});
+ var tb=w.querySelector('.tb'),dx,dy,drag=false;
+ tb.addEventListener('pointerdown',function(e){if(e.target.classList.contains('dot'))return;drag=true;dx=e.clientX-w.offsetLeft;dy=e.clientY-w.offsetTop;tb.setPointerCapture(e.pointerId)});
+ addEventListener('pointermove',function(e){if(!drag)return;w.style.left=Math.max(0,e.clientX-dx)+'px';w.style.top=Math.max(30,e.clientY-dy)+'px'});
+ addEventListener('pointerup',function(){drag=false});
+ w.querySelector('.dot').addEventListener('click',function(){w.classList.remove('on')});
+});
+openW('w3');
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

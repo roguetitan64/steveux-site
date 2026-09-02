@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 08/15 · The Annotated One-Pager — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#D9C08F;--paper:#FFFEF8;--ink:#1C1B18;--dim:#6B675E;--red:#B42318;--acc:#1D5BD8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 'Iowan Old Style',Georgia,serif;padding:60px 16px 120px}
+.sheet{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:0}
+.doc{background:var(--paper);box-shadow:0 24px 60px -24px rgba(20,20,18,.35);padding:64px 58px;position:relative}
+.doc h1{font:600 26px/1.2 Inter,sans-serif;letter-spacing:-.01em;margin:0}
+.doc .sub{color:var(--dim);font-size:14px;margin:6px 0 26px}
+.doc h2{font:600 13px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:6px;margin:28px 0 12px}
+.doc li{margin-bottom:8px}
+.hl{position:relative;background:linear-gradient(transparent 55%,rgba(52,37,255,.16) 55%);cursor:pointer}
+.hl:hover{background:rgba(52,37,255,.14)}
+.margin{padding:64px 0 0 26px;position:relative}
+.note{font-family:Caveat,cursive;font-size:21px;line-height:1.25;color:var(--red);margin-bottom:34px;position:relative;transform:rotate(-1.2deg);opacity:.25;transition:opacity .3s,transform .3s}
+.note.on,.note:hover{opacity:1;transform:rotate(-1.2deg) scale(1.03)}
+.note a{color:var(--acc)}
+.note::before{content:"⟵";position:absolute;left:-24px;top:2px;font-family:Georgia;font-size:15px}
+.stamp{position:absolute;top:38px;right:40px;border:2px solid var(--red);color:var(--red);font:600 11px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;padding:8px 12px;transform:rotate(6deg);opacity:.85}
+.foot{max-width:1060px;margin:26px auto 0;font:600 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.foot a{color:var(--ink)}
+@media(max-width:800px){.sheet{grid-template-columns:1fr}.margin{padding-left:0}.note::before{content:"↑"}}
+</style>
+</head>
+<body>
+<div class="sheet">
+ <div class="doc">
+  <span class="stamp">Reviewed · do not circulate quietly</span>
+  <h1>Steven Long Tran — Senior Product Designer</h1>
+  <div class="sub">San Francisco ↔ Medellín · hello@steveux.com · 11 years</div>
+  <h2>Summary</h2>
+  <p>I make <span class="hl" data-n="0">complex software</span> feel intuitive. Telecom commerce, payments, trade-in logistics, API marketplaces, and the design systems that hold them together.</p>
+  <h2>Selected work</h2>
+  <ul>
+   <li><b>T-Mobile — API Marketplace</b> (2025–26): ordering designed for <span class="hl" data-n="1">human and AI customers</span>; real-time UI as the verification layer.</li>
+   <li><b>T-Mobile — Trade-in</b> (2021–24): one flow for four systems; <span class="hl" data-n="2">~10% completion lift</span> per business client.</li>
+   <li><b>Western Union — Locator</b>: eligibility on the result card, <span class="hl" data-n="3">200+ countries, 40+ languages</span>.</li>
+   <li><b>Pharma — rare disease</b>: 16 weeks under full NDA; a <span class="hl" data-n="4">two-year extension</span> earned.</li>
+   <li><b>The Rebuilt series</b> (2026): Koé and FindMyBike — 2015 projects redesigned for the AI era, with <span class="hl" data-n="5">working prototypes</span>.</li>
+  </ul>
+  <h2>AI-native practice</h2>
+  <p>Personal AI OS running daily · this résumé's website was <span class="hl" data-n="6">built with an AI pair</span> against a written taste file, decisions logged in public.</p>
+ </div>
+ <div class="margin" id="mg">
+  <div class="note">"complex" is load-bearing — he means eligibility logic, legal review, legacy formats, org politics. <a href="../index.html">see the site</a></div>
+  <div class="note">not a metaphor. agents place orders; humans confirm. <a href="../case-studies/api-marketplace.html">receipt</a></div>
+  <div class="note">the number survives because a losing modal argument was kept in the case study. <a href="../case-studies/tmobile-trade-in.html">story</a></div>
+  <div class="note">the map stopped answering "where" and started answering "will it work." <a href="../case-studies/western-union.html">how</a></div>
+  <div class="note">the quiet flex: regulated work that got renewed. <a href="../case-studies/rare-disease.html">case</a></div>
+  <div class="note">try them — they run on the page. <a href="../case-studies/koe-2026.html">Koé</a> · <a href="../case-studies/findmybike-2026.html">FMB</a></div>
+  <div class="note">20+ passes, failures kept in. the site is the deliverable AND the demo. <a href="../rebuild-log.html">log</a></div>
+ </div>
+</div>
+<div class="foot">Exploration 08/15 · the document IS the interface — hover the highlights · <a href="../resume.pdf">clean PDF</a> · <a href="../index.html">standing site →</a></div>
+<script>
+var notes=[].slice.call(document.querySelectorAll('.note'));
+document.querySelectorAll('.hl').forEach(function(h){
+ function on(){notes.forEach(function(n,i){n.classList.toggle('on',i==h.getAttribute('data-n'))})}
+ h.addEventListener('mouseenter',on);h.addEventListener('click',on);
+});
+</script>
+<script src="skins.js"></script>
+</body>
+</html>

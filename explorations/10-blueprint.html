@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 10/15 · Blueprint — Steven Long Tran</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bp:#1E1F22;--line:#D9D9D4;--bright:#FFFFFF;--dim:#8F8F88}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bp);color:var(--line);font:13.5px/1.6 'IBM Plex Mono',monospace;padding:40px 4vw 100px;background-image:linear-gradient(rgba(217,217,212,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(217,217,212,.06) 1px,transparent 1px);background-size:24px 24px}
+.frame{border:2px solid var(--line);max-width:1200px;margin:0 auto;position:relative}
+.title-block{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:2px solid var(--line)}
+.title-block>div{padding:14px 18px;border-right:1px solid var(--line)}
+.title-block>div:last-child{border:0}
+.lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:4px}
+.big{font-size:17px;font-weight:600;color:var(--bright)}
+.dwg{padding:40px 4%;display:grid;grid-template-columns:repeat(2,1fr);gap:40px 5%}
+.part{position:relative;border:1px dashed rgba(217,217,212,.45);padding:26px 22px 22px}
+.part::before{content:attr(data-no);position:absolute;top:-11px;left:14px;background:var(--bp);padding:0 8px;color:#FF7A1A;font-weight:600}
+.part img{width:100%;filter:invert(.92) hue-rotate(180deg) saturate(.4) contrast(1.05);opacity:.9;border:1px solid rgba(217,217,212,.4)}
+.part h2{font-size:15px;color:var(--bright);margin:14px 0 6px;font-weight:600}
+.part p{margin:0;color:var(--dim);font-size:12.5px}
+.dim-line{display:flex;align-items:center;gap:6px;margin-top:12px;color:var(--dim);font-size:11px}
+.dim-line::before,.dim-line::after{content:"";flex:1;height:1px;background:var(--dim)}
+.part a{position:absolute;inset:0}
+.part:hover{border-color:#FF7A1A;border-style:solid}
+.part:hover h2{text-decoration:underline}
+.rev{padding:16px 18px;border-top:2px solid var(--line);display:flex;gap:30px;flex-wrap:wrap;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.rev b{color:var(--bright)}
+.rev a{color:var(--bright)}
+@media(max-width:760px){.dwg{grid-template-columns:1fr}.title-block{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="frame">
+ <div class="title-block">
+  <div><span class="lbl">Drawing title</span><span class="big">TRAN, S.L. — ASSEMBLY OF WORK, 2015–2026</span><span class="lbl" style="margin-top:6px">Scale: senior · Tolerance: honest ±0</span></div>
+  <div><span class="lbl">Drawn by</span><span class="big">S. TRAN + AI PAIR</span><span class="lbl" style="margin-top:6px">Checked by: the taste file</span></div>
+  <div><span class="lbl">Sheet</span><span class="big">EXPL-10 OF 15</span><span class="lbl" style="margin-top:6px">Rev: 2026-07-06</span></div>
+ </div>
+ <div class="dwg">
+  <div class="part" data-no="DET.01"><img loading="lazy" src="../images/hero-api.webp" alt=""><h2>API MARKETPLACE — DUAL-CUSTOMER INTAKE</h2><p>Section view: agents order, UI verifies, human confirms. Load-bearing joint of the whole practice.</p><div class="dim-line">2025–26 · T-MOBILE · AI-NATIVE</div><a href="../case-studies/api-marketplace.html" aria-label="API"></a></div>
+  <div class="part" data-no="DET.02"><img loading="lazy" src="../images/hero-compas.webp" alt=""><h2>COMPAS — CONSEQUENCE LINKAGE</h2><p>Two surfaces, one plan: map ⇄ clock coupling with visible cost transfer. In fabrication.</p><div class="dim-line">2026 · OWN VENTURE · DISCOVERY N=5</div><a href="../case-studies/compas.html" aria-label="Compas"></a></div>
+  <div class="part" data-no="DET.03"><img loading="lazy" src="../images/hero-koe.webp" alt=""><h2>KOÉ — ANONYMITY GATE, K≥5</h2><p>Five input channels merge past threshold valve; no raw voice crosses the line. Working model attached.</p><div class="dim-line">REBUILT 2015→2026 · PROTOTYPE</div><a href="../case-studies/koe-2026.html" aria-label="Koe"></a></div>
+  <div class="part" data-no="DET.04"><img loading="lazy" src="../images/hero-fmb.webp" alt=""><h2>FINDMYBIKE — EVIDENCE ROUTING</h2><p>Signal path: bike → verification → police channel. Owner circuit carries status only, by design.</p><div class="dim-line">REBUILT 2015→2026 · PROTOTYPE</div><a href="../case-studies/findmybike-2026.html" aria-label="FMB"></a></div>
+  <div class="part" data-no="DET.05"><img loading="lazy" src="../images/hero-tradein.webp" alt=""><h2>TRADE-IN MANIFOLD — 4:1 REDUCTION</h2><p>Four inlet geometries converge to a single flow; throughput +~10% per business client.</p><div class="dim-line">2021–24 · T-MOBILE · ENTERPRISE</div><a href="../case-studies/tmobile-trade-in.html" aria-label="Trade-in"></a></div>
+  <div class="part" data-no="DET.06"><img loading="lazy" src="../images/hero-wu.webp" alt=""><h2>LOCATOR — ELIGIBILITY BEFORE ARRIVAL</h2><p>Result card carries limits, services, hours. Truth moved upstream of the journey.</p><div class="dim-line">200+ COUNTRIES · 40+ LANGUAGES</div><a href="../case-studies/western-union.html" aria-label="WU"></a></div>
+ </div>
+ <div class="rev"><span><b>GENERAL NOTES:</b> all joints inspected; failures documented in <a href="../rebuild-log.html">build log</a></span><span><b>MATERIALS:</b> evidence, constraints, one accent color</span><span><b>RFI:</b> <a href="mailto:hello@steveux.com">hello@steveux.com</a></span><span><a href="../index.html">← STANDING STRUCTURE</a></span></div>
+</div>
+<script src="skins.js"></script>
+</body>
+</html>

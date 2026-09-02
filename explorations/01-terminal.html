@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploration 01/15 · Terminal — Steven Long Tran</title>
+<style>
+:root{--bg:#050A06;--ink:#B8F5C0;--dim:#4E7A57;--acc:#FFB000;--ok:#33FF66}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);text-shadow:0 0 6px rgba(51,255,102,.25);font:15px/1.7 ui-monospace,'SF Mono',Menlo,monospace;padding:48px 24px 96px}
+.term{max-width:880px;margin:0 auto}
+.ln{white-space:pre-wrap;word-break:break-word}
+.p{color:var(--ok)} .c{color:var(--dim)} .a{color:var(--acc)}
+a{color:var(--acc);text-decoration:none;border-bottom:1px dotted var(--acc)}
+a:hover{background:var(--acc);color:var(--bg)}
+.row{display:grid;grid-template-columns:34px 1fr 120px;gap:16px;padding:7px 8px;border-bottom:1px solid #123018;cursor:pointer}
+.row:hover{background:#0B1A0E}
+.row .meta{color:var(--dim);text-align:right;font-size:13px}
+.row .tag{color:var(--dim);font-size:13px}
+.hero{font-size:clamp(20px,3.4vw,32px);line-height:1.35;margin:28px 0;color:var(--ink)}
+.hero em{color:var(--acc);font-style:normal}
+.caret{display:inline-block;width:9px;height:18px;background:var(--acc);animation:bl 1s steps(1) infinite;vertical-align:-3px}
+@keyframes bl{50%{opacity:0}}
+input{background:none;border:0;outline:0;color:var(--ink);font:inherit;width:60%}
+.help{color:var(--dim);font-size:13px;margin-top:6px}
+.sec{margin-top:40px}
+img.peek{position:fixed;pointer-events:none;width:300px;border:1px solid #333;border-radius:6px;opacity:0;transition:opacity .2s;z-index:9}
+</style>
+</head>
+<body>
+<div class="term">
+<div class="ln c">Last login: Mon Jul 6 2026 · steveux.com — exploration 01/05 · "the dossier is a filesystem"</div>
+<div class="ln"><span class="p">steven@ux</span>:~$ whoami</div>
+<div class="hero">I make complex software feel <em>intuitive</em>. 11 years. Telecom commerce, payments, API platforms, and the design systems that hold them together.</div>
+
+<div class="ln"><span class="p">steven@ux</span>:~$ ls work/ --sort=priority</div>
+<div class="sec" id="list">
+ <div class="row" data-img="../images/hero-api.webp" onclick="location='../case-studies/api-marketplace.html'"><span class="c">01</span><span>An API marketplace for customers who might not be human <span class="tag">— T-Mobile · 2025-26 · AI-native</span></span><span class="meta">drwx 5min</span></div>
+ <div class="row" data-img="../images/hero-compas.webp" onclick="location='../case-studies/compas.html'"><span class="c">05</span><span>Compas: planning that shows its consequences <span class="tag">— AI-first · in progress</span></span><span class="meta">drwx wip</span></div>
+ <div class="row" data-img="../images/hero-koe.webp" onclick="location='../case-studies/koe-2026.html'"><span class="c">06</span><span>Five voices in, one protected theme out <span class="tag">— Koé rebuilt 2015→2026 · prototype</span></span><span class="meta">-rwx demo</span></div>
+ <div class="row" data-img="../images/hero-fmb.webp" onclick="location='../case-studies/findmybike-2026.html'"><span class="c">07</span><span>Theft recovery as an agentic workflow <span class="tag">— FindMyBike rebuilt · prototype</span></span><span class="meta">-rwx demo</span></div>
+ <div class="row" data-img="../images/hero-tradein.webp" onclick="location='../case-studies/tmobile-trade-in.html'"><span class="c">02</span><span>One trade-in flow for four systems <span class="tag">— T-Mobile · ~10% completion lift</span></span><span class="meta">drwx 5min</span></div>
+ <div class="row" data-img="../images/hero-wu.webp" onclick="location='../case-studies/western-union.html'"><span class="c">03</span><span>The locator that answers before the tap <span class="tag">— Western Union · 200+ countries</span></span><span class="meta">drwx 3min</span></div>
+ <div class="row" data-img="../images/hero-rd.webp" onclick="location='../case-studies/rare-disease.html'"><span class="c">04</span><span>Rare-disease content under full NDA, still human <span class="tag">— pharma · 16 weeks</span></span><span class="meta">drwx 3min</span></div>
+</div>
+
+<div class="sec ln"><span class="p">steven@ux</span>:~$ cat about.txt</div>
+<div class="ln c">I like the hard parts of product design. The parts teams dread: the problem under the stated one, stakeholders who own different pieces of a broken whole, solutions practical enough to ship. → <a href="../about.html">about.html</a> · <a href="../rebuild-log.html">rebuild-log.html</a> · <a href="../resume.pdf">resume.pdf</a></div>
+
+<div class="sec ln"><span class="p">steven@ux</span>:~$ clients --list</div>
+<div class="ln c">T-Mobile · Western Union · Genentech · Roche · GSK · Bristol Myers Squibb · Alexion · Spodio · Koé</div>
+
+<div class="sec ln"><span class="p">steven@ux</span>:~$ <input id="cmd" placeholder="type: work, about, koe, contact… (or click any row)" autocomplete="off"><span class="caret"></span></div>
+<div class="help">this prompt is real — try a command. unknown commands get honest errors. press ` to exit.</div>
+<div class="ln c" id="out"></div>
+</div>
+<img class="peek" id="pk" alt="">
+<script>
+var CMD={work:function(){location.hash='';window.scrollTo({top:document.getElementById('list').offsetTop-80,behavior:'smooth'});return 'listing work/'},
+about:function(){location='../about.html'},koe:function(){location='../case-studies/koe-2026.html'},
+contact:function(){location='mailto:hello@steveux.com';return 'opening mail…'},
+resume:function(){location='../resume.pdf'},
+main:function(){location='../index.html';return 'returning to the real site…'}};
+document.getElementById('cmd').addEventListener('keydown',function(e){
+ if(e.key!=='Enter')return;
+ var v=this.value.trim().toLowerCase();this.value='';
+ var out=document.getElementById('out');
+ if(CMD[v]){var r=CMD[v]();if(r)out.textContent=r}
+ else out.textContent='zsh: command not found: '+v+' — try: '+Object.keys(CMD).join(', ');
+});
+var pk=document.getElementById('pk');
+document.querySelectorAll('.row').forEach(function(r){
+ r.addEventListener('mousemove',function(e){pk.src=r.getAttribute('data-img');pk.style.opacity=1;pk.style.left=(e.clientX+24)+'px';pk.style.top=Math.min(e.clientY-60,innerHeight-220)+'px'});
+ r.addEventListener('mouseleave',function(){pk.style.opacity=0});
+});
+</script>
+<script src="skins.js"></script>
+<script>/* backtick exits the way it entered */
+addEventListener('keydown',function(e){
+ if(e.key!=='`'&&e.key!=='~')return;
+ e.preventDefault();
+ try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){history.back();return}}catch(x){}
+ location='../index.html';
+});</script>
+</body>
+</html>
