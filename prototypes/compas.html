@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compas — product-site prototype</title>
+<style>
+:root{--bg:#F7F1E3;--card:#FDF9EF;--ink:#41321F;--dim:#8A7A5E;--acc:#C65A2E;--hair:#E4D9C2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,'Helvetica Neue',Inter,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+.ribbon{background:var(--ink);color:var(--bg);font-size:12.5px;letter-spacing:.04em;text-align:center;padding:9px 16px}
+.ribbon a{text-decoration:underline;text-underline-offset:3px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:1020px;margin:0 auto}
+.logo{font-weight:700;letter-spacing:.02em;font-size:17px;display:flex;align-items:center;gap:9px}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--acc);display:inline-block;font-style:normal}
+.cta{background:var(--acc);color:#fff;border:0;font:600 14px/1 inherit;padding:12px 22px;border-radius:99px;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(0,0,0,.4)}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.hero h1{font-family:Georgia,'Iowan Old Style',serif;font-weight:400;font-size:clamp(34px,4.6vw,54px);line-height:1.08;letter-spacing:-.015em}
+.hero h1 em{color:var(--acc);font-style:italic}
+.hero p{color:var(--dim);margin:18px 0 26px;font-size:18px;max-width:34em}
+.hero img{width:100%;border-radius:18px;border:1px solid var(--hair);display:block}
+.kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:34px 0}
+.feat div{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:24px}
+.feat b{display:block;font-size:17px;margin-bottom:8px}
+.feat span{color:var(--dim);font-size:14.5px}
+.stats{display:flex;gap:48px;flex-wrap:wrap;padding:30px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.stats b{font-size:34px;color:var(--acc);font-family:Georgia,'Iowan Old Style',serif;font-weight:400}
+.stats span{display:block;color:var(--dim);font-size:13.5px}
+.special{padding:44px 0}
+.band{text-align:center;padding:64px 24px}
+.band h2{font-family:Georgia,'Iowan Old Style',serif;font-weight:400;font-size:clamp(26px,3.4vw,38px);margin-bottom:22px}
+footer{color:var(--dim);font-size:13px;text-align:center;padding:26px 24px 40px}
+footer a{color:var(--acc)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.feat{grid-template-columns:1fr}.stats{gap:28px}}
+
+</style>
+</head>
+<body>
+<div class="ribbon">Concept prototype — designed as part of a <a href="../case-studies/compas.html">steveux case study</a>. Not a live product; numbers are illustrative.</div>
+<nav><span class="logo"><i></i>Compas</span><button class="cta" onclick="location.href='../case-studies/compas.html'">See the case study</button></nav>
+<main class="wrap">
+ <section class="hero">
+  <div><span class="kick">Plans, spatially</span>
+   <h1>Until it&rsquo;s on a map, <em>nothing makes sense</em>.</h1>
+   <p>Compas lays your goals, projects, and loose ends on one draggable territory — and the plan confesses what it's avoiding. AI drafts the routes; you approve the borders.</p>
+   <button class="cta" onclick="location.href='../case-studies/compas.html'">Join the beta</button>
+  </div>
+  <img src="../images/hero-compas.webp" alt="" onerror="this.style.display='none'">
+ </section>
+ <section class="feat"><div><b>Everything, one canvas</b><span>Projects are islands, domains are regions, you sit at the center. Zoom out and the year makes sense.</span></div><div><b>The confessing plan</b><span>Compas flags what keeps drifting to the edge of the map — the avoided work IS the insight.</span></div><div><b>Routes, not lists</b><span>AI proposes the next traverse between where you are and where an island needs you to be.</span></div></section>
+ <section class="stats"><div><b>1</b><span>canvas for a whole life</span></div><div><b>0</b><span>separate todo apps left open</span></div><div><b>weekly</b><span>drift reports on avoided islands</span></div></section>
+ <section class="special"><span class="kick">The drift report, simulated</span>
+<div style="background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:24px;margin-top:14px;font-size:15px">
+<p><b style="color:var(--acc)">⚑ Tail &amp; Trot</b> hasn't been visited in 12 days — it drifted 40% farther from center this month.</p>
+<p style="margin-top:10px"><b style="color:var(--acc)">⚑ Outreach</b> has 3 drafted routes and 0 traveled. Compas suggests: shrink the island or sail it.</p>
+<p style="margin-top:10px;color:var(--dim)">Plans lie by omission. Maps can't.</p></div></section>
+</main>
+<div class="band"><h2>Stop managing lists. Start reading the map.</h2><button class="cta" onclick="location.href='../case-studies/compas.html'">Read how it was designed →</button></div>
+<footer>A simulated product site by <a href="../index.html">Steven Long Tran</a> · the real story lives in the <a href="../case-studies/compas.html">case study</a>.</footer>
+</body>
+</html>

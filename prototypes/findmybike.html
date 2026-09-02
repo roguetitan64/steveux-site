@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FindMyBike — product-site prototype</title>
+<style>
+:root{--bg:#101418;--card:#1A2129;--ink:#EAEDEF;--dim:#8B98A4;--acc:#FFB000;--hair:rgba(255,255,255,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,'Helvetica Neue',Inter,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+.ribbon{background:var(--ink);color:var(--bg);font-size:12.5px;letter-spacing:.04em;text-align:center;padding:9px 16px}
+.ribbon a{text-decoration:underline;text-underline-offset:3px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:1020px;margin:0 auto}
+.logo{font-weight:700;letter-spacing:.02em;font-size:17px;display:flex;align-items:center;gap:9px}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--acc);display:inline-block;font-style:normal}
+.cta{background:var(--acc);color:#141311;border:0;font:600 14px/1 inherit;padding:12px 22px;border-radius:99px;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(0,0,0,.4)}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.hero h1{font-family:-apple-system,'Helvetica Neue',Inter,sans-serif;font-weight:750;font-size:clamp(34px,4.6vw,54px);line-height:1.08;letter-spacing:-.015em}
+.hero h1 em{color:var(--acc);font-style:normal}
+.hero p{color:var(--dim);margin:18px 0 26px;font-size:18px;max-width:34em}
+.hero img{width:100%;border-radius:18px;border:1px solid var(--hair);display:block}
+.kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:34px 0}
+.feat div{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:24px}
+.feat b{display:block;font-size:17px;margin-bottom:8px}
+.feat span{color:var(--dim);font-size:14.5px}
+.stats{display:flex;gap:48px;flex-wrap:wrap;padding:30px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.stats b{font-size:34px;color:var(--acc);font-family:-apple-system,'Helvetica Neue',Inter,sans-serif;font-weight:750}
+.stats span{display:block;color:var(--dim);font-size:13.5px}
+.special{padding:44px 0}
+.band{text-align:center;padding:64px 24px}
+.band h2{font-family:-apple-system,'Helvetica Neue',Inter,sans-serif;font-weight:750;font-size:clamp(26px,3.4vw,38px);margin-bottom:22px}
+footer{color:var(--dim);font-size:13px;text-align:center;padding:26px 24px 40px}
+footer a{color:var(--acc)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.feat{grid-template-columns:1fr}.stats{gap:28px}}
+
+</style>
+</head>
+<body>
+<div class="ribbon">Concept prototype — designed as part of a <a href="../case-studies/findmybike-2026.html">steveux case study</a>. Not a live product; numbers are illustrative.</div>
+<nav><span class="logo"><i></i>FindMyBike</span><button class="cta" onclick="location.href='../case-studies/findmybike-2026.html'">See the case study</button></nav>
+<main class="wrap">
+ <section class="hero">
+  <div><span class="kick">The agent with the paperwork</span>
+   <h1>Report it once. <em>The agent does the rest.</em></h1>
+   <p>Police report, community alert, insurance claim — FindMyBike's recovery agent drafts all three from one description and asks you to approve each step. You grieve; it files.</p>
+   <button class="cta" onclick="location.href='../case-studies/findmybike-2026.html'">Start a recovery</button>
+  </div>
+  <img src="../images/hero-fmb.webp" alt="" onerror="this.style.display='none'">
+ </section>
+ <section class="feat"><div><b>One intake, three filings</b><span>Serial number, photos, last location — entered once, formatted for cops, community, and claims.</span></div><div><b>Approve, don't author</b><span>Every outbound document is drafted for you and sent only on your explicit approve. Skip anything.</span></div><div><b>Sightings that route home</b><span>Community spot reports match on frame details and flow into the same case timeline.</span></div></section>
+ <section class="stats"><div><b>3</b><span>filings drafted from one report</span></div><div><b>100%</b><span>of steps human-approved</span></div><div><b>1</b><span>timeline for the whole recovery</span></div></section>
+ <section class="special"><span class="kick">Recovery timeline, simulated</span>
+<div style="background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:24px;margin-top:14px;font-size:14.5px">
+<p>✅ <b>Police report drafted.</b> SFPD non-emergency format · <span style="color:var(--acc)">approved by you, 2:14pm</span></p>
+<p style="margin-top:10px">✅ <b>Community alert posted.</b> 3 local groups · <span style="color:var(--acc)">approved, 2:16pm</span></p>
+<p style="margin-top:10px">⏸ <b>Insurance claim ready.</b> Waiting on your policy number · <span style="color:var(--dim)">approve or skip</span></p>
+<p style="margin-top:14px;color:var(--dim)">Most recoveries start with a sighting. Most sightings die in a group chat. This one won't.</p></div></section>
+</main>
+<div class="band"><h2>Losing the bike is the bad day. The paperwork shouldn&rsquo;t be.</h2><button class="cta" onclick="location.href='../case-studies/findmybike-2026.html'">Read how it was designed →</button></div>
+<footer>A simulated product site by <a href="../index.html">Steven Long Tran</a> · the real story lives in the <a href="../case-studies/findmybike-2026.html">case study</a>.</footer>
+</body>
+</html>
