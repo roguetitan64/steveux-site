@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>Compas: planning that shows its consequences — Steven Long Tran</title>
+<meta name="description" content="An AI-first planning product in progress: map and schedule as one linked surface, so route mistakes, compounding costs, and conflicts show themselves before you commit.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.steveux.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://www.steveux.com/work.html"},{"@type":"ListItem","position":3,"name":"05 · Compas","item":"https://www.steveux.com/case-studies/compas.html"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-depth="read">
+<header>
+ <nav class="nav">
+  <a class="logo" href="../index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="../index.html">Home</a><a href="../work.html" aria-current="page">Work</a><a href="../side-quests.html">Side Quests</a><a href="../about.html">About</a></nav>
+  <div class="depth" role="group" aria-label="Reading level"><button data-d="scan" aria-pressed="false">Scan</button><button data-d="dive" class="on" aria-pressed="true">Read</button></div>
+ </nav>
+</header>
+<nav class="csrail" aria-label="On this page">
+  <span class="cap">On this page</span>
+  <ul><li><a href="#sec-the-hunch"><span class="rnum">01</span>The hunch</a></li><li><a href="#sec-who-it-rsquo-s-for"><span class="rnum">02</span>Who it&rsquo;s for</a></li><li><a href="#sec-the-interaction-bet-two-surfaces-one-pla"><span class="rnum">03</span>The interaction bet: two surfaces, one plan</a></li><li><a href="#sec-what-five-conversations-said"><span class="rnum">04</span>What five conversations said</a></li><li><a href="#sec-where-the-ai-sits-and-where-the-human-mu"><span class="rnum">05</span>Where the AI sits — and where the human must</a></li><li><a href="#sec-what-i-don-rsquo-t-know-yet"><span class="rnum">06</span>What I don&rsquo;t know yet</a></li></ul>
+</nav>
+
+
+<main class="wrap">
+ <div class="cs-hero">
+  <span class="cap">Compas · AI-first · In progress, 2026</span>
+  <h1>Compas: planning that shows its consequences</h1>
+ </div>
+ <figure class="rhero"><img src="../images/hero-compas.webp" alt="An aerial city grid with a tangled dashed walking route and the same stops connected by one calm ultramarine path - the plan that shows its cost." onerror="this.parentElement.style.display=&#39;none&#39;"></figure>
+
+ <div class="facts">
+  <div><span class="cap">Status</span>Discovery — 5 field conversations in. This page updates as the work does; nothing is retrofitted.</div>
+  <div><span class="cap">For</span>Travelers planning ahead · schedule-maximizers · tour operators · event planners running hikes, bar crawls, design-week crawls</div>
+  <div><span class="cap">Bet</span>Map and schedule as one linked surface — so a plan that realistically can&rsquo;t work says so before you settle on it</div>
+  <div><span class="cap">Role</span>Founder-designer — the whole loop, on purpose</div>
+ </div>
+
+ <div class="scanbox scan-only"><span class="cap" style="color:var(--acc)">The 30-second version</span>
+  <div class="row"><span class="cap">Problem</span><span>Compas is for serious planners who want their time back. Plans live across a map AND a clock, but every tool shows only one — so route mistakes, compounding costs, and conflicts stay invisible until the day goes wrong.</span></div>
+  <div class="row"><span class="cap">Approach</span><span>AI interprets what you want, drafts the plan, and simulates the ripple; you see everything on a linked map + day schedule and drag either side — the other reacts, and the zigzag shows its cost.</span></div>
+  <div class="row"><span class="cap">Status</span><span>Discovery: 5 conversations in, one refrain — &ldquo;until we see everything on a map, nothing really makes sense.&rdquo; Success gate: I plan my own trips faster with it than without.</span></div>
+ </div>
+
+ <div class="prose d-read">
+  <p style="font-size:20px;line-height:1.5">Compas started as hours of my life I couldn&rsquo;t get back — trip planning, daily schedules, family gatherings across two countries — with a dozen tools open and none of them able to answer the only question that mattered: <em>will this plan actually work?</em></p>
+
+  <h2 id="sec-the-hunch"><span class="num">01</span>The hunch</h2>
+  <p>Planning failure has a shape: you commit to an agenda, then the day reveals what the tools never showed — the 40 minutes lost re-crossing a city, the reservation that conflicts with the tour, the cost that compounded three choices back. The information existed at planning time. Nothing rendered it. Compas is the bet that consequences are renderable — and that seeing them changes what people plan.</p>
+
+  <h2 id="sec-who-it-rsquo-s-for"><span class="num">02</span>Who it&rsquo;s for</h2>
+  <p>Four planners share one problem: travelers building ambitious itineraries, schedule-maximizers packing real days, tour operators sequencing groups through a city, and event planners running a hike, a bar crawl, a design-week crawl. Different stakes, same structure — their plan lives simultaneously on a map and on a clock, and every existing tool makes them hold one of the two in their head.</p>
+
+  <h2 id="sec-the-interaction-bet-two-surfaces-one-pla"><span class="num">03</span>The interaction bet: two surfaces, one plan</h2>
+  <p>You tell Compas what you want out of the trip — natural language, constraints included. It drafts your choices onto a linked pair: a map with physical points, and a per-day schedule. Then the design bet: <strong>both sides are handles on the same plan.</strong> Drag a point on the map and the day reflows; move an item in the scheduler and the route redraws. Jumping around a city stops being an abstraction — the zigzag shows itself, with its time and money attached, while you&rsquo;re still playing.</p>
+  <div class="callout">The map isn&rsquo;t the output of the plan. The map is where the reasoning happens.</div>
+
+  <h2 id="sec-what-five-conversations-said"><span class="num">04</span>What five conversations said</h2>
+  <p>The first five planners I talked with — people like me, already using AI for discovery and logistics help — converged on one refrain: <em>until we see everything on a map, nothing really makes sense</em> (paraphrased; n=5, a sample of people like me — broadening it is the next gate). AI has made finding things easy. It hasn&rsquo;t made <em>arranging</em> them make sense. That gap is the product.</p>
+
+  <h2 id="sec-where-the-ai-sits-and-where-the-human-mu"><span class="num">05</span>Where the AI sits — and where the human must</h2>
+  <p>The model does all of it: interprets the natural-language intent, synthesizes the research, drafts the plan, simulates the consequence chains — time constraints, route efficiency, compounding costs, conflicts and dependencies. The human job is exactly one thing, and it&rsquo;s the same discipline as my enterprise AI work: <strong>see the consequences of your constraints against the routing, and confirm what you can see.</strong> Space is the primary consequence surface — the others become visible the moment your schedule starts jumping around the map.</p>
+
+  <h2 id="sec-what-i-don-rsquo-t-know-yet"><span class="num">06</span>What I don&rsquo;t know yet</h2>
+  <p>Whether this ships commercially — genuinely undecided; it may live as a design-research vehicle first. Which of the four planners to serve first. And whether the dual-surface interaction survives contact with real complexity. The success gate is unambiguous though: <strong>Compas earns more of my time when I plan my own trips faster with it than without it.</strong> Sketches are the next artifact — Gate 2 of the process this site runs on.</p>
+ </div>
+
+ <section class="d-dive dd2">
+  <span class="cap">Deep dive</span>
+  <h2 style="margin-top:10px">The working notes</h2>
+  <p class="ddsub">Method, evidence, constraints, and the lesson so far — updated as the work moves.</p>
+  <div class="legend"><span class="chip t-stone">Evidence</span><span class="chip t-sand">Method</span><span class="chip t-clay">Constraint</span><span class="chip t-sage">Lesson</span></div>
+  <div class="dd-grid">
+   <details class="dcard t-stone"><summary><span class="klabel">Evidence</span><span class="dtitle">Five conversations, one refrain</span></summary><div class="inner"><p>All five early conversations were with planners already using AI for discovery and logistics. Every one hit the same wall: the pieces are easy to find now, impossible to arrange with confidence. The refrain — &ldquo;until we see everything on a map, nothing really makes sense&rdquo; — is paraphrased and footnoted: n=5, people similar to me. The next evidence gate is planners who are NOT me: a tour operator and an event planner, on the record.</p></div></details>
+   <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">The consequence hierarchy</span></summary><div class="inner"><p>Space first: inefficient routing is the consequence people feel physically, and it&rsquo;s where the others surface — jump around the map and the time cost, compounding money, and conflicts all become legible in one gesture. Design order follows: render route consequence in the drag interaction itself; attach time and cost as its badges; surface conflicts and dependencies the moment a move creates one. One primary surface, three consequences riding on it.</p></div></details>
+   <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">The three-way split: model, field, sketch</span></summary><div class="inner"><p>Models interpret intent, synthesize research, draft plans, and simulate ripples. Field conversations name the fears worth modeling and keep the sample representative. Sketches invent the dual-surface interaction, since no consequence-first planning pattern exists to borrow. Each leg checks the other two.</p></div></details>
+   <details class="dcard t-clay"><summary><span class="klabel">Constraint</span><span class="dtitle">Work in progress, sample bias included</span></summary><div class="inner"><p>This case study updates live under the site&rsquo;s evidence rules — and the first bias is already documented: five people like me is a hunch validator, not a market. Commercial intent is undecided and says so. An in-progress study that pretends to certainty would break the rules this site runs on.</p></div></details>
+   <details class="dcard t-sage"><summary><span class="klabel">Lesson</span><span class="dtitle">AI moved the bottleneck</span></summary><div class="inner"><p>The early insight worth keeping: AI collapsed discovery — everyone can find the restaurants, the trails, the venues. The bottleneck moved downstream to arrangement, where consequences live. Products that only make finding easier are solving the previous decade&rsquo;s problem.</p></div></details>
+  </div>
+ </section>
+
+ <div class="next"><span class="cap">Next case study</span><h2><a href="api-marketplace.html">An API marketplace for customers who might not be human →</a></h2></div>
+
+<p class="protolink"><a href="../prototypes/compas.html">See Compas pitch itself <i>↗</i></a> <span style="color:var(--muted);font-size:13px;margin-left:10px">Simulated product site — built as part of this case study.</span></p>
+</main>
+
+<footer data-surface="inverse">
+ <nav class="crumbs fcrumbs" aria-label="Breadcrumb"><span class="dot" style="background:var(--cat-work)"></span><a href="../index.html">Home</a><span class="sep">/</span><a href="../work.html">Work</a><span class="sep">/</span><b>05 · Compas</b></nav>
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/></svg>LinkedIn</a>
+   <a href="https://www.instagram.com/sltomato" rel="noopener" data-peek="Instagram &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="1"/></svg>Instagram</a>
+   <a href="../resume.pdf" data-peek="PDF &middot; one page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Resume</a>
+  </div>
+ </div>
+ <a href="../explorations/01-terminal.html" title="or just press `" style="opacity:.45;text-decoration:none" aria-label="The terminal">~</a>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

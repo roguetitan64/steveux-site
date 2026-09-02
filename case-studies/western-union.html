@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>Redesigning the Western Union agent locator — Steven Long Tran</title>
+<meta name="description" content="Research-led redesign of Western Union's agent locator: turning a pin map into a task-driven tool for people moving money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.steveux.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://www.steveux.com/work.html"},{"@type":"ListItem","position":3,"name":"03 · Agent locator","item":"https://www.steveux.com/case-studies/western-union.html"}]}</script>
+</head>
+<body data-depth="read">
+<header>
+ <nav class="nav">
+  <a class="logo" href="../index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="../index.html">Home</a><a href="../work.html" aria-current="page">Work</a><a href="../side-quests.html">Side Quests</a><a href="../about.html">About</a></nav>
+  <div class="depth" role="group" aria-label="Reading level"><button data-d="scan" aria-pressed="false">Scan</button><button data-d="dive" class="on" aria-pressed="true">Read</button></div>
+ </nav>
+</header>
+<nav class="csrail" aria-label="On this page">
+  <span class="cap">On this page</span>
+  <ul><li><a href="#sec-outcome"><span class="rnum">01</span>Outcome</a></li><li><a href="#sec-what-research-surfaced"><span class="rnum">02</span>What research surfaced</a></li><li><a href="#sec-design-decisions"><span class="rnum">03</span>Design decisions</a></li></ul>
+</nav>
+
+
+<main class="wrap">
+ <div class="cs-hero">
+  <span class="cap">Western Union · Responsive web</span>
+  <h1>Finding money in a city you just landed in: redesigning the agent locator</h1>
+ </div>
+ <figure class="rhero"><img src="../images/hero-wu.webp" alt="A hand-drawn city map of identical ink pins; one ultramarine pin pulses with concentric arcs - the one location that will actually work." onerror="this.parentElement.style.display=&#39;none&#39;"></figure>
+
+ <div class="facts">
+  <div><span class="cap">Role</span>Product Designer — research through shipped UI</div>
+  <div><span class="cap">Platform</span>Responsive web, desktop + mobile</div>
+  <div><span class="cap">Scope</span>Search, results, location detail across a global retail network</div>
+  <div><span class="cap">Context</span>One of the world's largest money-transfer networks</div>
+ </div>
+
+ <div class="scanbox scan-only rv in"><span class="cap" style="color:var(--acc)">The 30-second version</span><div class="row"><span class="cap">Problem</span><span>People with urgent money tasks were scanning map pins instead of getting answers — hours, services and capabilities were buried in detail pages.</span></div><div class="row"><span class="cap">Decision</span><span>Reframed the locator as an eligibility product: task-first search, disqualifying info on the results card, mobile designed first.</span></div><div class="row"><span class="cap">Outcome</span><span>Shipped responsive across one of the world&rsquo;s largest money-transfer retail networks.</span></div></div>
+
+ <div class="prose d-read">
+  <p class="lede">For millions of people, a Western Union agent is where money physically arrives — rent, remittances, emergencies. The locator existed to answer one question: where can I go, right now, to do the thing I need? It wasn't answering it.</p>
+
+  <h2 id="sec-outcome"><span class="num">01</span>Outcome</h2>
+  <p>The redesigned locator shipped as a responsive experience across Western Union's retail-network footprint. The structural change — eligibility-first search over pin-first browsing — is the part I'd defend anywhere: it's the same principle I later applied to enterprise flows, where the product's real job is telling people whether something will work before they invest effort in it.</p>
+
+
+  <h2 id="sec-what-research-surfaced"><span class="num">02</span>What research surfaced</h2>
+  <p>Users weren't browsing a map for fun; they arrived with a task and constraints — send cash before 6pm, receive a transfer near a bus route, find a location that handles their specific service. The existing experience made them do the work: scan pins, open entries one by one, discover too late that a location didn't offer the service or was closed. One participant put it plainly: <em>"Looking for locations on this map is giving my eyes a headache. I don't like spending time online."</em></p>
+  <p>The insight that reframed the project: <strong>the locator is not a map product; it's an eligibility product.</strong> The map is just how you show the answer.</p>
+
+  
+  <figure data-file="wu-locator-desktop.png"><img src="../images/wu-locator-desktop.png" alt="The redesigned locator — task-first search and eligibility-forward result cards (desktop)." loading="lazy"><figcaption>The redesigned locator — task-first search and eligibility-forward result cards (desktop).</figcaption></figure>
+
+  <h2 id="sec-design-decisions"><span class="num">03</span>Design decisions</h2>
+  <ul>
+   <li><strong>Search around the task, not the geography.</strong> Service type, hours, and capabilities became first-class filters rather than detail-page surprises.</li>
+   <li><strong>Results that answer before the tap.</strong> Cards carry the disqualifying information — open now, services offered — so users stop opening dead ends.</li>
+   <li><strong>Mobile as the primary reality.</strong> The person using this is often standing on a street; the mobile flow was designed first, desktop derived from it.</li>
+  </ul>
+
+  
+  <figure data-file="wu-locator-mobile.png"><img src="../images/wu-locator-mobile.png" alt="Mobile flow — designed first, for the person standing on a street." loading="lazy"><figcaption>Mobile flow — designed first, for the person standing on a street.</figcaption></figure>
+
+  
+ </div>
+
+ <section class="d-dive dd2">
+ <span class="cap">Deep dive</span>
+ <h2 style="margin-top:10px">The full working detail</h2>
+ <p class="ddsub">Why each rule exists, and what it costs.</p>
+ <div class="legend"><span class="chip t-stone">Evidence</span><span class="chip t-sand">Method</span><span class="chip t-clay">Constraint</span><span class="chip t-sage">Lesson</span></div>
+ <div class="dd-grid">
+  <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">Research method and problem-area mapping</span></summary><div class="inner"><p>Interviews and usability sessions against the live experience, synthesized into four problem areas: pin-scanning fatigue, service ambiguity, hours ambiguity, and detail-page overload. Each design decision in the case study maps to one of those four; nothing in the redesign was aesthetic-first.</p></div></details>
+  <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">Desktop and mobile flow structure</span></summary><div class="inner"><p>Single search architecture with responsive presentation: list-with-map on desktop, list-first with map toggle on mobile. Location detail restructured from a data dump into task order — can I do my thing here, when, and how do I get there. The mobile flow was designed first because the person using it is most often standing on a street with a task, not at a desk browsing.</p></div></details>
+  <details class="dcard t-clay"><summary><span class="klabel">Constraint</span><span class="dtitle">A network of 200+ countries and 40+ languages</span></summary><div class="inner"><p>The locator served Western Union's global retail footprint — services, payout limits, and capabilities vary by location, market, and regulation, and the interface had to survive translation across dozens of languages. That variability is precisely why eligibility data belonged structured on the result card rather than written in prose: structured facts localize and scale; paragraphs don't.</p></div></details>
+  <details class="dcard t-sage"><summary><span class="klabel">Lesson</span><span class="dtitle">Eligibility-first as a reusable pattern</span></summary><div class="inner"><p>The reframe — this is not a map product, it's an eligibility product — became a pattern I've applied to enterprise flows ever since: surface the disqualifying information before the user invests effort. Trade-in eligibility, plan qualification, API access tiers — the same shape. Products earn trust by telling people early when something won't work, not by optimizing the path to a dead end.</p></div></details>
+ </div>
+</section>
+
+ <div class="next">
+  <span class="cap">Next case study</span>
+  <h2 style="margin-top:12px"><a href="rare-disease.html">Shipping under full NDA →</a></h2>
+ </div>
+
+<p class="protolink"><a href="../prototypes/western-union.html">Search the locator as a sender <i>↗</i></a> <span style="color:var(--muted);font-size:13px;margin-left:10px">Simulated product site — built as part of this case study.</span></p>
+</main>
+
+
+<footer data-surface="inverse">
+ <nav class="crumbs fcrumbs" aria-label="Breadcrumb"><span class="dot" style="background:var(--cat-work)"></span><a href="../index.html">Home</a><span class="sep">/</span><a href="../work.html">Work</a><span class="sep">/</span><b>03 · Agent locator</b></nav>
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/></svg>LinkedIn</a>
+   <a href="https://www.instagram.com/sltomato" rel="noopener" data-peek="Instagram &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="1"/></svg>Instagram</a>
+   <a href="../resume.pdf" data-peek="PDF &middot; one page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Resume</a>
+  </div>
+ </div>
+ <a href="../explorations/01-terminal.html" title="or just press `" style="opacity:.45;text-decoration:none" aria-label="The terminal">~</a>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

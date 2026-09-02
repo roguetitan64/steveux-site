@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>Koé, rebuilt for 2026: anonymous feedback that survives AI — Steven Long Tran</title>
+<meta name="description" content="A 2015 anonymous-feedback product rebuilt as a 2026 concept: AI synthesizes themes, k-anonymity gates visibility, submitters confirm their meaning survived. With a working simulated prototype.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.steveux.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://www.steveux.com/work.html"},{"@type":"ListItem","position":3,"name":"06 · Koé 2026","item":"https://www.steveux.com/case-studies/koe-2026.html"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.proto{background:var(--card);border:1px solid var(--hair);border-radius:20px;padding:32px;margin-top:var(--vsp2)}
+.proto .simtag{display:inline-block;border:1px solid var(--cat-about);color:var(--cat-about);border-radius:99px;padding:4px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+.ptabs{display:flex;gap:4px;background:var(--bg);border:1px solid var(--hair);border-radius:99px;padding:4px;width:max-content;margin-bottom:22px}
+.ptabs button{border:0;background:none;font:inherit;font-size:calc(16px*var(--fs,1));padding:8px 20px;border-radius:99px;cursor:pointer;color:var(--muted)}
+.ptabs button.on{background:var(--ink);color:var(--bg)}
+.pv{display:none}.pv.on{display:block}
+.proto textarea{width:100%;min-height:90px;font:inherit;font-size:calc(16px*var(--fs,1));padding:14px;border:1px solid var(--hair);border-radius:12px;background:var(--bg);color:var(--ink);resize:vertical;box-sizing:border-box}
+.proto .btn{background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:12px 22px;font:inherit;font-size:calc(16px*var(--fs,1));cursor:pointer;margin-top:12px;margin-right:8px}
+.preview{border:1px solid var(--acc);border-radius:14px;padding:20px;margin-top:18px;display:none}
+.preview.on{display:block}
+.preview .cap{color:var(--acc);display:block;margin-bottom:8px}
+.themegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px}
+.theme{border:1px solid var(--hair);border-radius:14px;padding:18px;background:var(--bg)}
+.theme.locked{opacity:.55;border-style:dashed}
+.theme b{display:block;font-size:calc(16px*var(--fs,1));margin-bottom:6px}
+.theme .meta{font-size:calc(16px*var(--fs,1));color:var(--muted)}
+.theme .para{font-family:'Instrument Serif',serif;font-style:italic;font-size:calc(17px*var(--fs,1));margin-top:10px;line-height:1.45}
+.krow{font-size:calc(16px*var(--fs,1));color:var(--body);margin-top:14px}
+</style>
+</head>
+<body data-depth="read">
+<header>
+ <nav class="nav">
+  <a class="logo" href="../index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="../index.html">Home</a><a href="../work.html" aria-current="page">Work</a><a href="../side-quests.html">Side Quests</a><a href="../about.html">About</a></nav>
+  <div class="depth" role="group" aria-label="Reading level"><button data-d="scan" aria-pressed="false">Scan</button><button data-d="dive" class="on" aria-pressed="true">Read</button></div>
+ </nav>
+</header>
+<nav class="csrail" aria-label="On this page">
+  <span class="cap">On this page</span>
+  <ul><li><a href="#sec-what-we-built-then-and-where-it-strained"><span class="rnum">01</span>What we built then — and where it strained</a></li><li><a href="#sec-what-a-decade-changed"><span class="rnum">02</span>What a decade changed</a></li><li><a href="#sec-the-three-design-decisions"><span class="rnum">03</span>The three design decisions</a></li><li><a href="#sec-the-tension"><span class="rnum">04</span>The tension</a></li></ul>
+</nav>
+
+
+<main class="wrap">
+ <div class="cs-hero">
+  <span class="cap">Rebuilt 2015 → 2026 · Koé · Concept study</span>
+  <h1>Koé, rebuilt: anonymous feedback that survives the AI era</h1>
+ </div>
+ <figure class="rhero"><img src="../images/hero-koe.webp" alt="Five ink paper planes on dashed paths converge on a gate line; past it, one large ultramarine plane continues - many voices become one protected theme." onerror="this.parentElement.style.display=&#39;none&#39;"></figure>
+
+ <div class="facts">
+  <div><span class="cap">Then</span>2015: mobile-first anonymous workplace feedback — iOS, responsive web, a dashboard. Real project; the client later shut down.</div>
+  <div><span class="cap">Now</span>2026 concept rebuild: same problem, redesigned for a world where AI can both synthesize honesty and destroy anonymity</div>
+  <div><span class="cap">Artifact</span>A working simulated prototype, on this page — not screenshots</div>
+  <div><span class="cap">Honesty</span>Concept study, clearly labeled. The 2015 facts are history; the 2026 decisions are design reasoning, not a shipped product.</div>
+ </div>
+
+ <div class="scanbox scan-only"><span class="cap" style="color:var(--acc)">The 30-second version</span>
+  <div class="row"><span class="cap">Problem</span><span>Anonymous workplace feedback dies two deaths: employees stop believing it&rsquo;s anonymous, and leadership drowns in unreadable raw quotes. AI makes both worse AND both solvable.</span></div>
+  <div class="row"><span class="cap">Decision</span><span>Three rules: no theme surfaces below five voices (k-anonymity as a UI primitive) · AI paraphrases, never quotes (writing style identifies people) · the submitter confirms their meaning survived before anything sends.</span></div>
+  <div class="row"><span class="cap">Outcome</span><span>A working prototype below — try both sides of it. Concept study; the 2015 original was real and the client is gone, which is why this can be shown at all.</span></div>
+ </div>
+
+ <div class="prose d-read">
+  <p style="font-size:20px;line-height:1.5">In 2015 we built Koé so employees could say true things safely. In 2026 the same product would be malpractice — because the thing that makes feedback synthesizable now is the same thing that makes anonymity fragile. This is the rebuild that takes both seriously.</p>
+
+  <h2 id="sec-what-we-built-then-and-where-it-strained"><span class="num">01</span>What we built then — and where it strained</h2>
+  <p>Koé 1.0 let people send work issues anonymously from a phone to a dashboard. The design work was classic for its moment: mental models, flows, wireframes, an interface gentle enough that raising a problem didn&rsquo;t feel like filing a complaint. The strain was structural, not visual: leadership received raw anonymous messages — unreadable at volume, impossible to prioritize, and quietly identifying, because people write like themselves. Trust eroded from both directions.</p>
+
+  <h2 id="sec-what-a-decade-changed"><span class="num">02</span>What a decade changed</h2>
+  <p>Two opposing facts define the 2026 version. AI can now do what no dashboard could — synthesize hundreds of raw notes into a handful of faithful themes. And AI can also do what no manager could — deanonymize an &ldquo;anonymous&rdquo; note from its writing style alone, in seconds. Any 2026 rebuild that only exploits the first fact while ignoring the second is a trust product that destroys trust.</p>
+
+  <h2 id="sec-the-three-design-decisions"><span class="num">03</span>The three design decisions</h2>
+  <p><strong>K-anonymity is a UI primitive, not a policy line.</strong> No theme becomes visible to leadership until at least five distinct voices have joined it. The threshold isn&rsquo;t buried in terms of service — it&rsquo;s rendered: employees watch their note &ldquo;held — 3 of 5 voices&rdquo; and understand the protection because they can see it working.</p>
+  <p><strong>AI paraphrases; nothing is ever quoted.</strong> Leadership sees themes with strength, breadth, and trend — &ldquo;seven voices across three teams, rising&rdquo; — expressed in generated language that carries the meaning and strips the stylometry. Provenance without identity.</p>
+  <p><strong>The submitter confirms what the machine understood.</strong> Before a note joins anything, the employee sees exactly what leadership would see: which theme it joins, how it will be expressed, when it becomes visible. Confirm or cancel. It&rsquo;s the same discipline as my enterprise AI work — models interpret, interfaces verify, humans confirm — applied to the most fragile data there is: an employee telling the truth.</p>
+  <div class="callout">Anonymity you have to trust is a promise. Anonymity you can watch working is a design.</div>
+
+  <h2 id="sec-the-tension"><span class="num">04</span>The tension</h2>
+  <p>Paraphrase costs fidelity — sometimes the exact words ARE the signal, and a template of the pain is not the pain. The concept carries one declared carve-out: content suggesting safety issues or legal duties doesn&rsquo;t enter the anonymous pool at all; it routes to a disclosed, separate channel, and the product says so up front. A trust product earns more by naming its limits than by pretending it has none.</p>
+ </div>
+
+ <section class="proto" id="proto" aria-label="Interactive prototype">
+  <span class="simtag">Simulated prototype — rule-based stand-in for the model · nothing leaves this page</span>
+  <h2 style="margin:0 0 6px;font-size:calc(24px*var(--fs,1))">Try both sides of it</h2>
+  <p style="color:var(--muted);font-size:calc(16px*var(--fs,1));margin-bottom:18px">Raise an issue as an employee, confirm what the machine understood, then switch chairs and see what leadership actually gets.</p>
+  <div class="ptabs" role="tablist"><button class="on" data-pv="emp">Employee</button><button data-pv="lead">Leadership</button></div>
+
+  <div class="pv on" id="pv-emp">
+   <label class="cap" for="note" style="display:block;margin-bottom:8px">Raise an issue — anonymously</label>
+   <textarea id="note" placeholder="e.g. The release schedule has us working every weekend and nobody has acknowledged it"></textarea>
+   <button class="btn" id="sendBtn" type="button">See how it will appear</button>
+   <div class="preview" id="prev">
+    <span class="cap">Confirm what the machine understood</span>
+    <p style="font-size:calc(16px*var(--fs,1))">Your note joins the theme <b id="pTheme"></b> and will be expressed as:</p>
+    <p class="para" id="pPara" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:calc(18px*var(--fs,1));margin:10px 0"></p>
+    <p class="krow" id="pK"></p>
+    <button class="btn" id="confirmBtn" type="button">Confirm — join the theme</button>
+    <button class="btn" id="cancelBtn" type="button" style="background:none;border:1px solid var(--hair);color:var(--ink)">Cancel — nothing sends</button>
+    <p id="pDone" style="display:none;color:var(--cat-side);font-size:calc(16px*var(--fs,1));margin-top:12px">Joined. Your words never leave this preview — only the theme membership does.</p>
+   </div>
+  </div>
+
+  <div class="pv" id="pv-lead">
+   <p class="krow" style="margin:0 0 14px">Themes appear only at <b>five or more voices</b>. Below that, leadership sees that something is held — never what, never who.</p>
+   <div class="themegrid" id="themes"></div>
+  </div>
+ </section>
+
+ <section class="d-dive dd2">
+  <span class="cap">Deep dive</span>
+  <h2 style="margin-top:10px">The working notes</h2>
+  <p class="ddsub">Why each rule exists, and what it costs.</p>
+  <div class="legend"><span class="chip t-stone">Evidence</span><span class="chip t-sand">Method</span><span class="chip t-clay">Constraint</span><span class="chip t-sage">Lesson</span></div>
+  <div class="dd-grid">
+   <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">K-anonymity rendered, not promised</span></summary><div class="inner"><p>The threshold of five isn&rsquo;t magic — it&rsquo;s the smallest number where &ldquo;which of them said it&rdquo; stops being guessable in a normal team. What matters is that the gate is visible on both sides: employees watch their protection accumulate; leadership sees held themes as sealed, which itself is information (&ldquo;something is building&rdquo;) without exposure.</p></div></details>
+   <details class="dcard t-stone"><summary><span class="klabel">Evidence</span><span class="dtitle">Stylometry is the quiet killer</span></summary><div class="inner"><p>Writing style identifies authors with uncomfortable accuracy, and modern models made that a commodity capability. Any product that forwards raw anonymous text is anonymous in name only. Paraphrase-only isn&rsquo;t a nice-to-have in 2026 — it&rsquo;s the minimum viable trust architecture for the category.</p></div></details>
+   <details class="dcard t-clay"><summary><span class="klabel">Constraint</span><span class="dtitle">Concept-study rules</span></summary><div class="inner"><p>The 2015 project was real; the client no longer exists, which is why it can be shown. Everything 2026 on this page is design reasoning, clearly labeled — the prototype simulates the model with rules, sends nothing anywhere, and says so on its face. A concept that cosplays as a shipped product would break this site&rsquo;s evidence rules.</p></div></details>
+   <details class="dcard t-sage"><summary><span class="klabel">Lesson</span><span class="dtitle">The confirm step is the product</span></summary><div class="inner"><p>The novel interaction isn&rsquo;t the synthesis — it&rsquo;s the moment before sending, when the submitter sees their meaning in the machine&rsquo;s words and decides whether it survived. That single screen is where trust is manufactured: interpretation made visible, consent made real. It&rsquo;s the confirm-what-you-see pattern doing its most delicate job.</p></div></details>
+  </div>
+ </section>
+
+ <div class="next"><span class="cap">Next case study</span><h2><a href="compas.html">Compas: planning that shows its consequences →</a></h2></div>
+
+<p class="protolink"><a href="../prototypes/koe.html">Meet Koé as an employee would <i>↗</i></a> <span style="color:var(--muted);font-size:13px;margin-left:10px">Simulated product site — built as part of this case study.</span></p>
+</main>
+
+<footer data-surface="inverse">
+ <nav class="crumbs fcrumbs" aria-label="Breadcrumb"><span class="dot" style="background:var(--cat-work)"></span><a href="../index.html">Home</a><span class="sep">/</span><a href="../work.html">Work</a><span class="sep">/</span><b>06 · Koé 2026</b></nav>
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/></svg>LinkedIn</a>
+   <a href="https://www.instagram.com/sltomato" rel="noopener" data-peek="Instagram &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="1"/></svg>Instagram</a>
+   <a href="../resume.pdf" data-peek="PDF &middot; one page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Resume</a>
+  </div>
+ </div>
+ <a href="../explorations/01-terminal.html" title="or just press `" style="opacity:.45;text-decoration:none" aria-label="The terminal">~</a>
+</footer>
+<script src="../app.js"></script>
+<script>
+(function(){
+ var THEMES=[
+  {id:"workload",name:"Workload & pacing",count:4,teams:2,trend:"rising",para:"Sustained release pressure is normalizing weekend work without acknowledgment.",kw:["workload","weekend","hours","burnout","overtime","release","pace","tired","schedule"]},
+  {id:"comms",name:"Communication gaps",count:6,teams:3,trend:"steady",para:"Decisions land without context, and teams learn about changes after they ship.",kw:["communication","decision","context","meeting","told","announce","surprise","informed"]},
+  {id:"mgmt",name:"Trust in leadership",count:2,teams:1,trend:"new",para:"Feedback given upward appears to vanish; people stop offering it.",kw:["manager","leadership","trust","promotion","ignored","favorit","politics"]},
+  {id:"tools",name:"Tools & process drag",count:5,teams:2,trend:"steady",para:"Everyday tooling adds friction that individually seems small and collectively is not.",kw:["tool","process","slow","approval","ticket","access","software","system"]}
+ ];
+ var K=5, pending=null;
+ function classify(t){
+  t=t.toLowerCase();var best=THEMES[0],score=0;
+  THEMES.forEach(function(th){var s=0;th.kw.forEach(function(k){if(t.indexOf(k)>-1)s++});if(s>score){score=s;best=th}});
+  return best;
+ }
+ function renderThemes(){
+  var box=document.getElementById("themes");if(!box)return;
+  var h="";
+  THEMES.forEach(function(th){
+   if(th.count>=K){
+    h+='<div class="theme"><b>'+th.name+'</b><span class="meta">'+th.count+' voices · '+th.teams+' teams · '+th.trend+'</span><p class="para">&ldquo;'+th.para+'&rdquo;</p></div>';
+   }else{
+    h+='<div class="theme locked"><b>Held</b><span class="meta">below anonymity threshold · '+th.count+' of '+K+' voices</span><p class="para">Visible when '+(K-th.count)+' more voice'+((K-th.count)>1?"s":"")+' join.</p></div>';
+   }
+  });
+  box.innerHTML=h;
+ }
+ var tabs=document.querySelectorAll(".ptabs button");
+ tabs.forEach(function(b){b.addEventListener("click",function(){
+  tabs.forEach(function(x){x.classList.toggle("on",x===b)});
+  document.getElementById("pv-emp").classList.toggle("on",b.getAttribute("data-pv")==="emp");
+  document.getElementById("pv-lead").classList.toggle("on",b.getAttribute("data-pv")==="lead");
+  renderThemes();
+ })});
+ document.getElementById("sendBtn").addEventListener("click",function(){
+  var v=document.getElementById("note").value.trim();
+  if(!v){document.getElementById("note").focus();return}
+  pending=classify(v);
+  document.getElementById("pTheme").textContent=pending.name;
+  document.getElementById("pPara").innerHTML="&ldquo;"+pending.para+"&rdquo; <span style='font-family:Inter,sans-serif;font-style:normal;font-size:80%;color:var(--muted)'>(template paraphrase — in production, a model rewrites YOUR meaning in unidentifiable language)</span>";
+  var after=pending.count+1;
+  document.getElementById("pK").textContent=after>=K?("Visibility: "+after+" of "+K+" voices — this theme is (or becomes) visible to leadership."):("Visibility: held — "+after+" of "+K+" voices. Leadership sees nothing until "+(K-after)+" more join.");
+  document.getElementById("pDone").style.display="none";
+  document.getElementById("prev").classList.add("on");
+ });
+ document.getElementById("confirmBtn").addEventListener("click",function(){
+  if(pending){pending.count++;pending=null}
+  document.getElementById("pDone").style.display="block";
+  document.getElementById("note").value="";
+ });
+ document.getElementById("cancelBtn").addEventListener("click",function(){
+  pending=null;document.getElementById("prev").classList.remove("on");
+ });
+ renderThemes();
+})();
+</script>
+</body>
+</html>

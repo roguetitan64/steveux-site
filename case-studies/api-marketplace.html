@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>An API marketplace designed for customers who might not be human — Steven Long Tran</title>
+<meta name="description" content="Leading design for T-Mobile's API Marketplace: AI-interpreted enterprise ordering, real-time UI confirmation, and inverting a telecom's product model for human and AI users.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.steveux.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://www.steveux.com/work.html"},{"@type":"ListItem","position":3,"name":"01 · API Marketplace","item":"https://www.steveux.com/case-studies/api-marketplace.html"}]}</script>
+</head>
+<body data-depth="read">
+<header>
+ <nav class="nav">
+  <a class="logo" href="../index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="../index.html">Home</a><a href="../work.html" aria-current="page">Work</a><a href="../side-quests.html">Side Quests</a><a href="../about.html">About</a></nav>
+  <div class="depth" role="group" aria-label="Reading level"><button data-d="scan" aria-pressed="false">Scan</button><button data-d="dive" class="on" aria-pressed="true">Read</button></div>
+ </nav>
+</header>
+<nav class="csrail" aria-label="On this page">
+  <span class="cap">On this page</span>
+  <ul><li><a href="#sec-inverting-the-company"><span class="rnum">01</span>Inverting the company</a></li><li><a href="#sec-decision-ai-interprets-the-interface-con"><span class="rnum">02</span>Decision: AI interprets, the interface confirms</a></li><li><a href="#sec-decision-the-data-nobody-wanted-to-touch"><span class="rnum">03</span>Decision: the data nobody wanted to touch</a></li><li><a href="#sec-decision-making-the-economics-and-the-la"><span class="rnum">04</span>Decision: making the economics and the lawyers say yes</a></li><li><a href="#sec-how-it-ended"><span class="rnum">05</span>How it ended</a></li></ul>
+</nav>
+
+
+<main class="wrap">
+ <div class="cs-hero">
+  <span class="cap">T-Mobile · API Marketplace · 2025–2026</span>
+  <h1>An API marketplace designed for customers who might not be human</h1>
+ </div>
+ <figure class="rhero"><img src="../images/hero-api.webp" alt="Three people and three robots approach the same open ultramarine door in a long wall - one platform serving human and machine customers." onerror="this.parentElement.style.display=&#39;none&#39;"></figure>
+
+ <div class="facts">
+  <div><span class="cap">Role</span>Lead designer for the first 3 months; primary of 3 designers through build</div>
+  <div><span class="cap">Ambition</span>Invert the product model: open T-Mobile's systems to developers — and AI agents — directly</div>
+  <div><span class="cap">Stakes</span>A double-digit enterprise launch cohort, with per-partner order volumes scaling by an order of magnitude as self-serve matured</div>
+  <div><span class="cap">Status</span>Built and demo-validated</div>
+ </div>
+
+ <div class="scanbox scan-only rv in">
+  <span class="cap" style="color:var(--acc)">The 30-second version</span>
+  <div class="row"><span class="cap">Problem</span><span>A telecom that built a bespoke flow for every customer need wanted the opposite: open its systems so developers — and increasingly AI agents — could build against them directly.</span></div>
+  <div class="row"><span class="cap">Decision</span><span>AI-interpreted ordering confirmed in real-time UI instead of manual forms; an anonymized employee-data path the industry had avoided for years; a pilot structure that answered legal&rsquo;s AI-liability fears.</span></div>
+  <div class="row"><span class="cap">Outcome</span><span>Everything built and resonating in early tests — enterprise orders projected from 2–4 hours down to 10–20 minutes.</span></div>
+ </div>
+
+ <div class="prose d-read">
+  <p class="lede">Telecoms grew up building a flow for every customer need. The API Marketplace was T-Mobile deciding to stop: open the systems themselves, let enterprise developers integrate directly — and design for a near future where the "user" placing a 10,000-line order might be a person, an AI agent, or both taking turns.</p>
+
+  <h2 id="sec-inverting-the-company"><span class="num">01</span>Inverting the company</h2>
+  <p>This wasn't a feature; it was the model turned inside out, touching effectively every part of the offering. The context that made it hard is the context that made it necessary: a marketing-first company running on roughly 200 codebases of legacy infrastructure, where every new customer need historically meant another bespoke build. A developer-first platform was the exit from that treadmill — and we could already see where MCP-style agent integration was heading: our future users would be a mix of human and AI.</p>
+
+  <figure aria-label="Model inversion diagram">
+   <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img">
+    <style>text{font-family:Inter,system-ui,sans-serif}</style>
+    <g fill="none" stroke="#141412" stroke-width="1">
+     <rect x="8" y="30" width="140" height="40"/><rect x="8" y="90" width="140" height="40"/><rect x="8" y="150" width="140" height="40"/>
+     <path d="M148 50 H210 M148 110 H210 M148 170 H210"/>
+     <rect x="210" y="90" width="120" height="40"/>
+     <text x="0" y="0"/>
+     <rect x="430" y="20" width="130" height="40"/><rect x="430" y="90" width="130" height="40" stroke="#3425FF"/><rect x="430" y="160" width="130" height="40"/>
+     <path d="M560 40 H620 V100 H648 M560 110 H648 M560 180 H620 V120 H648" />
+     <rect x="648" y="85" width="64" height="50"/>
+    </g>
+    <g font-size="11.5" fill="#141412">
+     <text x="16" y="54">Customer need A</text><text x="16" y="114">Customer need B</text><text x="16" y="174">Customer need C</text>
+     <text x="222" y="114">Bespoke flows</text>
+     <text x="440" y="44">Developers</text><text x="440" y="114" fill="#3425FF">AI agents</text><text x="440" y="184">Hybrid teams</text>
+     <text x="654" y="114">APIs</text>
+    </g>
+    <g font-size="10" fill="#6B675E">
+     <text x="8" y="16">BEFORE — build everything</text><text x="430" y="12">AFTER — open the system</text>
+    </g>
+   </svg>
+   <figcaption>The inversion: from a bespoke flow per need to a platform that developers and AI agents build against. All diagrams recreated; no proprietary material appears in this case study.</figcaption>
+  </figure>
+
+  <h2 id="sec-decision-ai-interprets-the-interface-con"><span class="num">02</span>Decision: AI interprets, the interface confirms</h2>
+  <p>The default path was the familiar one: forms. Enterprise admins manually keying employee and order data into UI screens, the way it had always worked. I argued we should stop designing for manual input at all — let customers hand us the data they already had, have frontier models interpret it, then show the interpretation back for confirmation and local edits.</p>
+  <p>The part I fought hardest for was <strong>where</strong> that confirmation lives. Chat alone couldn't carry it: a 5,000-line bulk change explained in a small conversational context window is a wall of words nobody can verify. I pushed for <strong>real-time UI as the confirmation surface</strong> — the model's interpretation rendered as live, editable, visual state, with conversation as an additional input channel rather than the only one. People confirm data they can see; they rubber-stamp data they can't.</p>
+  <div class="callout">Chat is a great way to ask. It's a terrible way to verify a 5,000-row answer.</div>
+
+  <h2 id="sec-decision-the-data-nobody-wanted-to-touch"><span class="num">03</span>Decision: the data nobody wanted to touch</h2>
+  <p>The slowest part of enterprise ordering was always the same: getting employee data into the system. The industry norm — ours included — was to avoid tying orders directly to user data at all; the security and compliance surface scared everyone. I pushed for an <strong>anonymized employee-data path</strong>: clients share what's needed for ordering without exposing identities, we integrate with their employee-data portals through the MCP layer, and the order builds itself around confirmed real needs.</p>
+  <p>That single change was the difference between an enterprise order taking <strong>2–4 hours and taking 10–20 minutes</strong>. Early qualitative tests of the model-driven flow showed it resonating with exactly the users who had been burned by manual entry.</p>
+
+  <h2 id="sec-decision-making-the-economics-and-the-la"><span class="num">04</span>Decision: making the economics and the lawyers say yes</h2>
+  <p>Two objections could have killed it. Legal and compliance asked the right question — if our AI misinterprets an order, are we liable? And finance saw model token costs as an open-ended risk. The structure I argued for answered both at once: price the service, then <strong>waive the fee for the launch cohort</strong> in exchange for them stress-testing the system and accepting pilot terms. Partners got early access out of legacy systems their developers already wanted to leave; we got real-world error data under a controlled agreement, token-cost telemetry from real usage, and a value story — faster sales cycles, fewer botched orders to unwind — that could carry the future build-vs-open-source model decision.</p>
+
+  <h2 id="sec-how-it-ended"><span class="num">05</span>How it ended</h2>
+  <p>Everything was built and ready to go. Then a reorganization and budget realignment cut the team — mine included — before launch. Whether it shipped after the handoff: unknown. I'm at peace with the work and not at peace with the timing, which is the lesson.</p>
+  <p>What I'd do differently: push harder and faster a year earlier. I treated organizational patience as a constant; it's a variable. If the pilot had launched before the reorg, the value would have been visible enough to defend itself. <strong>Speed isn't just a delivery concern — it's risk management against the org changing its mind.</strong></p>
+ </div>
+
+ <section class="d-dive dd2">
+ <span class="cap">Deep dive</span>
+ <h2 style="margin-top:10px">The full working detail</h2>
+ <p class="ddsub">Why each rule exists, and what it costs.</p>
+ <div class="legend"><span class="chip t-stone">Evidence</span><span class="chip t-sand">Method</span><span class="chip t-clay">Constraint</span><span class="chip t-sage">Lesson</span></div>
+ <div class="dd-grid">
+  <details class="dcard t-stone wide"><summary><span class="klabel">Evidence</span><span class="dtitle">Chat vs. real-time UI as the confirmation surface</span></summary><div class="inner"><table><tr><th>Dimension</th><th>Chat-only</th><th>Real-time UI + chat input</th></tr><tr><td>Bulk changes (1k–10k lines)</td><td>Summarized prose; unverifiable</td><td>Live tables/visuals; scannable, sortable, checkable</td></tr><tr><td>Error discovery</td><td>User must notice from description</td><td>Anomalies visible in the data representation</td></tr><tr><td>Edit loop</td><td>Re-prompt and hope</td><td>Direct manipulation on the interpreted state</td></tr><tr><td>Trust building</td><td>Opaque — "the AI said so"</td><td>Transparent — see exactly what will execute</td></tr><tr><td>Audit / compliance</td><td>Conversation logs</td><td>Structured state diffs per confirmation</td></tr></table><p>The pattern — model interprets, interface renders interpreted state, human confirms visually, conversation stays available as an input channel — is what agentic enterprise UX is converging on. We were designing it against real 10,000-line orders in 2025.</p></div></details>
+  <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">Why anonymization was the breakthrough</span></summary><div class="inner"><p>Direct user-data integration had been avoided industry-wide for years — every design that touched identified employee data inherited a security and compliance surface that stalled projects. Anonymizing at the source flipped the question from &ldquo;can we be trusted with your employee data&rdquo; to &ldquo;you keep your data; give us only the shape of the need.&rdquo; It preserved the speed value — orders built from real needs, not manual re-entry — while shrinking the attack and liability surface that had killed prior attempts.</p></div></details>
+  <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">The pilot structure: liability, tokens, and trust in one move</span></summary><div class="inner"><p>Waived-fee pilot for the launch cohort under explicit test terms. What each party got: partners escaped legacy integration pain early and shaped the product; legal got contained, consented conditions for AI-error handling instead of open-ended liability; finance got real token-usage data to price against measured value — faster sales cycles, fewer error corrections — rather than fear; design got live qualitative evidence. One structure, four objections retired.</p></div></details>
+  <details class="dcard t-clay"><summary><span class="klabel">Constraint</span><span class="dtitle">200 codebases and a marketing-first inheritance</span></summary><div class="inner"><p>T-Mobile grew as a marketing company first; the technology accumulated around campaigns rather than platforms, leaving roughly 200 codebases where a product-first company might have dozens. Every integration the marketplace promised had to negotiate that reality. It's also why the project mattered beyond its own revenue: a developer-first platform was the first structural exit from building one more bespoke flow per campaign, forever.</p></div></details>
+  <details class="dcard t-sage"><summary><span class="klabel">Lesson</span><span class="dtitle">Designing for AI agents as first-class users</span></summary><div class="inner"><p>Treating &ldquo;user&rdquo; as human, agent, or hybrid changed concrete decisions: interfaces doubled as verification layers for agent-initiated actions; flows assumed machine-readable state — the same structure MCP-style integrations consume; confirmation steps were designed as the human checkpoint in otherwise automatable sequences. The design question shifted from &ldquo;how does a person do this&rdquo; to &ldquo;where must a person be in the loop, and what do they need to see there.&rdquo;</p></div></details>
+  <details class="dcard t-sage"><summary><span class="klabel">Lesson</span><span class="dtitle">Speed is a stakeholder</span></summary><div class="inner"><p>The project died of timing, not quality — a reorg arrived before the pilot could prove its value. What I now treat as a design input: organizational patience is a depleting resource, and every quarter of polish spends it. If the value story needs a live pilot to be undeniable, getting to that pilot fast is not corner-cutting — it is how you protect the work from the org's own weather.</p></div></details>
+ </div>
+</section>
+
+ <div class="next">
+  <span class="cap">Next case study</span>
+  <h2 style="margin-top:12px"><a href="tmobile-trade-in.html">One trade-in flow for four systems →</a></h2>
+ </div>
+
+<p class="protolink"><a href="../prototypes/api-marketplace.html">Visit the marketplace as a developer would <i>↗</i></a> <span style="color:var(--muted);font-size:13px;margin-left:10px">Simulated product site — built as part of this case study.</span></p>
+</main>
+
+
+<footer data-surface="inverse">
+ <nav class="crumbs fcrumbs" aria-label="Breadcrumb"><span class="dot" style="background:var(--cat-work)"></span><a href="../index.html">Home</a><span class="sep">/</span><a href="../work.html">Work</a><span class="sep">/</span><b>01 · API Marketplace</b></nav>
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/></svg>LinkedIn</a>
+   <a href="https://www.instagram.com/sltomato" rel="noopener" data-peek="Instagram &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="1"/></svg>Instagram</a>
+   <a href="../resume.pdf" data-peek="PDF &middot; one page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Resume</a>
+  </div>
+ </div>
+ <a href="../explorations/01-terminal.html" title="or just press `" style="opacity:.45;text-decoration:none" aria-label="The terminal">~</a>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>
