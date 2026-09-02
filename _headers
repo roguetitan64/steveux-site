@@ -1,0 +1,9 @@
+# steveux.com — Netlify headers (v5.8b, 2026-09-02)
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# images are re-exported under the same names when they change, so one week, not immutable
+/images/*
+  Cache-Control: public, max-age=604800
