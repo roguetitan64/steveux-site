@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Implementing AI into a live revenue operation — Steven Long Tran</title>
+<meta name="description" content="What an AI system looks like when it has to survive contact with real money: governance, executed checks, model portability — and what broke.">
+<link rel="stylesheet" href="styles.css">
+<!-- DRAFT 2026-07-15, for Steven's review. Deliberately NOT linked from index nav yet.
+     Before publish (portfolio-studio sprint): add the Scan/Read/Dive depth tiers + app.js wiring,
+     add a bento tile on index.html, swap the placeholder figure, then QA per taste-file engineering rules.
+     Depth toggle intentionally omitted in this draft: unwired buttons would be fake UI (banned, Tier 0). -->
+</head>
+<body>
+<header>
+ <nav class="nav">
+  <a class="logo" href="index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="index.html">Home</a><a href="work.html" aria-current="page">Work</a><a href="side-quests.html">Side Quests</a><a href="about.html">About</a></nav>
+ </nav>
+</header>
+
+<main class="inner">
+ <section class="cs-hero">
+  <p class="cap">Working note · Self-implementation · 2026</p>
+  <h1>An AI operation that has to <em>earn</em> its own trust</h1>
+  <p class="lede">I run one AI operating system across a live B2B sales pipeline and a multi-lane solo practice. It is governed by written rules, staffed by cheap agents whose work is verified by execution rather than belief, and portable across model vendors. This is what it looks like — including the parts that broke.</p>
+ </section>
+
+ <section>
+  <p class="cap">The problem</p>
+  <p>Teams don't lack AI access — they lack AI <em>systems</em>. Buying a model is easy. Turning it into a workflow people trust is the unglamorous middle where most rollouts stall. Three failure modes recur: the AI is powerful but ungoverned, so it drifts off-task. Its successes are self-reported — "done," "sent," "fixed" — and believed. And the whole setup is wired to one vendor, so a pricing or access change breaks the operation.</p>
+  <p>I designed my own system against all three, on purpose, before proposing it to anyone else.</p>
+ </section>
+
+ <section>
+  <p class="cap">What I built</p>
+  <p><strong>A governance layer.</strong> A written constitution every AI session must follow: a retrieval contract that bounds what it reads, a rule that observations become permanent instructions only after they recur, and one overriding law protecting revenue work from being crowded out by system-building. This is the layer nobody thinks to build, and it's what makes autonomy safe.</p>
+  <p><strong>An agent company with executed checks.</strong> Cheap, audited AI workers do the volume; nothing is accepted on a worker's say-so. A claim of "done" is checked by executing it — running the code, opening the file, confirming the send actually happened.</p>
+  <p><strong>Model portability.</strong> New workers — including cheaper models — pass a small mechanical tryout before touching real work; the same jobs run across providers. When a vendor changes terms, the system migrates instead of collapsing.</p>
+  <p><strong>The pipeline itself.</strong> Sourcing and scoring hundreds of prospect accounts, signal-first target lists, personalized outreach and diagnostic audits — agents carrying volume a person can't, with judgment applied at the decision points.</p>
+ </section>
+
+ <blockquote class="callout">Reliability is designed, not prompted. A governed workflow a team actually adopts beats a smarter model they don't.</blockquote>
+
+ <section>
+  <p class="cap">What broke — the credible part</p>
+  <p>The system once reported an email "sent." A direct check of the actual outbox showed it wasn't — caught before it mattered, and the executed-check rule went from habit to law. Two copies of the pipeline data drifted apart because both were being edited; a scheduled reconciliation pass and a single designated source of truth fixed it. Scheduled jobs jammed on stale lock files; an automated step once stamped files with the wrong date. Small, boring failures — and none of them were model-intelligence problems. All of them were implementation problems. That is the actual work.</p>
+ </section>
+
+ <section>
+  <p class="cap">Why this transfers</p>
+  <p>None of these components are specific to my operation. A governance layer, executed verification, vendor portability, human judgment at the decision points, scheduled automation with one source of truth — that's the general shape of a reliable AI implementation, and it installs in any team's environment. Eleven years of UX means I build the human side of adoption — the reason a workflow gets used instead of abandoned — not just the plumbing.</p>
+  <p><strong>The honest boundary:</strong> this is proof of method and machinery, not of your results. I haven't run it for a paying client yet, and I won't claim numbers I don't have.</p>
+ </section>
+
+ <section>
+  <p class="cap">Where to start</p>
+  <p>A fixed-scope <strong>AI-Readiness Audit</strong>: a working session plus a written roadmap — your tools, your workflows, where AI helps versus hurts, what to implement first — with the fee credited toward the build if we continue. Reach me at <a href="mailto:hello@steveux.com">hello@steveux.com</a>.</p>
+ </section>
+</main>
+
+<footer data-surface="inverse">
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/></svg>LinkedIn</a>
+   <a href="https://www.instagram.com/sltomato" rel="noopener" data-peek="Instagram &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="1"/></svg>Instagram</a>
+   <a href="resume.pdf" data-peek="PDF &middot; one page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Resume</a>
+  </div>
+ </div>
+ <a href="explorations/01-terminal.html" title="or just press `" style="opacity:.45;text-decoration:none" aria-label="The terminal">~</a>
+</footer>
+</body>
+</html>

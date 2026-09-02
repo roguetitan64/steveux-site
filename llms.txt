@@ -1,0 +1,24 @@
+# Steven Long Tran — Senior Product Designer
+
+> 11 years making complex software feel intuitive. San Francisco ↔ Medellín. EN · VI · ES. This site is static HTML, fully readable without JavaScript; every case study leads with the outcome.
+
+## Case studies
+- [T-Mobile API Marketplace](https://steveux.com/case-studies/api-marketplace.html): designed for customers who might not be human; 10+ enterprise launch partners, 200 codebases on one platform
+- [T-Mobile for Business Trade-in](https://steveux.com/case-studies/tmobile-trade-in.html): trade-in processing cut from 2–4 hours to 10–20 minutes per client; ~2k business clients a month
+- [Western Union](https://steveux.com/case-studies/western-union.html): 72+ projects across 8 flows, 200+ countries, 40+ languages
+- [Healthcare, rare disease (NDA)](https://steveux.com/case-studies/rare-disease.html): first responsive property for the client; two-year engagement extension earned
+- [Koé](https://steveux.com/case-studies/koe-2026.html): betting platform redesign, 2015 work rebuilt for 2026 with a live prototype
+- [FindMyBike](https://steveux.com/case-studies/findmybike-2026.html): theft recovery as an agentic workflow, 2015 work rebuilt for 2026
+- [Compas](https://steveux.com/case-studies/compas.html): in progress; 3 method legs, zero invented claims enforced
+
+## Method
+- [How I work with AI](https://steveux.com/ai-operation.html): a personal AI OS running daily; this site had zero mockup phases
+- [The rebuild log](https://steveux.com/rebuild-log.html): the site documenting its own 3-day rebuild
+- [The explorations](https://steveux.com/explorations/index.html): the same portfolio in 15 fully built alternate identities; 256 combinations from one engine
+
+## About
+- [About Steven](https://steveux.com/about.html)
+- [Resume, PDF](https://steveux.com/resume.pdf)
+- [LinkedIn](https://www.linkedin.com/in/stevenlongtran/)
+
+Contact: hello@steveux.com

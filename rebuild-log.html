@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>Side quest: rebuilding this site with an AI pair — Steven Long Tran</title>
+<meta name="description" content="How steveux.com was rebuilt in three days with an AI collaborator: twenty-plus build passes, a written taste system, tokens that sync to Figma, and every interaction earned.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.steveux.com/"},{"@type":"ListItem","position":2,"name":"Side Quests","item":"https://www.steveux.com/work.html"},{"@type":"ListItem","position":3,"name":"Rebuilding this site","item":"https://www.steveux.com/rebuild-log.html"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-depth="read">
+<header>
+ <nav class="nav">
+  <a class="logo" href="index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="index.html">Home</a><a href="work.html">Work</a><a href="side-quests.html" aria-current="page">Side Quests</a><a href="about.html">About</a></nav>
+  <div class="depth" role="group" aria-label="Reading level"><button data-d="scan" aria-pressed="false">Scan</button><button data-d="dive" class="on" aria-pressed="true">Read</button></div>
+ </nav>
+</header>
+
+<main class="wrap">
+ <div class="cs-hero">
+  <span class="cap">Side quest · Meta · 2026</span>
+  <h1>This site is a case study: rebuilding steveux.com with an AI pair</h1>
+ </div>
+ <figure class="rhero"><img src="images/hero-rebuild.webp" alt="A pencil bent into a full circle, drawing its own line; the tip is ultramarine - the site documenting its own making." onerror="this.parentElement.style.display=&#39;none&#39;"></figure>
+
+ <div class="facts">
+  <div><span class="cap">Timeline</span>Three days, ~twenty-plus build passes</div>
+  <div><span class="cap">Method</span>Designed in code — no mockup phase, no build step, no framework</div>
+  <div><span class="cap">Governance</span>A written taste file with 9 amendments; every change checked against it</div>
+  <div><span class="cap">Stack</span>HTML + one CSS file + vanilla JS · tokens.json → Figma via Tokens Studio</div>
+ </div>
+
+ <div class="scanbox scan-only"><span class="cap" style="color:var(--acc)">The 30-second version</span>
+  <div class="row"><span class="cap">Problem</span><span>The old Squarespace site said 5+ years (I have 11), led with bootcamp-era work, and wore a template&rsquo;s clothes.</span></div>
+  <div class="row"><span class="cap">Decision</span><span>Rebuild in code with an AI collaborator, governed by a written taste system instead of vibes — and treat every interaction as something that must earn its place.</span></div>
+  <div class="row"><span class="cap">Outcome</span><span>The site you&rsquo;re on: reading-depth states, morphing nav, a deep-dive mode, dark mode, and a design system that round-trips to Figma.</span></div>
+ </div>
+
+ <div class="prose d-read">
+  <p style="font-size:20px;line-height:1.5">The fastest way to evaluate how a designer works with AI is to look at something they actually shipped with it. So here is exactly how this site was made — the ingestion, the iterations, the arguments, and the interactions.</p>
+
+  <h2><span class="num">01</span>Ingesting the old site</h2>
+  <p>We started by feeding the AI the old portfolio: full-page screenshots of every page, then the live site itself. The audit that came back was blunt — generic positioning ("team player in fast-paced environments"), an 11-year career introduced as "5+ years," case studies with label-titles instead of claims, and a blue low-poly hero that belonged to a template, not a person. The strongest decade of work — enterprise commerce, trade-in systems, an API marketplace — wasn&rsquo;t on the site at all. That audit became a plan; the plan became a file.</p>
+
+  <h2><span class="num">02</span>Writing taste down before writing code</h2>
+  <p>The single most useful artifact isn&rsquo;t code: it&rsquo;s a taste file — palette tokens, banned visual clich&eacute;s, a banned lexicon, evidence rules (no invented metrics, no fake testimonials, placeholders stay visibly empty), and a change protocol. Every "make it better" idea since, including a couple of viral audit prompts, got checked against that file instead of triggering a rebuild. Nine amendments later, it&rsquo;s the constitution this site is governed by — and any AI session that touches the code reads it first.</p>
+
+  <h2><span class="num">03</span>Twenty-plus passes, each one earned</h2>
+  <p>Version one was clean and static. Version two brought the bento grid and a reading-depth toggle. Then, pass by pass: real project imagery recovered from the old site, deep-dives redesigned from timid accordions into color-coded card grids, a homepage Dive state that dissolves the grid into full-width detail, a section rail with hover previews, category color bars with computed contrast ratios, a 16px type floor, 64px rhythm, dark mode, elevation states, and the morphing navigation. Several passes were corrections — the filter pills wandered into the header and had to be argued back out; a "Dive" state that changed nothing got called out as a broken promise and rebuilt.</p>
+
+  <h2><span class="num">04</span>What the interactions are for</h2>
+  <p>Every interaction on this site maps to a reason. Reading-depth states exist because a recruiter, a hiring manager, and a fellow designer need three different sites. The cursor preview chip tells you what a click costs before you spend it. Cards rest, lift, and press — three states, because interfaces should feel like they have mass. The nav morphs between tab-bar and text-links so you always know which altitude you&rsquo;re at, and the header gets out of the way when you&rsquo;re reading. Nothing glows, nothing floats, nothing is a modal — this portfolio contains a case study about why.</p>
+
+  <h2><span class="num">05</span>What AI actually did</h2>
+  <p>The division of labor: I supplied taste, judgment, the war stories, and every veto; the AI supplied speed, memory, contrast math, accessibility checks, and the discipline of writing decisions down. It drafted; I rejected; it rebuilt. The tokens file it maintains now syncs to Figma, so design changes flow token-first in either direction. If you&rsquo;re evaluating whether I can work AI-natively: you&rsquo;re looking at the deliverable.</p>
+ </div>
+
+ <div class="nums" style="margin-top:var(--vsp2)"><div><b>20+</b><span>build passes</span></div><div><b>18</b><span>taste-file amendments</span></div><div><b>9</b><span>interface languages</span></div><div><b>3</b><span>working prototypes</span></div><div><b>21</b><span>illustrations, one blue</span></div><div><b>1</b><span>scroll bug, root-caused</span></div></div>
+
+ <section style="margin-top:var(--vsp)">
+  <span class="cap">Feature set</span>
+  <h2 style="margin:12px 0 6px">Everything here is governed by a written system</h2>
+  <p style="color:var(--muted);font-size:calc(16px*var(--fs,1));max-width:44em">Each pattern exists in the taste file before it exists in code. The file wins every argument.</p>
+  <div class="featgrid">
+   <div class="fcard"><b>Reading depth</b><span>Scan / Read / Dive are three layouts, not three text lengths. A dead toggle is a broken promise.</span></div>
+   <div class="fcard"><b>Dynamic hero</b><span>The title rewrites itself per filter: I make {problem} feel {outcome}. Vocabulary lives in markdown, not code.</span></div>
+   <div class="fcard"><b>Nav morph</b><span>Pills become text links across pages via cross-document View Transitions. You always know your altitude.</span></div>
+   <div class="fcard"><b>The deep dive</b><span>At Dive the bento dissolves into full-width evidence bands plus a ledger of ~114 smaller projects.</span></div>
+   <div class="fcard"><b>A11y dock</b><span>Nine languages (RTL flips the whole site), three type sizes, and a scroll-feel setting. Imposing scroll-feel is someone else&rsquo;s move; offering it is ours.</span></div>
+   <div class="fcard"><b>Dark mode</b><span>A full token theme, contrast-verified, toggled by a tile whose own illustration flips with it.</span></div>
+   <div class="fcard"><b>Simulated prototypes</b><span>Koé and FindMyBike run rule-based stand-ins on-page, labeled as such. Nothing leaves the page.</span></div>
+   <div class="fcard"><b>Illustration system</b><span>One prompt kit, one accent, a QA gate that rejects gradients and third colors. SVG heroes recolor themselves in dark mode.</span></div>
+   <div class="fcard"><b>Priority mosaic</b><span>Tile sizes encode importance: recent and AI-native work reads bigger at every depth.</span></div>
+  </div>
+ </section>
+
+ <section style="margin-top:var(--vsp)">
+  <span class="cap">The build log</span>
+  <h2 style="margin:12px 0 6px">Pass by pass, with the failures kept in</h2>
+  <div class="passes">
+   <div class="bpass"><i>01</i><div><b>Ingest + taste file</b><span>Old site scraped, 11 years inventoried, the constitution written before any code.</span></div></div>
+   <div class="bpass"><i>02&ndash;04</i><div><b>Depth system</b><span>Scanboxes, Read essays, Dive card grids &mdash; color-coded stone/sand/clay/sage by meaning.</span></div></div>
+   <div class="bpass"><i>05</i><div><b>The deep dive</b><span>Homepage Dive rebuilt from &ldquo;same tiles, more words&rdquo; into full-width evidence bands. First real argument won by the taste file.</span></div></div>
+   <div class="bpass"><i>06&ndash;08</i><div><b>Filters + dynamic hero</b><span>Fly-in panel, falling-up choreography, the title grammar. A filter-precedence bug was root-caused with a node test harness running the site&rsquo;s own module &mdash; 8 scenarios, then the fix.</span></div></div>
+   <div class="bpass"><i>09&ndash;10</i><div><b>Nav morph, dock, dark mode</b><span>View Transitions tuned to 500ms luxurious; nine languages with native-name roll; category bars contrast-computed, not eyeballed.</span></div></div>
+   <div class="bpass"><i>11</i><div><b>The Rebuilt series</b><span>Compas from a structured intake interview; Ko&eacute; and FindMyBike as 2015&rarr;2026 concept rebuilds with working simulated prototypes.</span></div></div>
+   <div class="bpass"><i>12</i><div><b>Illustration day</b><span>Ten raster heroes generated against the prompt kit, depth-scaled onto tiles, bands, and pages. The portrait scene landed with a duplicate baked into the canvas &mdash; caught, cropped.</span></div></div>
+   <div class="bpass fail"><i>13</i><div><b>The scroll bug</b><span>Smooth scrolling felt wrong through three tuning passes because no tuning could fix it: <code>html{scroll-behavior:smooth}</code> was turning every JS frame-write into its own browser animation &mdash; ~60 fights per second. Rebuilt time-based with instant writes. Lesson pinned: two smoothing systems layered means neither works.</span></div></div>
+   <div class="bpass"><i>14</i><div><b>The copy audit</b><span>A six-axis rubric run against the site&rsquo;s own prose. Finding: &ldquo;honest&rdquo; appeared 30 times &mdash; evidence should carry that load. Now it appears 5.</span></div></div>
+  </div>
+ </section>
+
+ <section style="margin-top:var(--vsp)">
+  <span class="cap">Documentation, excerpted</span>
+  <h2 style="margin:12px 0 6px">The artifacts that govern the site</h2>
+  <div class="artgrid">
+   <figure class="artifact t-stone"><figcaption>portfolio-taste.md &middot; the constitution</figcaption><pre>BANNED: gradients, glassmorphism, glowing
+blobs, purple/cyan "AI" visuals, icon
+circles*, stock photos, low-poly heroes,
+floating fake UI, decorative networks.
+*amended: circle = Scan depth signifier</pre></figure>
+   <figure class="artifact t-sand"><figcaption>copy-evaluation-system.md &middot; scorecard</figcaption><pre>Claims not labels     5/5
+Front-loading         4/5
+Specificity           5/5
+Sentence load         3/5 -> split x5
+CTAs                  4/5 -> renamed x4
+Self-description      2/5 -> honest 30->5</pre></figure>
+   <figure class="artifact t-clay"><figcaption>scroll post-mortem &middot; 2026-07-06</figcaption><pre>cause: CSS scroll-behavior:smooth
+x JS engine writing 60fps
+= 60 overlapping animations/sec
+fix: behavior:'instant' writes,
+     easing owned by the engine
+     K=9 (one dial: snap vs float)</pre></figure>
+   <figure class="artifact t-sage"><figcaption>image-prompt-kit.md &middot; the style block</figcaption><pre>warm off-white #EFEFE7 - thin black
+ink line-art - exactly ONE accent
+#3425FF - flat, no gradients, no glow,
+NO TEXT - generous negative space
+QA gate: reject on third color</pre></figure>
+  </div>
+ </section>
+
+ <section class="d-dive dd2">
+  <span class="cap">Deep dive</span>
+  <h2 style="margin-top:10px">The change log, abridged</h2>
+  <p class="ddsub">What happened, pass by pass — the decision log is the product.</p>
+  <div class="legend"><span class="chip t-stone">Evidence</span><span class="chip t-sand">Method</span><span class="chip t-clay">Constraint</span><span class="chip t-sage">Lesson</span></div>
+  <div class="dd-grid">
+   <details class="dcard t-sand"><summary><span class="klabel">Method</span><span class="dtitle">The taste file as change firewall</span></summary><div class="inner"><p>Palette, type, motion rules, architecture rules, copy voice, evidence rules, engineering rules — one markdown file, versioned by amendment. New ideas amend the file first, then get built once. It&rsquo;s the same governance pattern I&rsquo;d use on an enterprise design system, applied to a personal site.</p></div></details>
+   <details class="dcard t-stone"><summary><span class="klabel">Evidence</span><span class="dtitle">Accessibility, computed not eyeballed</span></summary><div class="inner"><p>Category bars: 6.79:1, 3.73:1, 5.36:1 against the card surface (WCAG 1.4.11 needs 3:1). The requested "yellow" became deep ochre because actual yellow fails at ~1.3:1. Dark mode&rsquo;s accent was lightened until every pair cleared 5:1, and the one white-on-accent failure was caught and flipped to ink. All of it verified by script, logged in the tokens file.</p></div></details>
+   <details class="dcard t-clay"><summary><span class="klabel">Constraint</span><span class="dtitle">No framework, no build step — on purpose</span></summary><div class="inner"><p>One CSS file, vanilla JS, semantic HTML, real URLs. Partly taste, partly strategy: a site an AI can read is a site an AI can maintain — clean structure, named tokens, no compiled indirection. The same "make your system legible to the machines" argument now shaping design-systems work generally.</p></div></details>
+   <details class="dcard t-sage"><summary><span class="klabel">Lesson</span><span class="dtitle">The AI needed a veto more than a prompt</span></summary><div class="inner"><p>The best passes came after a hard no: the header that morphed per page, the dead Dive state, the tacky marquee. AI collaboration isn&rsquo;t prompt-craft — it&rsquo;s maintaining a standard the collaborator can be held to. Which is, not coincidentally, the job description of a design lead.</p></div></details>
+  </div>
+ </section>
+
+ <div class="next"><span class="cap">Back to</span><h2><a href="work.html">All side quests →</a></h2></div>
+</main>
+
+<footer data-surface="inverse">
+ <nav class="crumbs fcrumbs" aria-label="Breadcrumb"><span class="dot" style="background:var(--cat-side)"></span><a href="index.html">Home</a><span class="sep">/</span><a href="work.html">Side Quests</a><span class="sep">/</span><b>Rebuilding this site</b></nav>
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/></svg>LinkedIn</a>
+   <a href="https://www.instagram.com/sltomato" rel="noopener" data-peek="Instagram &middot; external"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r="1"/></svg>Instagram</a>
+   <a href="resume.pdf" data-peek="PDF &middot; one page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Resume</a>
+  </div>
+ </div>
+ <a href="explorations/01-terminal.html" title="or just press `" style="opacity:.45;text-decoration:none" aria-label="The terminal">~</a>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
