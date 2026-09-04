@@ -715,7 +715,11 @@ body[data-depth="scan"] .quiet:focus-within .go{opacity:1}
 .fx:nth-child(even) .fximg{order:2}
 .fximg{display:block;border-radius:14px;overflow:hidden;background:var(--layer-2)}
 .fximg .timg{display:block;margin:0}
-.fximg img{display:block;width:100%;height:100%;aspect-ratio:16/10;object-fit:cover}
+.fximg img{display:block;width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;
+  /* v5.9c: the tile shots are built with logo + headline anchored top-left; the
+     default centre crop amputated the left edge on the homepage cards. Same rule
+     as the v4 toggle fix (body[data-tileimg=shot] ... object-position:left top). */
+  object-position:left top}
 .fxbody{display:flex;flex-direction:column;align-items:flex-start;gap:0}
 .fxbody h2{font-size:clamp(23px,2.5vw,32px);line-height:1.16;font-weight:600;letter-spacing:-.015em;margin:12px 0 12px}
 .fxout{font-size:calc(16px*var(--fs,1));color:var(--body);margin:0 0 20px;max-width:34em}
