@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>Demo store — Steven Long Tran</title>
+<meta name="description" content="A fictional gift-box store walked as a customer: product page, collection, cart, checkout. Each step annotated with what it does and the number behind it.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* demo store · page-scoped · v5 tokens only */
+.dm-bar{background:var(--acc);color:#fff;font-size:13px;letter-spacing:.02em;text-align:center;padding:10px 24px}
+.dm-bar a{color:#fff;border-bottom:1px solid rgba(255,255,255,.6);margin-left:10px}
+.dm-ann{background:var(--ink);color:var(--bg);font-size:12.5px;text-align:center;padding:8px 24px}
+.dm-wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.dm-note{position:relative;border-left:3px solid var(--acc);padding:2px 0 2px 18px;max-width:40em;font-size:15px;line-height:1.6;color:var(--body);margin-top:28px}
+.dm-note b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+.dm-note cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;letter-spacing:.04em}
+.dm-pin{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;font-size:12px;font-weight:600;vertical-align:middle;margin-right:8px}
+.dm-sec{padding:var(--vsp,64px) 0;border-top:1px solid var(--hair)}
+.dm-sec:first-of-type{border-top:0}
+.dm-h2{font-size:clamp(26px,3.4vw,40px);line-height:1.08;letter-spacing:-.02em;margin:8px 0 20px}
+.dm-h2 em{color:var(--acc)}
+/* product page */
+.pdp{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:900px){.pdp{grid-template-columns:1fr;gap:32px}}
+.pdp-art{aspect-ratio:1/1;border-radius:var(--r-tile);background:var(--ink);background-image:radial-gradient(circle at 40% 40%,#4a3bff 0,#141412 62%);position:relative;overflow:hidden;display:grid;place-items:center}
+.pdp-art span{font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,56px);color:#fff;letter-spacing:-.02em;text-align:center;padding:24px}
+.pdp-cap{margin-top:12px;font-size:13px;color:var(--muted)}
+.pdp h1{font-size:clamp(34px,5vw,64px);line-height:1.02;letter-spacing:-.03em;margin:8px 0 12px}
+.pdp h1 em{color:var(--acc)}
+.pdp-price{font-size:20px;margin-bottom:8px}
+.pdp-price b{font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;color:var(--acc);margin-right:10px}
+.pdp-price s{color:var(--muted);font-size:16px;margin-right:8px}
+.pdp-price .tag{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#FF5A3C;font-weight:600}
+.pdp-rev{font-size:14px;color:var(--body);margin-bottom:18px}
+.pdp-rev span{color:#E7A500;letter-spacing:.1em;margin-right:6px}
+.pdp-lede{font-size:17px;line-height:1.55;color:var(--body);max-width:32em}
+.pdp-gift{margin:18px 0;padding:12px 14px;border:1px solid var(--hair);border-radius:12px;background:var(--wash-side);font-size:14.5px;color:var(--cat-side);font-weight:500}
+.variants{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 20px}
+.variants label{cursor:pointer}
+.variants input{position:absolute;opacity:0;width:1px;height:1px}
+.variants span{display:inline-block;padding:9px 16px;border:1px solid var(--hair);border-radius:99px;font-size:14.5px;background:var(--card)}
+.variants input:checked+span{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.variants input:focus-visible+span{outline:2px solid var(--acc);outline-offset:2px}
+.btn-ink{display:inline-flex;justify-content:center;align-items:center;gap:10px;width:100%;padding:17px 24px;border-radius:99px;background:var(--ink);color:var(--bg);font:500 17px 'Inter',system-ui,sans-serif;border:0;cursor:pointer}
+.btn-ink:hover{background:var(--acc);color:#fff}
+.btn-ink.in{background:var(--cat-side);color:#fff}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:99px;border:1px solid var(--ink);color:var(--ink);background:transparent;font:500 14.5px 'Inter',system-ui,sans-serif;cursor:pointer}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn-ghost.in{background:var(--cat-side);border-color:var(--cat-side);color:#fff}
+.pdp-fine{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.acc{border-top:1px solid var(--hair);padding:14px 0}
+.acc:last-of-type{border-bottom:1px solid var(--hair)}
+.acc summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";color:var(--acc);font-weight:400}
+.acc[open] summary::after{content:"–"}
+.acc p{margin-top:10px;font-size:15px;color:var(--body);line-height:1.6}
+.sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 24px;background:var(--card);border-top:1px solid var(--hair);transform:translateY(110%);transition:transform .45s var(--ease);font-size:14.5px}
+.sticky-atc.show{transform:none}
+.sticky-atc .btn-ink{width:auto;padding:11px 18px;font-size:14px}
+/* collection */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.prod{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-card);padding:14px 18px 20px;display:flex;flex-direction:column;gap:8px}
+.prod-art{aspect-ratio:4/3;border-radius:12px;margin-bottom:6px;position:relative}
+.prod-art.a1{background:var(--tint-sand)}.prod-art.a2{background:var(--tint-sage)}.prod-art.a3{background:var(--tint-clay)}
+.badge{position:absolute;top:10px;left:10px;background:#FF5A3C;color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px}
+.prod h3{font-size:18px;letter-spacing:-.01em;line-height:1.2}
+.prod p{font-size:14.5px;line-height:1.5;color:var(--body);flex:1}
+.prod-price{font-size:14px;color:var(--body)}
+.prod-price b{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;color:var(--acc);margin-right:6px}
+/* cart */
+.cart-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media (max-width:900px){.cart-grid{grid-template-columns:1fr}}
+.cart-lines{border-top:1px solid var(--hair)}
+.cart-line{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--hair);font-size:15px}
+.cart-line .rm{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:0;margin-left:10px}
+.cart-line b{font-family:'Instrument Serif',serif;font-weight:400;font-size:21px}
+.cart-line.gift{color:var(--cat-side)}
+.cart-line.gift s{color:var(--muted);margin-right:6px}
+.empty{padding:16px 0;color:var(--muted);border-bottom:1px solid var(--hair)}
+.ship-bar{margin:20px 0;font-size:13.5px;color:var(--body)}
+.ship-fill{display:block;height:6px;border-radius:99px;background:var(--layer-2);overflow:hidden;margin-bottom:8px}
+.ship-fill i{display:block;height:100%;width:0;background:var(--cat-side);border-radius:99px;transition:width .6s var(--ease)}
+.ship-bar em{font-style:normal;color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:500}
+.totals div{display:flex;justify-content:space-between;padding:7px 0;font-size:15px;color:var(--body)}
+.totals div[hidden]{display:none}
+.totals .grand{border-top:1px solid var(--hair);margin-top:6px;padding-top:12px;color:var(--ink);font-weight:600}
+.totals .grand dd{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;color:var(--acc)}
+.totals dd{margin:0}
+.cart-actions{margin-top:20px}
+/* checkout */
+.co-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media (max-width:900px){.co-grid{grid-template-columns:1fr}}
+.coform{display:grid;gap:14px}
+.coform label{display:grid;gap:6px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.coform label small{text-transform:none;letter-spacing:0}
+.coform input{width:100%;font:16px 'Inter',system-ui,sans-serif;padding:13px;border-radius:12px;border:1px solid var(--hair);background:var(--card);color:var(--ink)}
+.coform input:focus{outline:2px solid var(--acc);border-color:transparent}
+.coform .btn-ink{width:auto;justify-self:start;margin-top:6px}
+.summary{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-card);padding:22px}
+.summary ul{list-style:none;margin:10px 0 0}
+.summary li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--hair);font-size:15px;color:var(--body)}
+.summary li.gift{color:var(--cat-side)}
+.sum-total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 4px;font-size:15px}
+.sum-total b{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;color:var(--acc)}
+.placed{display:none;padding:22px 24px;border:1px solid var(--hair);border-radius:16px;background:var(--wash-side);color:var(--cat-side);font-size:17px;font-weight:500}
+.coform.is-sent .placed{display:block}
+.coform.is-sent label,.coform.is-sent .btn-ink{display:none}
+.dm-back{margin-top:40px;padding:26px;border:1px solid var(--hair);border-radius:var(--r-card);background:var(--wash-work);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+@media (max-width:700px){.dm-back{grid-template-columns:1fr}}
+.dm-back h3{font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+.dm-back p{color:var(--body);font-size:15px}
+.st-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:99px;font-size:15px;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--bg)}
+.st-btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+@media (prefers-reduced-motion:reduce){.sticky-atc,.ship-fill i{transition:none}}
+</style>
+</head>
+<body data-depth="read" class="p-stores-demo">
+<div class="dm-bar" role="note">Demo store. Nothing here is for sale, and the brand is invented. Every step is annotated with what it does and why.<a href="stores.html">Back to storefront design</a></div>
+<div class="dm-ann">Free shipping over $100 · $8 flat below · gifts arrive wrapped</div>
+<header>
+ <nav class="nav">
+  <a class="logo" href="stores.html">Nest &amp; Grove <span class="dot">·</span> demo</a>
+  <nav class="navlinks" aria-label="Demo store"><a href="#shop">Shop</a><a href="#cart" id="cartlink">Cart <span id="cart-count">0</span></a></nav>
+ </nav>
+</header>
+<main class="wrap">
+
+ <section class="dm-sec" id="product" aria-labelledby="pdp-h">
+  <span class="cap">Step 1 · Product page</span>
+  <div class="pdp">
+   <div>
+    <div class="pdp-art"><span>Signature Gift Box<br>four flavors</span></div>
+    <p class="pdp-cap">Product photo goes here. On a real store this is the one photo that earns its place above the fold.</p>
+   </div>
+   <div>
+    <span class="cap">Nest &amp; Grove · the gift box</span>
+    <h1 id="pdp-h">The box everyone <em>asks about.</em></h1>
+    <p class="pdp-price"><s>$148</s><b>$128</b><span class="tag">Tết · ends Feb 9</span></p>
+    <p class="pdp-rev"><span aria-hidden="true">★★★★★</span>4.8 · 31 reviews · read them below the button, not three screens down</p>
+    <p class="pdp-lede">Four flavors, eight servings, arrives gift-wrapped with a card you write at checkout. About $16 a serving.</p>
+    <p class="pdp-gift">Buy the box, get two bags of roasted cashews free. Added in the cart, marked FREE.</p>
+    <div class="variants" role="radiogroup" aria-label="Card message language">
+     <label><input type="radio" name="lang" value="English" checked><span>Card in English</span></label>
+     <label><input type="radio" name="lang" value="Tiếng Việt"><span>Tiếng Việt</span></label>
+     <label><input type="radio" name="lang" value="Español"><span>Español</span></label>
+    </div>
+    <button type="button" class="btn-ink atc-main" data-add="box">Add to cart · $128</button>
+    <p class="pdp-fine">Ships in two days. Local pickup in store, free.</p>
+    <div style="margin-top:22px">
+     <details class="acc" open><summary>What’s inside</summary><p>Dried mango, matcha chocolate cashews, candied ginger, chili tamarind. Two servings of each.</p></details>
+     <details class="acc"><summary>How to serve it</summary><p>Open, share, argue about which flavor is best. Keeps six weeks sealed.</p></details>
+     <details class="acc"><summary>Reviews (31)</summary><p>“Sent it to my in-laws for Tết and my mother-in-law texted a photo of the box. That has never happened.” On a real store this block is the reviews app, placed here on purpose.</p></details>
+    </div>
+   </div>
+  </div>
+  <p class="dm-note"><span class="dm-pin">1</span><b>The hero product is first and says what it is.</b> Price beside the headline, the sale with an end date, the gift where the decision happens, and reviews within a thumb of the button. Viewers spend 57% of their time above the fold; five visible reviews lift purchase likelihood about 270%.<cite>NN/g eyetracking · Spiegel Research Center, Northwestern</cite></p>
+  <p class="dm-note"><span class="dm-pin">2</span><b>One button, and it follows you.</b> Scroll down and a sticky add-to-cart appears. In a vendor’s split test that alone lifted add-to-carts 10% and orders 9%.<cite>Zipify · vendor data</cite></p>
+ </section>
+
+ <div class="sticky-atc" id="sticky-atc" aria-hidden="true"><span><b>Signature Gift Box</b> · $128</span><button type="button" class="btn-ink" data-add="box">Add to cart</button></div>
+
+ <section class="dm-sec" id="shop" aria-labelledby="shop-h">
+  <span class="cap">Step 2 · Collection</span>
+  <h2 class="dm-h2" id="shop-h">Add-ons that get a cart past <em>$100.</em></h2>
+  <div class="grid3">
+   <article class="prod" data-sku="mango"><div class="prod-art a1"><span class="badge">Most added</span></div><span class="cap">Snack · 120g</span><h3>Dried mango</h3><p>Sweet, a little sour, no sugar added.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="mango">Add to cart</button></article>
+   <article class="prod" data-sku="matcha"><div class="prod-art a2"></div><span class="cap">Snack · 85g</span><h3>Matcha chocolate cashews</h3><p>Roasted cashews, dark chocolate, ceremonial matcha.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="matcha">Add to cart</button></article>
+   <article class="prod" data-sku="ginger"><div class="prod-art a3"></div><span class="cap">Snack · 80g</span><h3>Candied ginger</h3><p>Soft, warm, the one grandparents ask for.</p><p class="prod-price"><b>$6</b></p><button type="button" class="btn-ghost" data-add="ginger">Add to cart</button></article>
+  </div>
+  <p class="dm-note"><span class="dm-pin">3</span><b>Collection cards carry a price, one line, and a button.</b> Shoppers who add from a collection skip a page. Shopify’s average add-to-cart rate is 4.6%; the top 10% of stores clear 9.6%.<cite>Littledata</cite></p>
+ </section>
+
+ <section class="dm-sec" id="cart" aria-labelledby="cart-h">
+  <span class="cap">Step 3 · Cart</span>
+  <h2 class="dm-h2" id="cart-h">Every line visible, including the <em>free</em> one.</h2>
+  <div class="cart-grid">
+   <div>
+    <div class="cart-lines" id="cart-lines" aria-live="polite"><p class="empty">Nothing yet. Add the box above.</p></div>
+    <div class="ship-bar"><span class="ship-fill"><i id="ship-fill"></i></span><em id="ship-msg">Add $100 for free shipping.</em></div>
+    <dl class="totals">
+     <div><dt>Subtotal</dt><dd id="subtotal">$0</dd></div>
+     <div id="ship-row"><dt>Shipping</dt><dd id="ship">$8</dd></div>
+     <div class="grand"><dt>Total</dt><dd id="grand">$0</dd></div>
+    </dl>
+    <div class="cart-actions"><a class="st-btn" href="#checkout">Checkout <i>→</i></a></div>
+   </div>
+   <div>
+    <p class="dm-note" style="margin-top:0"><span class="dm-pin">4</span><b>The gift is a line, marked FREE, not a banner.</b> The free bags appear in the cart the moment the box does. On many stores the gift is promised in a moving bar and then shows up priced at $16.00 in the cart, which reads as a broken promise.</p>
+    <p class="dm-note"><span class="dm-pin">5</span><b>The shipping bar says exactly what earns free shipping.</b> Extra costs shown late cause 48% of abandonments; 58% of shoppers add an item to reach a threshold. Shipping is shown here, not sprung at the end.<cite>Baymard 2024 · Red Stag</cite></p>
+   </div>
+  </div>
+ </section>
+
+ <section class="dm-sec" id="checkout" aria-labelledby="co-h">
+  <span class="cap">Step 4 · Checkout</span>
+  <h2 class="dm-h2" id="co-h">Guest checkout. Total visible the <em>whole time.</em></h2>
+  <div class="co-grid">
+   <form class="coform" onsubmit="return false">
+    <label><span>Email <small>(for the receipt)</small></span><input type="email" name="email" placeholder="you@example.com"></label>
+    <label><span>Gift card message <small>(optional)</small></span><input type="text" name="msg" placeholder="Chúc mừng năm mới"></label>
+    <label><span>Delivery</span><input type="text" name="addr" placeholder="Address, or ‘pickup’"></label>
+    <button type="button" class="btn-ink" id="place">Place order</button>
+    <p class="placed" role="status" aria-live="polite">Order placed. In the demo nothing was charged and nothing was sent.</p>
+   </form>
+   <aside class="summary">
+    <span class="cap">Order summary</span>
+    <ul id="summary-lines"><li>Nothing yet</li></ul>
+    <p class="sum-total"><span>Total</span><b id="summary-total">$0</b></p>
+   </aside>
+  </div>
+  <p class="dm-note"><span class="dm-pin">6</span><b>Three fields, no account, the total in view.</b> Only 45% of Shopify checkouts that start get finished. Among the leading reasons people quit: the site wanted an account (26%), it took too long (22%), the total wasn’t visible up front (21%). This form has none of them.<cite>Littledata · Baymard</cite></p>
+  <div class="dm-back">
+   <div><h3>That was the whole flow</h3><p>Six things, all of them theme settings or discount rules. None of them touch products, orders or payments.</p></div>
+   <a class="st-btn" href="stores.html#read">Get a free read of your store <i>→</i></a>
+  </div>
+ </section>
+</main>
+<footer data-surface="inverse">
+ <div class="foot">
+  <span class="cap">Nest &amp; Grove is an invented brand for this demo &mdash; &copy; 2026 Steven Long Tran</span>
+  <div class="links"><a href="stores.html">Storefront design</a><a href="index.html">steveux.com</a></div>
+ </div>
+</footer>
+<script>
+(function(){
+  'use strict';
+  var SKU={box:{name:'Signature Gift Box',price:128},mango:{name:'Dried mango',price:5},matcha:{name:'Matcha chocolate cashews',price:5},ginger:{name:'Candied ginger',price:6}};
+  var cart=[],$=function(id){return document.getElementById(id);},money=function(n){return '$'+n.toLocaleString('en-US');};
+  function render(){
+    var lines=$('cart-lines');lines.innerHTML='';var sub=0;
+    if(!cart.length)lines.innerHTML='<p class="empty">Nothing yet. Add the box above.</p>';
+    cart.forEach(function(k){var s=SKU[k];sub+=s.price;var r=document.createElement('div');r.className='cart-line';r.innerHTML='<span>'+s.name+'</span><span><b>'+money(s.price)+'</b><button type="button" class="rm" data-rm="'+k+'">remove</button></span>';lines.appendChild(r);});
+    if(cart.indexOf('box')>-1){var g=document.createElement('div');g.className='cart-line gift';g.innerHTML='<span>Roasted cashews ×2 · with the box</span><b><s>$16</s> FREE</b>';lines.appendChild(g);}
+    var free=sub>=100,ship=cart.length?(free?0:8):0;
+    $('subtotal').textContent=money(sub);$('ship').textContent=free?'FREE':(cart.length?'$8':'—');$('grand').textContent=money(sub+ship);
+    $('ship-fill').style.width=Math.min(100,sub)+'%';
+    $('ship-msg').textContent=!cart.length?'Add $100 for free shipping.':(free?'Free shipping unlocked.':'$'+(100-sub)+' more for free shipping.');
+    $('cart-count').textContent=cart.length;
+    document.querySelectorAll('[data-add]').forEach(function(b){var on=cart.indexOf(b.getAttribute('data-add'))>-1;b.classList.toggle('in',on);if(b.classList.contains('btn-ghost'))b.textContent=on?'In cart ✓':'Add to cart';if(b.classList.contains('atc-main'))b.textContent=on?'In your cart ✓':'Add to cart · $128';});
+    var sum=$('summary-lines');sum.innerHTML='';
+    if(!cart.length)sum.innerHTML='<li>Nothing yet</li>';
+    cart.forEach(function(k){var li=document.createElement('li');li.innerHTML='<span>'+SKU[k].name+'</span><span>'+money(SKU[k].price)+'</span>';sum.appendChild(li);});
+    if(cart.indexOf('box')>-1){var gl=document.createElement('li');gl.className='gift';gl.innerHTML='<span>Roasted cashews ×2</span><span>FREE</span>';sum.appendChild(gl);}
+    if(cart.length){var sl=document.createElement('li');sl.innerHTML='<span>Shipping</span><span>'+(free?'FREE':'$8')+'</span>';sum.appendChild(sl);}
+    $('summary-total').textContent=money(sub+ship);
+  }
+  document.addEventListener('click',function(e){
+    var add=e.target.closest('[data-add]'),rm=e.target.closest('[data-rm]');
+    if(add){var k=add.getAttribute('data-add');if(cart.indexOf(k)===-1)cart.push(k);else if(add.classList.contains('atc-main'))location.hash='#cart';render();}
+    if(rm){cart=cart.filter(function(k){return k!==rm.getAttribute('data-rm');});render();}
+  });
+  var main=document.querySelector('.atc-main'),sticky=$('sticky-atc'),cartSec=$('cart'),tick=false;
+  function upd(){tick=false;var off=main.getBoundingClientRect().bottom<0;var near=cartSec.getBoundingClientRect().top<window.innerHeight*0.6;var show=off&&!near;sticky.classList.toggle('show',show);sticky.setAttribute('aria-hidden',String(!show));}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  var place=$('place');if(place)place.addEventListener('click',function(){document.querySelector('.coform').classList.add('is-sent');});
+  render();upd();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<title>Storefront design — Steven Long Tran</title>
+<meta name="description" content="Front-end design for online stores that sell food, gifts and the things people drive across town for. The back end stays. The front end starts selling.">
+<meta property="og:title" content="Storefront design — Steven Long Tran">
+<meta property="og:description" content="Five switches, zero back-end changes. Front-end design for small online stores, with the numbers behind every change.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://steveux.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* stores page · v5 tokens only · page-scoped, styles.css untouched */
+.st-lede{font-size:clamp(17px,1.8vw,20px);line-height:1.55;color:var(--body);max-width:34em;margin-top:18px}
+.st-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 12px}
+.st-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:99px;font-size:15px;font-weight:500;border:1px solid var(--ink);color:var(--ink);transition:background .3s,color .3s}
+.st-btn.ink{background:var(--ink);color:var(--bg)}
+.st-btn.ink:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+.st-btn:not(.ink):hover{background:var(--ink);color:var(--bg)}
+.st-fine{font-size:13.5px;color:var(--muted)}
+.st-hero{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;padding-bottom:var(--vsp,64px)}
+@media (max-width:900px){.st-hero{grid-template-columns:1fr;gap:36px}}
+.st-hero h1{margin-top:0}
+.st-stamp{display:block;margin-bottom:22px}
+.st-stamp b{color:var(--acc);font-weight:500}
+.st-facts{list-style:none;border-top:1px solid var(--ink)}
+.st-facts li{padding:16px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:baseline}
+.st-facts b{font-family:'Instrument Serif',serif;font-weight:400;font-size:42px;color:var(--acc);line-height:1;letter-spacing:-.02em}
+.st-facts span{font-size:14.5px;color:var(--body);line-height:1.5}
+.st-facts cite{grid-column:2;font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.st-sec{padding:var(--vsp,64px) 0;border-top:1px solid var(--hair)}
+.st-sec h2{font-size:clamp(28px,3.8vw,46px);line-height:1.06;letter-spacing:-.025em;margin:10px 0 14px;max-width:14em}
+.st-sec h2 em{color:var(--acc)}
+.st-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:start;margin-top:36px}
+@media (max-width:900px){.st-grid{grid-template-columns:1fr}}
+.switches{display:flex;flex-direction:column}
+.sw{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:16px 0;border-top:1px solid var(--hair);cursor:pointer}
+.sw:last-of-type{border-bottom:1px solid var(--hair)}
+.sw input{position:absolute;opacity:0;width:1px;height:1px}
+.knob{width:52px;height:30px;border-radius:99px;background:var(--layer-3);position:relative;transition:background .3s;margin-top:2px}
+.knob::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .35s var(--ease)}
+.sw input:checked+.knob{background:var(--acc)}
+.sw input:checked+.knob::after{transform:translateX(22px)}
+.sw input:focus-visible+.knob{outline:2px solid var(--acc);outline-offset:2px}
+.sw-text b{display:block;font-weight:600;font-size:16.5px;letter-spacing:-.01em}
+.sw-text small{display:block;font-size:14px;line-height:1.5;color:var(--body);margin-top:3px}
+.tally{margin-top:22px;display:grid;grid-template-columns:1fr 1fr auto;gap:18px;align-items:end}
+.tally-row b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;line-height:1;margin-top:6px;color:var(--acc)}
+.tally .untouched{color:var(--cat-side)}
+.link-btn{background:none;border:1px solid var(--ink);color:var(--ink);border-radius:99px;padding:10px 16px;font:500 14px 'Inter',system-ui,sans-serif;cursor:pointer}
+.link-btn:hover{background:var(--ink);color:var(--bg)}
+@media (max-width:520px){.tally{grid-template-columns:1fr 1fr}.link-btn{grid-column:1/-1;justify-self:start}}
+.st-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+@media (max-width:900px){.st-stats{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.st-stats{grid-template-columns:1fr}}
+.st-stat{border-top:2px solid var(--ink);padding-top:16px;display:grid;gap:8px}
+.st-stat b{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5vw,62px);line-height:1;color:var(--acc);letter-spacing:-.02em}
+.st-stat span{font-size:15px;line-height:1.55;color:var(--body)}
+.st-stat cite{font-style:normal;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.st-stat cite a{border-bottom:1px solid var(--hair)}
+.st-offers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media (max-width:900px){.st-offers{grid-template-columns:1fr}}
+.st-offer{border:1px solid var(--hair);border-radius:var(--r-card);padding:24px;background:var(--card)}
+.st-offer h3{font-size:19px;line-height:1.2;letter-spacing:-.01em;margin:6px 0 8px}
+.st-offer p{font-size:15px;line-height:1.55;color:var(--body)}
+.st-keys{list-style:none;margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media (max-width:900px){.st-keys{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.st-keys{grid-template-columns:1fr}}
+.st-keys li{border-top:1px solid var(--ink);padding-top:12px;font-size:14.5px;line-height:1.55;color:var(--body)}
+.st-keys b{display:block;color:var(--ink);margin-bottom:4px}
+.st-reads{margin-top:28px;border-top:1px solid var(--hair)}
+.st-reads details{border-bottom:1px solid var(--hair);padding:18px 0}
+.st-reads summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline}
+.st-reads summary::-webkit-details-marker{display:none}
+.st-reads summary .cap{display:block;margin-bottom:6px}
+.st-reads summary strong{font-size:clamp(18px,2vw,22px);font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.st-reads summary::after{content:"+";color:var(--acc);font-size:22px}
+.st-reads details[open] summary::after{content:"–"}
+.st-reads .rd{max-width:44em;margin-top:16px;display:grid;gap:12px;font-size:16px;line-height:1.6;color:var(--body)}
+.st-reads .rd h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.st-reads .rd .steal{border-left:3px solid var(--acc);padding:4px 0 4px 16px}
+.st-reads .rd .meta{font-size:13px;color:var(--muted)}
+.st-demo-link{margin-top:36px;padding:28px;border:1px solid var(--hair);border-radius:var(--r-card);background:var(--wash-work);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+@media (max-width:700px){.st-demo-link{grid-template-columns:1fr}}
+.st-demo-link h3{font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+.st-demo-link p{color:var(--body);font-size:15px}
+[data-theme="dark"] .knob::after{background:#EFEFE7}
+[data-theme="dark"] .phone{box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+@media (prefers-reduced-motion:reduce){.ship-bar .ship-fill::after{animation:none}.knob::after{transition:none}}
+/* phone */
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;position:sticky;top:90px}
+@media (max-width:900px){.phone-wrap{position:static}}
+.phone{width:min(360px,100%);background:#141412;border-radius:38px;padding:10px;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);color:var(--ink);font-size:13px;line-height:1.35}
+.phone-bar{display:flex;justify-content:space-between;color:#bbb;font-size:11px;padding:6px 16px 8px}
+.screen{background:#fff;border-radius:30px;overflow:hidden;height:640px;overflow-y:auto;scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.ann{background:var(--ink);color:#fff;font-size:11px;text-align:center;padding:7px 10px;letter-spacing:.02em}
+.ship-bar{display:none;padding:8px 14px 6px;background:#F5F5F0;font-size:11px;color:var(--body)}
+.ship-bar .ship-fill{display:block;height:5px;border-radius:99px;background:#E4E2DA;position:relative;overflow:hidden;margin-bottom:5px}
+.ship-bar .ship-fill::after{content:"";position:absolute;inset:0;width:76%;background:var(--cat-side);border-radius:99px;transform-origin:left;animation:fill .9s var(--ease)}
+@keyframes fill{from{transform:scaleX(.05)}}
+.ship-bar em{font-style:normal;color:var(--ink);font-family:'Inter',system-ui,sans-serif}
+.phone[data-ship="1"] .ship-bar{display:block}
+.store-hero{display:none;padding:18px 16px 6px}
+.store-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.store-h{font:600 22px/1.05 'Inter',system-ui,sans-serif;letter-spacing:-.02em;margin:6px 0 6px}
+.store-sub{font-size:12px;color:var(--body)}
+.phone[data-hero="1"] .store-hero{display:block}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:8px;transition:all .5s var(--ease)}
+.card .img{aspect-ratio:1/1;border-radius:8px;background:#E9E7DE;margin-bottom:8px;position:relative;overflow:hidden}
+.card .i1{background:linear-gradient(0deg,#DDD9CC,#EDEAE0)}.card .i2{background:#D9E5D7}.card .i3{background:#E8DCC8}.card .i4{background:#E9D6CD}
+.card-name{font-weight:500;font-size:12px;line-height:1.3}
+.price{margin-top:4px;font-size:13px}
+.price .was,.price .sale-now{display:none}
+.card-hero{order:9;grid-column:span 1}
+.card-hero .img-hero{background:#141412;background-image:radial-gradient(circle at 40% 40%,#4a3bff 0,#141412 60%)}
+.phone[data-hero="1"] .card-hero{order:-1;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;padding:10px}
+.phone[data-hero="1"] .card-hero .img{margin:0}
+.phone[data-hero="1"] .card-hero .card-name{font-size:14px}
+.badge-sale{display:none;position:absolute;top:6px;left:6px;background:#FF5A3C;color:#fff;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:99px}
+.phone[data-sale="1"] .badge-sale{display:inline-block}
+.phone[data-sale="1"] .price .was{display:inline;color:var(--muted)}
+.phone[data-sale="1"] .price .now{display:none}
+.phone[data-sale="1"] .price .sale-now{display:inline;color:#FF5A3C;font-weight:600}
+.stars{display:none;font-size:11px;color:var(--body);margin-top:4px}
+.stars span{color:#E7A500;letter-spacing:.05em}
+.phone[data-reviews="1"] .stars{display:block}
+.gift-line{display:none;font-size:11px;color:var(--cat-side);font-weight:500;margin-top:4px}
+.phone[data-gift="1"] .gift-line{display:block}
+.atc{display:none;margin-top:8px;width:100%;background:var(--ink);color:#fff;border:0;border-radius:8px;padding:9px;font:500 12px 'Inter',system-ui,sans-serif}
+.phone[data-hero="1"] .atc{display:block;grid-column:1/-1}
+.cart-strip{margin:4px 14px 18px;border-top:1px solid var(--hair);padding-top:10px}
+.cart-line{display:flex;justify-content:space-between;padding:5px 0;font-size:12px;color:var(--body)}
+.cart-gift{display:none;color:var(--cat-side)}
+.cart-gift s{color:var(--muted);margin-right:4px}
+.phone[data-gift="1"] .cart-gift{display:flex}
+.cart-total{border-top:1px solid var(--hair);margin-top:4px;padding-top:8px;color:var(--ink);font-weight:600}
+.phone-caption{font-size:12px;color:var(--muted);text-align:center}
+
+</style>
+</head>
+<body data-depth="read" class="p-stores">
+<header>
+ <nav class="nav">
+  <a class="logo" href="index.html">Steven Long Tran</a>
+  <nav class="navlinks" aria-label="Primary"><a href="index.html">Home</a><a href="work.html">Work</a><a href="side-quests.html">Side Quests</a><a href="about.html">About</a></nav>
+ </nav>
+</header>
+<main class="wrap">
+
+ <div class="hero st-hero" data-surface="0">
+  <div>
+   <span class="cap st-stamp"><span id="stamp">Updated September 2026</span> · <b id="next-season">Next season: Tết, Feb 6</b></span>
+   <h1 data-kinetic>The back end stays. The front end *starts selling.</h1>
+   <p class="st-lede">Front-end design for online stores that sell food, gifts, and the things people drive across town for. Whoever built your store keeps the admin. Your customers get a store that puts the right product first, shows the deal where they decide, and finishes on a phone.</p>
+   <div class="st-actions">
+    <a class="st-btn ink" href="#read">Get a free 10-minute read <i>→</i></a>
+    <a class="st-btn" href="#demo">See what changes</a>
+   </div>
+   <p class="st-fine">English · Tiếng Việt · Español. No login, no call, no pitch unless you ask.</p>
+  </div>
+  <ul class="st-facts" aria-label="Three numbers">
+   <li><b>1.5%</b><span>Average conversion for Shopify food and beverage stores. The top 20% clear 4.1%.</span><cite>Littledata</cite></li>
+   <li><b>48%</b><span>Cart abandonments caused by costs shown too late.</span><cite>Baymard, 2024</cite></li>
+   <li><b>0</b><span>Back-end changes needed for anything on this page.</span><cite>Theme settings and discounts</cite></li>
+  </ul>
+ </div>
+
+ <section class="st-sec rv" id="demo" aria-labelledby="demo-h">
+  <span class="cap">Interactive demo · a fictional store, not a client</span>
+  <h2 id="demo-h">Five switches. <em>Zero</em> back-end changes.</h2>
+  <p class="st-lede">Each switch is a theme-editor or discount setting on a normal Shopify plan. Flip them and watch the same store change. Products, orders and payments never move.</p>
+  <div class="st-grid">
+   <form class="switches" aria-label="Storefront switches" onsubmit="return false">
+    <label class="sw"><input type="checkbox" data-sw="hero" data-scroll="top"><span class="knob" aria-hidden="true"></span><span class="sw-text"><b>Pin the hero product</b><small>Your best seller first, with a headline that says what it is.</small></span></label>
+    <label class="sw"><input type="checkbox" data-sw="gift" data-scroll=".gift-line"><span class="knob" aria-hidden="true"></span><span class="sw-text"><b>Show the gift where people decide</b><small>Under the price and marked FREE in the cart, not only in a banner.</small></span></label>
+    <label class="sw"><input type="checkbox" data-sw="ship" data-scroll="top"><span class="knob" aria-hidden="true"></span><span class="sw-text"><b>Free-shipping progress</b><small>“$24 more for free shipping” turns a $5 cart into a $100 one.</small></span></label>
+    <label class="sw"><input type="checkbox" data-sw="sale" data-scroll=".card-hero"><span class="knob" aria-hidden="true"></span><span class="sw-text"><b>Seasonal sale, with a date</b><small>A price that ends, instead of a strike-through that never does.</small></span></label>
+    <label class="sw"><input type="checkbox" data-sw="reviews" data-scroll=".stars"><span class="knob" aria-hidden="true"></span><span class="sw-text"><b>Reviews next to the button</b><small>Five stars where they persuade, not three screens down.</small></span></label>
+    <div class="tally" aria-live="polite">
+     <div class="tally-row"><span class="cap">Front end changed</span><b id="tally-front">0 / 5</b></div>
+     <div class="tally-row"><span class="cap">Back end changed</span><b class="untouched">0</b></div>
+     <button type="button" class="link-btn" id="flip-all">Flip all five</button>
+    </div>
+   </form>
+   <div class="phone-wrap">
+    <div class="phone" id="phone" data-hero="0" data-gift="0" data-ship="0" data-sale="0" data-reviews="0" data-base="$148" data-sale-price="$128">
+     <div class="phone-bar"><span>9:41</span><span>demo-store.example</span></div>
+     <div class="screen" id="screen">
+      <div class="ann">Free shipping over $100 · $8 flat below</div>
+      <div class="ship-bar"><span class="ship-fill"></span><em>$24 more for free shipping</em></div>
+      <div class="store-hero"><p class="store-kicker">The gift box</p><h3 class="store-h">The box everyone asks about, ready to ship.</h3><p class="store-sub">Four flavors · eight servings · arrives gift-wrapped.</p></div>
+      <div class="cards">
+       <article class="card card-hero"><div class="img img-hero"><span class="badge-sale">Tết · ends Feb 9</span></div><p class="card-name">Signature Gift Box, four flavors</p><p class="stars"><span>★★★★★</span> 31 reviews</p><p class="price"><s class="was">$148</s> <b class="now">$148</b> <span class="sale-now">$128</span></p><p class="gift-line">+ 2 free bags of roasted cashews, added at checkout</p><button type="button" class="atc" tabindex="-1">Add to cart</button></article>
+       <article class="card"><div class="img i1"></div><p class="card-name">Dried mango 120g</p><p class="price"><b>$5</b></p></article>
+       <article class="card"><div class="img i2"></div><p class="card-name">Matcha chocolate cashews 85g</p><p class="price"><b>$5</b></p></article>
+       <article class="card"><div class="img i3"></div><p class="card-name">Candied ginger 80g</p><p class="price"><b>$6</b></p></article>
+       <article class="card"><div class="img i4"></div><p class="card-name">Chili tamarind 120g</p><p class="price"><b>$5</b></p></article>
+      </div>
+      <div class="cart-strip">
+       <div class="cart-line"><span>Signature gift box</span><b class="cart-price">$148</b></div>
+       <div class="cart-line cart-gift"><span>Roasted cashews ×2</span><b><s>$16</s> FREE</b></div>
+       <div class="cart-line cart-total"><span>Subtotal</span><b id="cart-total">$148</b></div>
+      </div>
+     </div>
+    </div>
+    <p class="phone-caption">Demo store with invented products. Prices are illustrative.</p>
+   </div>
+  </div>
+  <div class="st-demo-link">
+   <div><h3>See the whole flow, not just the home page</h3><p>A demo store walked as a customer: product page, collection, cart, checkout. Each step notes what it does and the number behind it.</p></div>
+   <a class="st-btn ink" href="stores-demo.html">Open the demo store <i>→</i></a>
+  </div>
+ </section>
+
+ <section class="st-sec rv" id="evidence" aria-labelledby="ev-h">
+  <span class="cap">Evidence · refreshed quarterly</span>
+  <h2 id="ev-h">Every switch has a <em>number</em> behind it.</h2>
+  <p class="st-lede">Benchmarks I design against, with the source. Vendor figures are marked as vendor figures. On your store the numbers are measured, not quoted.</p>
+  <div class="st-stats">
+   <div class="st-stat"><b>57%</b><span>Share of viewing time spent above the fold. If your best seller isn’t there, the fold is wasted.</span><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" rel="noopener">NN/g eyetracking</a></cite></div>
+   <div class="st-stat"><b>+270%</b><span>Purchase likelihood with five reviews visible versus none; larger for higher-priced items.</span><cite><a href="https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/" rel="noopener">Spiegel Research Center, Northwestern</a></cite></div>
+   <div class="st-stat"><b>48%</b><span>Cart abandonments caused by extra costs shown late. 58% of shoppers add an item to reach a free-shipping threshold.</span><cite><a href="https://baymard.com/lists/cart-abandonment-rate" rel="noopener">Baymard 2024</a> · Red Stag</cite></div>
+   <div class="st-stat"><b>+9%</b><span>Orders after adding a sticky add-to-cart button on mobile, in a split test.</span><cite><a href="https://zipify.com/mobile-sticky-button-split-test-results/" rel="noopener">Zipify</a> · vendor data</cite></div>
+   <div class="st-stat"><b>45%</b><span>Shoppers who finish checkout once they start it on Shopify. Account walls, length and hidden totals are the top reasons they leave.</span><cite><a href="https://www.littledata.io/average-website-performance" rel="noopener">Littledata</a> · Baymard</cite></div>
+   <div class="st-stat"><b>70%</b><span>More likely to get a visit when a Google Business Profile is complete; 50% more likely to be considered for purchase.</span><cite>Google, via <a href="https://www.brightlocal.com/resources/local-seo-statistics/" rel="noopener">BrightLocal</a></cite></div>
+  </div>
+ </section>
+
+ <section class="st-sec rv" id="offers" aria-labelledby="of-h">
+  <span class="cap">Three ways to start</span>
+  <h2 id="of-h">Small enough to start this <em>month.</em></h2>
+  <div class="st-offers">
+   <article class="st-offer"><span class="cap">01 · Storefront audit</span><h3>Everything that leaks a sale, ranked</h3><p>Home, collection, product, cart and checkout on mobile and desktop. A ranked fix list, screenshots, and a 45-minute walkthrough. Credited in full toward any build.</p></article>
+   <article class="st-offer"><span class="cap">02 · Front-end redesign</span><h3>The store customers see, rebuilt</h3><p>Home, collection and product pages redesigned inside your theme or a new one. Hero product first, promotions where they persuade, reviews where they work. Admin untouched.</p></article>
+   <article class="st-offer"><span class="cap">03 · Promotions system</span><h3>Run a sale without calling anyone</h3><p>Gift-with-purchase, seasonal pricing, free-shipping bars and badges set up as switches you flip yourself, with a one-page playbook for the year’s holidays.</p></article>
+  </div>
+  <ul class="st-keys">
+   <li><b>I never see your password.</b> Shopify gives me a collaborator code; you can remove me in one click.</li>
+   <li><b>I work on a copy.</b> Nothing goes live until you look at it on your phone and say publish.</li>
+   <li><b>Your builder’s work stays.</b> Products, orders, customers and payments aren’t part of the theme.</li>
+   <li><b>You can edit it after.</b> Prices, badges, banners and photos are settings, and I record a walkthrough.</li>
+  </ul>
+ </section>
+
+ <section class="st-sec rv" id="reads" aria-labelledby="rd-h">
+  <span class="cap">Storefront reads · one new read a month</span>
+  <h2 id="rd-h">I read stores the way a customer <em>shops</em> them.</h2>
+  <p class="st-lede">Public stores, read on a phone: what works, what leaks, one thing worth copying. Yours gets the same read, privately.</p>
+  <div class="st-reads">
+  <details><summary><span><span class="cap">Storefront read 01 · Golden Nest · read on a phone, September 2026</span><strong>The category leader runs a calendar, not a discount</strong></span></summary><div class="rd"><p>Golden Nest has sold bird’s nest in America since the nineties and it shows in the storefront: every promotion has a date, every gift has a price tier, and 2,144 reviews do the talking. It also leaves two doors open that a smaller store can walk through.</p>
+  <h4>What works</h4>
+  <p>The homepage bar reads “12% off sitewide through 9/25/26.” A sale with an end date is the opposite of a strikethrough that never ends; it gives the buyer a reason to act today and the brand a reason to reset the price on the 26th. Under $200 you get free shipping over $100; over $200 you get a gift of syrups. Two thresholds, two nudges.</p><p>Gifts are sorted the way people shop for them: “Under $100,” “Under $150,” and a “Build Your Gift Box.” Thirty-one items sit under $100. The subscription is a ladder, 5% then 10% then 15%, placed below the buy button on the product page where it belongs, not above it.</p><p>The product page carries the answer to the question every first-time buyer has: what is this, how do I prepare it, why does it cost this much (“about 30% of a harvest passes”). Reviews, with a distribution, sit right after the description.</p>
+  <h4>What leaks</h4>
+  <p>There is no gift message and no gift wrap on a product that is bought as a gift most of the year. The contact page has an address and a phone number and nothing else: no hours, no map, no pickup. For a brand with a physical presence in Southern California, that is a customer standing outside a locked door. And the site is English only in a category where three of the five strongest local sellers run Vietnamese or Chinese storefronts.</p>
+  <div class="steal"><h4>Steal this</h4><p>Give every promotion an end date and say it in the bar. A “through 9/25” beats a “36% off” that has been there since spring, and it costs nothing but a calendar.</p></div>
+  <p class="meta">A read is commentary on a public storefront as it appeared on the date above. Not affiliated with the brand. Facts from the live site; see <a href="https://www.goldennest.com/">https://www.goldennest.com/</a>. Your store gets the same read, privately: <a href="#read">ask for one</a>.</p></div></details>
+  <details><summary><span><span class="cap">Storefront read 02 · Bokksu · read on a phone, September 2026</span><strong>Gift wrap as a product, and a plan selector too early</strong></span></summary><div class="rd"><p>Bokksu sells a monthly box of Japanese snacks to a lot of people who are buying it for someone else. Two things it does are worth copying by any store that sells gifts; one thing it does is only right at its price.</p>
+  <h4>What works</h4>
+  <p>The product page treats gifting as a product line. “Make It Special” offers paid gift wrap (about $15) and a washi box (about $20), with a 200-character message field right there, before checkout. That is where the gift buyer decides, so that is where the option lives. Gift plans do not auto-renew, which removes the fear that stops people from gifting a subscription.</p><p>The plan tiers show the saving in dollars, “Save $12 / $36 / $84,” with one plan labelled “Popular” and one “Best Value.” Twelve thousand reviews sit below the description with an AI summary on top so nobody has to read all of them. Rewards and a referral program feed the next order.</p>
+  <h4>What leaks</h4>
+  <p>The plan selector sits above the fold, before the gallery, the description or the reviews. At $33 to $40 a month with twelve thousand reviews, a buyer arrives already convinced and the selector is a convenience. A store selling one $160 gift box with two dozen reviews cannot do this: the visitor needs to see the product, the servings, the flavors and the proof before being asked to commit. The same layout on that store would be the first thing to remove.</p>
+  <div class="steal"><h4>Steal this</h4><p>Put the gift message and the paid wrap on the product page, next to the price. Not at checkout, not in an app, not later. Gift buyers decide at the moment they picture the recipient opening it.</p></div>
+  <p class="meta">A read is commentary on a public storefront as it appeared on the date above. Not affiliated with the brand. Facts from the live site; see <a href="https://www.bokksu.com/products/classic-bokksu">https://www.bokksu.com/products/classic-bokksu</a>. Your store gets the same read, privately: <a href="#read">ask for one</a>.</p></div></details>
+  <details><summary><span><span class="cap">Storefront read 03 · Fly By Jing · read on a phone, September 2026</span><strong>One hero jar, nine named gift sets, every pack size on one page</strong></span></summary><div class="rd"><p>Fly By Jing is a store built around one product that carries it, which is the situation most small food brands are in and most small food storefronts refuse to admit. The chili crisp page is the model.</p>
+  <h4>What works</h4>
+  <p>Pack sizes are variants on a single product page: one jar, a two-pack, three, four, a 16-ounce. The buyer never leaves the page to buy more. The list price sits beside a member price (20% off through the “Tastemaker Club”), so the discount is a reason to join, not a permanent markdown.</p><p>The page order is the order a buyer thinks: gallery, title with 4.9 stars and the review count, one line of what it is, three feature bullets, the pack selector, the price, the club, the button. Then, for the people who scroll, ingredients and nutrition, shipping, certification badges, a heat meter, lifestyle images, the origin story, reviews.</p><p>Gifting is nine named sets from $25 to $175, “Jing’s Favorites,” “Chili Crisp Trio, Gift-Ready,” and a limited edition with a date (an advent calendar on pre-order). The announcement bar rotates three messages: the pre-order, free shipping over $75, the club.</p>
+  <h4>What leaks</h4>
+  <p>The rotating bar is three messages in one slot, which means a visitor sees one of them and it may not be the one that matters to them. And the first-order popup offers 20% before the visitor has seen a single product; on a $30 jar that is a habit, on a $160 box it would be margin given away to someone who was going to buy anyway.</p>
+  <div class="steal"><h4>Steal this</h4><p>Make the pack sizes variants on the hero product’s page, and show the member price beside the list price. One page, every way to buy it, and a reason to join instead of a reason to wait for a sale.</p></div>
+  <p class="meta">A read is commentary on a public storefront as it appeared on the date above. Not affiliated with the brand. Facts from the live site; see <a href="https://flybyjing.com/products/sichuan-chili-crisp">https://flybyjing.com/products/sichuan-chili-crisp</a>. Your store gets the same read, privately: <a href="#read">ask for one</a>.</p></div></details>
+  </div>
+ </section>
+
+ <section class="st-sec rv" id="proof" aria-labelledby="pr-h">
+  <span class="cap">Before stores</span>
+  <h2 id="pr-h">Eleven years where <em>money</em> changes hands.</h2>
+  <p class="st-lede">Checkouts, trade-ins and marketplaces for T-Mobile and Western Union. Same problems as a gift-box store, bigger numbers.</p>
+  <div class="st-actions"><a class="st-btn" href="case-studies/tmobile-trade-in.html">T-Mobile trade-in <i>→</i></a><a class="st-btn" href="case-studies/western-union.html">Western Union locator <i>→</i></a><a class="st-btn" href="case-studies/api-marketplace.html">API marketplace <i>→</i></a></div>
+ </section>
+
+ <section class="cta rv" id="read">
+  <div class="inner rv">
+   <h2>Send me your store. <em>I’ll send back</em> what I’d fix first.</h2>
+   <p>Within two business days: the three things most likely costing you sales, ranked, and whether any of them need me at all. Reply in English, Vietnamese or Spanish.</p>
+   <a class="btn" href="mailto:hello@steveux.com?subject=Storefront%20read&body=Store%20address%3A%20%0AReply%20in%3A%20English%20%2F%20Ti%E1%BA%BFng%20Vi%E1%BB%87t%20%2F%20Espa%C3%B1ol%0AWhat%20I%20wish%20it%20did%20better%3A%20">Send me your store</a>
+  </div>
+ </section>
+</main>
+<footer data-surface="inverse">
+ <div class="foot">
+  <span class="cap">&copy; 2026 Steven Long Tran &mdash; designed in code, AI-assisted, no modals were harmed</span>
+  <div class="links">
+   <a href="mailto:hello@steveux.com" data-peek="Opens your mail app">hello@steveux.com</a>
+   <a href="https://www.linkedin.com/in/stevenlongtran/" rel="noopener" data-peek="LinkedIn &middot; external">LinkedIn</a>
+   <a href="resume.pdf" data-peek="PDF &middot; one page">Resume</a>
+  </div>
+ </div>
+</footer>
+<script src="app.js"></script>
+<script>
+(function(){
+  'use strict';
+  var STAMP='2026-09-25';
+  var SEASONS=[['2026-11-27','Black Friday, Nov 27'],['2026-12-25','Christmas, Dec 25'],['2027-02-06','Tết, Feb 6'],['2027-05-09','Mother’s Day, May 9'],['2027-09-15','Mid-Autumn, Sep 15'],['2028-01-26','Tết, Jan 26']];
+  var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var d=new Date(STAMP+'T12:00:00'),s=document.getElementById('stamp');
+  if(s)s.textContent='Updated '+months[d.getMonth()]+' '+d.getFullYear();
+  var now=new Date(),next=null;
+  for(var i=0;i<SEASONS.length;i++){if(new Date(SEASONS[i][0]+'T23:59:59')>=now){next=SEASONS[i];break;}}
+  var ns=document.getElementById('next-season');
+  if(ns){if(next){var days=Math.ceil((new Date(next[0]+'T12:00:00')-now)/864e5);ns.textContent='Next season: '+next[1]+(days>0?' · '+days+' days':' · today');}else ns.textContent='Season list needs a refresh';}
+  var phone=document.getElementById('phone'),tally=document.getElementById('tally-front'),total=document.getElementById('cart-total'),screen=document.getElementById('screen');
+  var sw=Array.prototype.slice.call(document.querySelectorAll('input[data-sw]'));
+  function render(){if(!phone)return;var on=0;sw.forEach(function(s){phone.setAttribute('data-'+s.getAttribute('data-sw'),s.checked?'1':'0');if(s.checked)on++;});tally.textContent=on+' / 5';var sale=phone.getAttribute('data-sale')==='1';var px=sale?phone.getAttribute('data-sale-price'):phone.getAttribute('data-base');total.textContent=px;var cp=document.querySelector('.cart-price');if(cp)cp.textContent=px;}
+  function show(s){if(!screen||!s.checked)return;var t=s.getAttribute('data-scroll');var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(t==='top'){screen.scrollTo({top:0,behavior:reduce?'auto':'smooth'});return;}var el=screen.querySelector(t);if(el)screen.scrollTo({top:Math.max(0,el.offsetTop-90),behavior:reduce?'auto':'smooth'});}
+  sw.forEach(function(s){s.addEventListener('change',function(){render();show(s);});});
+  var flip=document.getElementById('flip-all');
+  if(flip)flip.addEventListener('click',function(){var allOn=sw.every(function(s){return s.checked;});sw.forEach(function(s,i){setTimeout(function(){s.checked=!allOn;render();if(!allOn)show(s);},allOn?0:i*160);});flip.textContent=allOn?'Flip all five':'Reset';});
+  render();
+})();
+</script>
+</body>
+</html>
