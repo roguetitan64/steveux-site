@@ -210,7 +210,7 @@ function fillLayout(list){
    st.ls=list.scrollTop;
    var bl=document.getElementById("brandList");if(bl)st.bs=bl.scrollTop;
    saveState(st);
-   location=(k==="__main")?(inExpl?"../index.html":"index.html"):(BASE+k+".html");
+   location=(k==="__main")?(inExpl?"../":"./"):(BASE+k); /* v5.12: extensionless */
   }));
  });
  /* the overview lives as its own project page — linked at the bottom */
@@ -218,7 +218,7 @@ function fillLayout(list){
   var st=loadState();st.open=true;st.ls=list.scrollTop;
   var bl=document.getElementById("brandList");if(bl)st.bs=bl.scrollTop;
   saveState(st);
-  location=BASE+"index.html";
+  location=BASE||"./";
  });
  ov.style.borderTop="1px solid var(--skw-hair)";ov.style.borderRadius="0 0 8px 8px";
  if(pageKey==="index")ov.style.boxShadow="inset 0 0 0 2px var(--skw-ring)";
@@ -349,14 +349,14 @@ function init(){
   introOnce();
   if(pageKey!=="index"){
    /* every exploration carries the same two exits as the overview */
-   var home="../index.html#f=side";
+   var home="../#f=side";
    if(/12-career\/explorations\//.test(location.pathname))home="../portfolio-site/index.html#f=side";
    var esc=el("div","position:fixed;top:16px;left:16px;right:16px;display:flex;justify-content:space-between;pointer-events:none;z-index:2147483000;font:12px/1 -apple-system,sans-serif");
    var bk=el("button",BTN+";pointer-events:auto","← Back");
    bk.setAttribute("aria-label","Back to where you came from");
    bk.onclick=function(){
     try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){history.back();return}}catch(e){}
-    location="index.html";
+    location="./";
    };
    var hm=el("a",BTN+";pointer-events:auto;text-decoration:none","Home · Side quests →");
    hm.href=home;

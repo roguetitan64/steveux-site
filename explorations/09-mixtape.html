@@ -41,19 +41,19 @@ body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 'Space Mono',m
  </div>
  <div id="list"></div>
  <div class="ctl"><button id="prev">⏮</button><button id="play">▶</button><button id="next">⏭</button></div>
- <a class="open" id="open" href="../index.html" target="_blank">open liner notes →</a>
- <div class="side"><span>Side A: enterprise · Side B: AI-native</span><a href="../index.html">standing site</a></div>
+ <a class="open" id="open" href="../" target="_blank">open liner notes →</a>
+ <div class="side"><span>Side A: enterprise · Side B: AI-native</span><a href="../">standing site</a></div>
 </div>
 <script>
 var T=[
-["A1","One trade-in flow for four systems","T-Mobile · completion +~10%","../case-studies/tmobile-trade-in.html","3:42"],
-["A2","The locator that answers before the tap","Western Union · 200+ countries","../case-studies/western-union.html","2:58"],
-["A3","Regulated content, still human","Pharma · 16 weeks · renewed twice","../case-studies/rare-disease.html","3:11"],
-["B1","Customers who might not be human","T-Mobile API Marketplace · 2025-26","../case-studies/api-marketplace.html","4:20"],
-["B2","Planning that shows its consequences","Compas · in progress","../case-studies/compas.html","3:33"],
-["B3","Five voices in, one protected theme out","Koé rebuilt · prototype inside","../case-studies/koe-2026.html","3:05"],
-["B4","The bike signals the police, not you","FindMyBike rebuilt · prototype inside","../case-studies/findmybike-2026.html","2:47"],
-["B5","The site that mixes itself (hidden track)","Rebuild log · with an AI pair","../rebuild-log.html","5:55"]];
+["A1","One trade-in flow for four systems","T-Mobile · completion +~10%","../case-studies/tmobile-trade-in","3:42"],
+["A2","The locator that answers before the tap","Western Union · 200+ countries","../case-studies/western-union","2:58"],
+["A3","Regulated content, still human","Pharma · 16 weeks · renewed twice","../case-studies/rare-disease","3:11"],
+["B1","Customers who might not be human","T-Mobile API Marketplace · 2025-26","../case-studies/api-marketplace","4:20"],
+["B2","Planning that shows its consequences","Compas · in progress","../case-studies/compas","3:33"],
+["B3","Five voices in, one protected theme out","Koé rebuilt · prototype inside","../case-studies/koe-2026","3:05"],
+["B4","The bike signals the police, not you","FindMyBike rebuilt · prototype inside","../case-studies/findmybike-2026","2:47"],
+["B5","The site that mixes itself (hidden track)","Rebuild log · with an AI pair","../rebuild-log","5:55"]];
 var list=document.getElementById('list'),cur=-1,playing=false,prog=0,timer=null;
 T.forEach(function(t,i){
  var d=document.createElement('div');d.className='tr';

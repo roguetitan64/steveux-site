@@ -33,14 +33,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system
 <script>
 var log=document.getElementById('log'),row=document.getElementById('chiprow');
 var QA={
-"Who are you?":"Senior product designer, 11 years — telecom commerce, payments, API platforms, and the design systems that hold them together. I make complex software feel intuitive. Split between San Francisco and Medellín. <a href='../about.html'>Longer version →</a>",
-"Show me your best work":"The API Marketplace — designed for customers who might not be human. AI agents order, interfaces verify, humans confirm.<img src='../images/hero-api.webp'><a href='../case-studies/api-marketplace.html'>Read the case →</a>",
-"What's the AI angle?":"Three working prototypes on the site, a personal AI OS running daily, and this whole portfolio was built with an AI pair against a written taste file — decisions logged in public. <a href='../rebuild-log.html'>The receipts →</a>",
-"Ever lost an argument?":"Yes, and I keep it on the site: a modal argument at T-Mobile was settled as a pattern preference when it was a scalability decision in a UI costume. Losing well reads more senior than winning vaguely. <a href='../case-studies/tmobile-trade-in.html'>That story →</a>",
+"Who are you?":"Senior product designer, 11 years — telecom commerce, payments, API platforms, and the design systems that hold them together. I make complex software feel intuitive. Split between San Francisco and Medellín. <a href='../about'>Longer version →</a>",
+"Show me your best work":"The API Marketplace — designed for customers who might not be human. AI agents order, interfaces verify, humans confirm.<img src='../images/hero-api.webp'><a href='../case-studies/api-marketplace'>Read the case →</a>",
+"What's the AI angle?":"Three working prototypes on the site, a personal AI OS running daily, and this whole portfolio was built with an AI pair against a written taste file — decisions logged in public. <a href='../rebuild-log'>The receipts →</a>",
+"Ever lost an argument?":"Yes, and I keep it on the site: a modal argument at T-Mobile was settled as a pattern preference when it was a scalability decision in a UI costume. Losing well reads more senior than winning vaguely. <a href='../case-studies/tmobile-trade-in'>That story →</a>",
 "What would you change at my company?":"Can't know yet — but the method is consistent: find where the system makes people feel stupid, make it confess its rules early, and measure what changes. First call is free: <a href='mailto:hello@steveux.com'>hello@steveux.com</a>",
 "Numbers?":"~10% order-completion lift per business client on trade-in. 200+ countries on the WU locator. 118+ shipped projects at T-Mobile. Flagged where I can't verify — invented metrics are a firing offense on my own site.",
 "Something personal":"A golden retriever features heavily in my brand research. Spanish is infrastructure, not a hobby — there's a wedding to plan. And I draw better with a robot arm than I ever did alone.<img src='../images/hero-portrait-tile.webp'>",
-"How do I reach you?":"hello@steveux.com · <a href='https://www.linkedin.com/in/stevenlongtran/'>LinkedIn</a> · or the full site with the depth controls: <a href='../index.html'>steveux.com →</a>"};
+"How do I reach you?":"hello@steveux.com · <a href='https://www.linkedin.com/in/stevenlongtran/'>LinkedIn</a> · or the full site with the depth controls: <a href='../'>steveux.com →</a>"};
 function chips(){row.innerHTML='';Object.keys(QA).forEach(function(q){
  var b=document.createElement('button');b.className='chip';b.textContent=q;
  b.onclick=function(){ask(q)};row.appendChild(b)})}

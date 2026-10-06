@@ -18,6 +18,9 @@
 /* demo store · page-scoped · v5 tokens only */
 .dm-bar{background:var(--acc);color:#fff;font-size:13px;letter-spacing:.02em;text-align:center;padding:10px 24px}
 .dm-bar a{color:#fff;border-bottom:1px solid rgba(255,255,255,.6);margin-left:10px}
+.dm-bar a.dm-bar-of{margin-left:0;font-weight:600}
+.dm-note .dm-ret{display:inline-block;margin-top:8px;font-size:12px;letter-spacing:.06em;color:var(--acc);font-weight:600;border-bottom:1px solid transparent}
+.dm-note .dm-ret:hover{border-bottom-color:currentColor}
 .dm-ann{background:var(--ink);color:var(--bg);font-size:12.5px;text-align:center;padding:8px 24px}
 .dm-wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .dm-note{position:relative;border-left:3px solid var(--acc);padding:2px 0 2px 18px;max-width:40em;font-size:15px;line-height:1.6;color:var(--body);margin-top:28px}
@@ -126,11 +129,11 @@
 </style>
 </head>
 <body data-depth="read" class="p-stores-demo">
-<div class="dm-bar" role="note">Demo store. Nothing here is for sale, and the brand is invented. Every step is annotated with what it does and why.<a href="stores.html">Back to storefront design</a></div>
+<div class="dm-bar" role="note">Demo store, part of <a href="stores" class="dm-bar-of">Storefront design</a> on steveux.com. Nothing here is for sale and the brand is invented; every step is annotated with what it does and why.<a href="stores#demo">Back to the switches</a></div>
 <div class="dm-ann">Free shipping over $100 · $8 flat below · gifts arrive wrapped</div>
 <header>
  <nav class="nav">
-  <a class="logo" href="stores.html">Nest &amp; Grove <span class="dot">·</span> demo</a>
+  <a class="logo" href="stores">Nest &amp; Grove <span class="dot">·</span> demo</a>
   <nav class="navlinks" aria-label="Demo store"><a href="#shop">Shop</a><a href="#cart" id="cartlink">Cart <span id="cart-count">0</span></a></nav>
  </nav>
 </header>
@@ -164,8 +167,8 @@
     </div>
    </div>
   </div>
-  <p class="dm-note"><span class="dm-pin">1</span><b>The hero product is first and says what it is.</b> Price beside the headline, the sale with an end date, the gift where the decision happens, and reviews within a thumb of the button. Viewers spend 57% of their time above the fold; five visible reviews lift purchase likelihood about 270%.<cite>NN/g eyetracking · Spiegel Research Center, Northwestern</cite></p>
-  <p class="dm-note"><span class="dm-pin">2</span><b>One button, and it follows you.</b> Scroll down and a sticky add-to-cart appears. In a vendor’s split test that alone lifted add-to-carts 10% and orders 9%.<cite>Zipify · vendor data</cite></p>
+  <p class="dm-note"><span class="dm-pin">1</span><b>The hero product is first and says what it is.</b> Price beside the headline, the sale with an end date, the gift where the decision happens, and reviews within a thumb of the button. Viewers spend 57% of their time above the fold; five visible reviews lift purchase likelihood about 270%.<cite>NN/g eyetracking · Spiegel Research Center, Northwestern</cite> <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
+  <p class="dm-note"><span class="dm-pin">2</span><b>One button, and it follows you.</b> Scroll down and a sticky add-to-cart appears. In a vendor’s split test that alone lifted add-to-carts 10% and orders 9%.<cite>Zipify · vendor data</cite> <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
  </section>
 
  <div class="sticky-atc" id="sticky-atc" aria-hidden="true"><span><b>Signature Gift Box</b> · $128</span><button type="button" class="btn-ink" data-add="box">Add to cart</button></div>
@@ -178,7 +181,7 @@
    <article class="prod" data-sku="matcha"><div class="prod-art a2"></div><span class="cap">Snack · 85g</span><h3>Matcha chocolate cashews</h3><p>Roasted cashews, dark chocolate, ceremonial matcha.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="matcha">Add to cart</button></article>
    <article class="prod" data-sku="ginger"><div class="prod-art a3"></div><span class="cap">Snack · 80g</span><h3>Candied ginger</h3><p>Soft, warm, the one grandparents ask for.</p><p class="prod-price"><b>$6</b></p><button type="button" class="btn-ghost" data-add="ginger">Add to cart</button></article>
   </div>
-  <p class="dm-note"><span class="dm-pin">3</span><b>Collection cards carry a price, one line, and a button.</b> Shoppers who add from a collection skip a page. Shopify’s average add-to-cart rate is 4.6%; the top 10% of stores clear 9.6%.<cite>Littledata</cite></p>
+  <p class="dm-note"><span class="dm-pin">3</span><b>Collection cards carry a price, one line, and a button.</b> Shoppers who add from a collection skip a page. Shopify’s average add-to-cart rate is 4.6%; the top 10% of stores clear 9.6%.<cite>Littledata</cite> <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
  </section>
 
  <section class="dm-sec" id="cart" aria-labelledby="cart-h">
@@ -196,8 +199,8 @@
     <div class="cart-actions"><a class="st-btn" href="#checkout">Checkout <i>→</i></a></div>
    </div>
    <div>
-    <p class="dm-note" style="margin-top:0"><span class="dm-pin">4</span><b>The gift is a line, marked FREE, not a banner.</b> The free bags appear in the cart the moment the box does. On many stores the gift is promised in a moving bar and then shows up priced at $16.00 in the cart, which reads as a broken promise.</p>
-    <p class="dm-note"><span class="dm-pin">5</span><b>The shipping bar says exactly what earns free shipping.</b> Extra costs shown late cause 48% of abandonments; 58% of shoppers add an item to reach a threshold. Shipping is shown here, not sprung at the end.<cite>Baymard 2024 · Red Stag</cite></p>
+    <p class="dm-note" style="margin-top:0"><span class="dm-pin">4</span><b>The gift is a line, marked FREE, not a banner.</b> The free bags appear in the cart the moment the box does. On many stores the gift is promised in a moving bar and then shows up priced at $16.00 in the cart, which reads as a broken promise. <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
+    <p class="dm-note"><span class="dm-pin">5</span><b>The shipping bar says exactly what earns free shipping.</b> Extra costs shown late cause 48% of abandonments; 58% of shoppers add an item to reach a threshold. Shipping is shown here, not sprung at the end.<cite>Baymard 2024 · Red Stag</cite> <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
    </div>
   </div>
  </section>
@@ -219,17 +222,17 @@
     <p class="sum-total"><span>Total</span><b id="summary-total">$0</b></p>
    </aside>
   </div>
-  <p class="dm-note"><span class="dm-pin">6</span><b>Three fields, no account, the total in view.</b> Only 45% of Shopify checkouts that start get finished. Among the leading reasons people quit: the site wanted an account (26%), it took too long (22%), the total wasn’t visible up front (21%). This form has none of them.<cite>Littledata · Baymard</cite></p>
+  <p class="dm-note"><span class="dm-pin">6</span><b>Three fields, no account, the total in view.</b> Only 45% of Shopify checkouts that start get finished. Among the leading reasons people quit: the site wanted an account (26%), it took too long (22%), the total wasn’t visible up front (21%). This form has none of them.<cite>Littledata · Baymard</cite> <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
   <div class="dm-back">
    <div><h3>That was the whole flow</h3><p>Six things, all of them theme settings or discount rules. None of them touch products, orders or payments.</p></div>
-   <a class="st-btn" href="stores.html#read">Get a free read of your store <i>→</i></a>
+   <a class="st-btn" href="stores#read">Get a free read of your store <i>→</i></a>
   </div>
  </section>
 </main>
 <footer data-surface="inverse">
  <div class="foot">
   <span class="cap">Nest &amp; Grove is an invented brand for this demo &mdash; &copy; 2026 Steven Long Tran</span>
-  <div class="links"><a href="stores.html">Storefront design</a><a href="index.html">steveux.com</a></div>
+  <div class="links"><a href="stores">Storefront design</a><a href="./">steveux.com</a></div>
  </div>
 </footer>
 <script>

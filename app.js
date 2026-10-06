@@ -494,14 +494,16 @@
   'linkedin.com':g('<path d="M9 15a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1M15 9a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1"/>'),
   'resume.pdf':g('<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>')
  };
+ function hit(h,k){k=k.replace(/\.html(?=#|$)/,'');if(/\/index$/.test(k)){k=k.slice(0,-5);return h.slice(-k.length)===k}if(k.indexOf('#')>-1)return h.slice(-k.length)===k;return h.indexOf(k)>-1&&!(k==='about'&&h.indexOf('#')>-1)}
  function keyFor(t){
   if(t.id==='themeTile')return 'themeTile';
   var pk=t.getAttribute('data-peek')||'';
   if(/Spanish/.test(pk))return 'duolingo';
   if(/Three rules/.test(pk))return 'principles';
   if(t.getAttribute('aria-label')==='Numbers')return 'numbers';
-  var h=t.getAttribute('href')||'';
-  for(var k in G){if(h.indexOf(k)>-1)return k}
+  var h=(t.getAttribute('href')||'').replace(/\.html(?=#|$)/,'');
+  /* v5.12: links are extensionless; keys keep .html for the record and are normalised in hit() */
+  for(var k in G){if(hit(h,k))return k}
   return null;
  }
  d.querySelectorAll('.bento .tile').forEach(function(t){
@@ -513,8 +515,8 @@
  d.querySelectorAll('.dossier .band').forEach(function(b){
   if(b.querySelector('.tico'))return;
   var go=b.querySelector('.go');if(!go)return;
-  var h=go.getAttribute('href')||'',k=null;
-  for(var kk in G){if(h.indexOf(kk)>-1){k=kk;break}}
+  var h=(go.getAttribute('href')||'').replace(/\.html(?=#|$)/,''),k=null;
+  for(var kk in G){if(hit(h,kk)){k=kk;break}}
   if(!k)return;
   var s=d.createElement('span');s.className='tico bico';s.setAttribute('aria-hidden','true');s.innerHTML=G[k];
   b.appendChild(s);
@@ -528,7 +530,7 @@
   var t=e.target;
   if(t&&(/INPUT|TEXTAREA|SELECT/.test(t.tagName)||t.isContentEditable))return;
   var pre=/\/case-studies\//.test(location.pathname)?'../':'';
-  location=pre+'explorations/01-terminal.html';
+  location=pre+'explorations/01-terminal';
  });
 })();
 
