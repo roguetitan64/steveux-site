@@ -76,5 +76,7 @@
 /stores-demo /stores-demo.html 200
 /stores.html /stores 301!
 /stores /stores.html 200
+/stores-reads.html /stores-reads 301!
+/stores-reads /stores-reads.html 200
 /work.html /work 301!
 /work /work.html 200

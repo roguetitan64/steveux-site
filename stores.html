@@ -13,7 +13,7 @@
 <meta property="og:title" content="Storefront design — Steven Long Tran">
 <meta property="og:description" content="Five switches, zero back-end changes. Front-end design for small online stores, with the numbers behind every change.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://steveux.com/og-image.png">
+<meta property="og:image" content="https://steveux.com/og-stores.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -29,13 +29,15 @@
 .st-btn.ink:hover{background:var(--acc);border-color:var(--acc);color:#fff}
 .st-btn:not(.ink):hover{background:var(--ink);color:var(--bg)}
 .st-fine{font-size:13.5px;color:var(--muted)}
-.st-hero{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;padding-bottom:var(--vsp,64px)}
+.st-hero{display:grid;grid-template-columns:minmax(0,1fr) 500px;gap:48px;align-items:center;padding-bottom:40px}
+@media (max-width:1100px){.st-hero{grid-template-columns:minmax(0,1fr) 300px}.loop-steps,.loop-note{display:none}.phone.phone-mini{grid-row:auto}}
 @media (max-width:900px){.st-hero{grid-template-columns:1fr;gap:36px}}
 .st-hero h1{margin-top:0}
 .st-stamp{display:block;margin-bottom:22px}
 .st-stamp b{color:var(--acc);font-weight:500}
-.st-facts{list-style:none;border-top:1px solid var(--ink)}
-.st-facts li{padding:16px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:baseline}
+.st-facts{list-style:none;border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px;margin-bottom:var(--vsp,64px)}
+@media (max-width:760px){.st-facts{grid-template-columns:1fr}}
+.st-facts li{padding:18px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:96px 1fr;gap:4px 14px;align-items:baseline}
 .st-facts b{font-family:'Instrument Serif',serif;font-weight:400;font-size:42px;color:var(--acc);line-height:1;letter-spacing:-.02em}
 .st-facts span{font-size:14.5px;color:var(--body);line-height:1.5}
 .st-facts cite{grid-column:2;font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
@@ -151,6 +153,72 @@
 .phone-caption a{color:var(--acc);font-weight:600;border-bottom:1px solid currentColor}
 .phone-caption a i{font-style:normal}
 
+
+/* v5.13 — hero loop (auto-playing mini phone) */
+.hero-loop{display:grid;grid-template-columns:250px max-content;gap:18px 24px;align-items:center;justify-content:start}
+@media (max-width:900px){.hero-loop{grid-template-columns:1fr;justify-items:center}}
+.phone.phone-mini{width:min(250px,100%);font-size:11px;border-radius:30px;padding:8px;grid-row:1/3;box-shadow:0 30px 60px -28px rgba(0,0,0,.5)}
+.phone-mini .screen{height:400px;pointer-events:none}
+.phone-mini .cards{grid-template-columns:1fr 1fr}
+.phone-mini .card-name{font-size:11px}
+.phone-mini .atc{font-size:11px;padding:8px}
+.loop-steps{list-style:none;display:grid;gap:8px;margin:0;align-self:end}
+.loop-steps li{position:relative;padding-left:34px;font-size:13.5px;color:var(--muted);transition:color .3s;white-space:nowrap}
+.loop-steps li::before{content:"";position:absolute;left:0;top:1px;width:24px;height:14px;border-radius:7px;background:var(--layer-3);transition:background .3s}
+.loop-steps li::after{content:"";position:absolute;left:2px;top:3px;width:10px;height:10px;border-radius:50%;background:#fff;transition:transform .3s var(--ease)}
+.loop-steps li.on{color:var(--ink);font-weight:500}
+.loop-steps li.on::before{background:var(--acc)}
+.loop-steps li.on::after{transform:translateX(10px)}
+.loop-note{font-size:12px;color:var(--muted);align-self:start}
+.loop-note a{color:var(--acc);font-weight:600}
+@media (max-width:900px){.loop-steps,.loop-note{display:none}.phone.phone-mini{grid-row:auto}}
+/* product illustrations (code-drawn, invented brand) */
+.card .img.img-hero,.card .img.i1,.card .img.i2,.card .img.i3,.card .img.i4{background-size:cover;background-position:center;background-color:#F7F6F1}
+.card .img.img-hero{background-image:url(images/store/box.webp)}
+.card .img.i1{background-image:url(images/store/mango.webp)}
+.card .img.i2{background-image:url(images/store/matcha.webp)}
+.card .img.i3{background-image:url(images/store/ginger.webp)}
+.card .img.i4{background-image:url(images/store/chili.webp)}
+/* evidence glyphs */
+.st-glyph{width:44px;height:44px;color:var(--acc);display:block}
+[data-theme="dark"] .st-glyph circle[fill="#141412"],[data-theme="dark"] .st-glyph line[stroke="#141412"]{fill:#EFEFE7;stroke:#EFEFE7}
+.st-stat{grid-template-rows:auto auto 1fr auto}
+/* offer icons */
+.st-ico{width:28px;height:28px;color:var(--acc);display:block;margin-bottom:12px}
+/* read cards */
+.st-readcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+@media (max-width:900px){.st-readcards{grid-template-columns:1fr}}
+.st-readcard{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--hair);border-radius:var(--r-card);overflow:hidden;background:var(--card);color:inherit;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.st-readcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px -16px rgba(20,20,18,.3)}
+.st-readcard .rc-art{aspect-ratio:16/10;display:grid;place-items:center;padding:22px;text-align:center;font-family:'Instrument Serif',serif;font-size:clamp(26px,2.6vw,34px);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.st-readcard .rc-art em{color:var(--acc)}
+.st-readcard:nth-child(1) .rc-art{background:var(--tint-sand,#F5EDDA)}
+.st-readcard:nth-child(2) .rc-art{background:var(--tint-clay,#F6E7DC)}
+.st-readcard:nth-child(3) .rc-art{background:var(--tint-sage,#EAF0E1)}
+[data-theme="dark"] .st-readcard .rc-art{background:var(--layer-2)!important}
+.st-readcard .rc-body{padding:18px 20px 20px;display:grid;gap:8px;align-content:start}
+.st-readcard .rc-body strong{font-size:16px;line-height:1.3;letter-spacing:-.01em}
+.st-readcard .rc-body p{font-size:14px;line-height:1.5;color:var(--body)}
+.st-readcard .rc-body i{font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--acc);margin-top:4px}
+.st-fine a{color:var(--acc);font-weight:600}
+.st-fine a i{font-style:normal}
+/* proof tiles */
+.st-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+@media (max-width:900px){.st-proof{grid-template-columns:1fr}}
+.st-ptile{display:grid;gap:6px;border:1px solid var(--hair);border-radius:var(--r-card);background:var(--card);padding:14px 14px 18px;color:inherit;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.st-ptile:hover{transform:translateY(-4px);box-shadow:0 14px 30px -16px rgba(20,20,18,.3)}
+.st-ptile img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 20%;border-radius:10px;border:1px solid var(--hair);margin-bottom:8px}
+.st-ptile b{font-size:17px;line-height:1.25;letter-spacing:-.01em;font-weight:600}
+.st-ptile i{font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--acc);margin-top:4px}
+
+/* reads page */
+.st-readsfull{display:grid;gap:56px}
+.st-read{border-top:1px solid var(--ink);padding-top:22px;scroll-margin-top:90px}
+.st-read h2{font-size:clamp(24px,3vw,36px);line-height:1.1;letter-spacing:-.02em;margin:8px 0 18px}
+.st-read .rd{max-width:44em;display:grid;gap:12px;font-size:16px;line-height:1.6;color:var(--body)}
+.st-read .rd h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.st-read .rd .steal{border-left:3px solid var(--acc);padding:4px 0 4px 16px}
+.st-read .rd .meta{font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body data-depth="read" class="p-stores">
@@ -173,12 +241,36 @@
    </div>
    <p class="st-fine">English · Tiếng Việt · Español. No login, no call, no pitch unless you ask.</p>
   </div>
-  <ul class="st-facts" aria-label="Three numbers">
-   <li><b>1.5%</b><span>Average conversion for Shopify food and beverage stores. The top 20% clear 4.1%.</span><cite>Littledata</cite></li>
-   <li><b>48%</b><span>Cart abandonments caused by costs shown too late.</span><cite>Baymard, 2024</cite></li>
-   <li><b>0</b><span>Back-end changes needed for anything on this page.</span><cite>Theme settings and discounts</cite></li>
-  </ul>
+  <div class="hero-loop" aria-hidden="true">
+   <div class="phone phone-mini" id="phone-mini" data-hero="0" data-gift="0" data-ship="0" data-sale="0" data-reviews="0">
+    <div class="phone-bar"><span>9:41</span><span>demo-store.example</span></div>
+    <div class="screen">
+     <div class="ann">Free shipping over $100 · $8 flat below</div>
+     <div class="ship-bar"><span class="ship-fill"></span><em>$24 more for free shipping</em></div>
+     <div class="store-hero"><p class="store-kicker">The gift box</p><h3 class="store-h">The box everyone asks about, ready to ship.</h3></div>
+     <div class="cards">
+      <article class="card card-hero"><div class="img img-hero"><span class="badge-sale">Tết · ends Feb 9</span></div><p class="card-name">Signature Gift Box</p><p class="stars"><span>★★★★★</span> 31 reviews</p><p class="price"><s class="was">$148</s> <b class="now">$148</b> <span class="sale-now">$128</span></p><p class="gift-line">+ 2 free bags of cashews</p><button type="button" class="atc" tabindex="-1">Add to cart</button></article>
+      <article class="card"><div class="img i1"></div><p class="card-name">Dried mango</p><p class="price"><b>$5</b></p></article>
+      <article class="card"><div class="img i2"></div><p class="card-name">Matcha cashews</p><p class="price"><b>$5</b></p></article>
+     </div>
+    </div>
+   </div>
+   <ol class="loop-steps" id="loop-steps">
+    <li data-sw="hero">Hero product pinned</li>
+    <li data-sw="gift">Gift shown at the price</li>
+    <li data-sw="ship">Free-shipping bar</li>
+    <li data-sw="sale">Sale with a date</li>
+    <li data-sw="reviews">Reviews by the button</li>
+   </ol>
+   <p class="loop-note"><span id="loop-count">0 of 5</span> switches on · <a href="#demo">flip them yourself ↓</a></p>
+  </div>
  </div>
+
+ <ul class="st-facts rv" aria-label="Three numbers">
+  <li><b>1.5%</b><span>Average conversion for Shopify food and beverage stores. The top 20% clear 4.1%.</span><cite>Littledata</cite></li>
+  <li><b>48%</b><span>Cart abandonments caused by costs shown too late.</span><cite>Baymard, 2024</cite></li>
+  <li><b>0</b><span>Back-end changes needed for anything on this page.</span><cite>Theme settings and discounts</cite></li>
+ </ul>
 
  <section class="st-sec rv" id="demo" aria-labelledby="demo-h">
   <span class="cap">Interactive demo · a fictional store, not a client</span>
@@ -232,12 +324,12 @@
   <h2 id="ev-h">Every switch has a <em>number</em> behind it.</h2>
   <p class="st-lede">Benchmarks I design against, with the source. Vendor figures are marked as vendor figures. On your store the numbers are measured, not quoted.</p>
   <div class="st-stats">
-   <div class="st-stat"><b>57%</b><span>Share of viewing time spent above the fold. If your best seller isn’t there, the fold is wasted.</span><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" rel="noopener">NN/g eyetracking</a></cite></div>
-   <div class="st-stat"><b>+270%</b><span>Purchase likelihood with five reviews visible versus none; larger for higher-priced items.</span><cite><a href="https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/" rel="noopener">Spiegel Research Center, Northwestern</a></cite></div>
-   <div class="st-stat"><b>48%</b><span>Cart abandonments caused by extra costs shown late. 58% of shoppers add an item to reach a free-shipping threshold.</span><cite><a href="https://baymard.com/lists/cart-abandonment-rate" rel="noopener">Baymard 2024</a> · Red Stag</cite></div>
-   <div class="st-stat"><b>+9%</b><span>Orders after adding a sticky add-to-cart button on mobile, in a split test.</span><cite><a href="https://zipify.com/mobile-sticky-button-split-test-results/" rel="noopener">Zipify</a> · vendor data</cite></div>
-   <div class="st-stat"><b>45%</b><span>Shoppers who finish checkout once they start it on Shopify. Account walls, length and hidden totals are the top reasons they leave.</span><cite><a href="https://www.littledata.io/average-website-performance" rel="noopener">Littledata</a> · Baymard</cite></div>
-   <div class="st-stat"><b>70%</b><span>More likely to get a visit when a Google Business Profile is complete; 50% more likely to be considered for purchase.</span><cite>Google, via <a href="https://www.brightlocal.com/resources/local-seo-statistics/" rel="noopener">BrightLocal</a></cite></div>
+   <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64"><rect x="8" y="6" width="48" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="8" y="6" width="48" height="29.6" rx="6" fill="currentColor" opacity=".9"/><line x1="8" y1="35.6" x2="56" y2="35.6" stroke="#141412" stroke-width="2" stroke-dasharray="3 3"/></svg><b>57%</b><span>Share of viewing time spent above the fold. If your best seller isn’t there, the fold is wasted.</span><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" rel="noopener">NN/g eyetracking</a></cite></div>
+   <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64"><rect x="6" y="46" width="12" height="12" fill="currentColor" opacity=".35"/><rect x="26" y="22" width="12" height="36" fill="currentColor" opacity=".6"/><rect x="46" y="6" width="12" height="52" fill="currentColor"/></svg><b>+270%</b><span>Purchase likelihood with five reviews visible versus none; larger for higher-priced items.</span><cite><a href="https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/" rel="noopener">Spiegel Research Center, Northwestern</a></cite></div>
+   <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="8" opacity=".25"/><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="72.4 150.8" transform="rotate(-90 32 32)"/></svg><b>48%</b><span>Cart abandonments caused by extra costs shown late. 58% of shoppers add an item to reach a free-shipping threshold.</span><cite><a href="https://baymard.com/lists/cart-abandonment-rate" rel="noopener">Baymard 2024</a> · Red Stag</cite></div>
+   <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="16" y="40" width="32" height="10" rx="3" fill="currentColor"/><path d="M22 18h20M22 26h12" stroke="currentColor" stroke-width="2.5" opacity=".5"/></svg><b>+9%</b><span>Orders after adding a sticky add-to-cart button on mobile, in a split test.</span><cite><a href="https://zipify.com/mobile-sticky-button-split-test-results/" rel="noopener">Zipify</a> · vendor data</cite></div>
+   <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="8" opacity=".25"/><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="67.9 150.8" transform="rotate(-90 32 32)"/></svg><b>45%</b><span>Shoppers who finish checkout once they start it on Shopify. Account walls, length and hidden totals are the top reasons they leave.</span><cite><a href="https://www.littledata.io/average-website-performance" rel="noopener">Littledata</a> · Baymard</cite></div>
+   <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64"><path d="M32 58 C32 58 10 38 10 24 a22 22 0 0 1 44 0 c0 14-22 34-22 34z" fill="currentColor"/><circle cx="32" cy="24" r="8" fill="#141412"/></svg><b>70%</b><span>More likely to get a visit when a Google Business Profile is complete; 50% more likely to be considered for purchase.</span><cite>Google, via <a href="https://www.brightlocal.com/resources/local-seo-statistics/" rel="noopener">BrightLocal</a></cite></div>
   </div>
  </section>
 
@@ -245,9 +337,9 @@
   <span class="cap">Three ways to start</span>
   <h2 id="of-h">Small enough to start this <em>month.</em></h2>
   <div class="st-offers">
-   <article class="st-offer"><span class="cap">01 · Storefront audit</span><h3>Everything that leaks a sale, ranked</h3><p>Home, collection, product, cart and checkout on mobile and desktop. A ranked fix list, screenshots, and a 45-minute walkthrough. Credited in full toward any build.</p></article>
-   <article class="st-offer"><span class="cap">02 · Front-end redesign</span><h3>The store customers see, rebuilt</h3><p>Home, collection and product pages redesigned inside your theme or a new one. Hero product first, promotions where they persuade, reviews where they work. Admin untouched.</p></article>
-   <article class="st-offer"><span class="cap">03 · Promotions system</span><h3>Run a sale without calling anyone</h3><p>Gift-with-purchase, seasonal pricing, free-shipping bars and badges set up as switches you flip yourself, with a one-page playbook for the year’s holidays.</p></article>
+   <article class="st-offer"><svg class="st-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6M11 8v6"/></svg><span class="cap">01 · Storefront audit</span><h3>Everything that leaks a sale, ranked</h3><p>Home, collection, product, cart and checkout on mobile and desktop. A ranked fix list, screenshots, and a 45-minute walkthrough. Credited in full toward any build.</p></article>
+   <article class="st-offer"><svg class="st-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h4M8 16h8"/></svg><span class="cap">02 · Front-end redesign</span><h3>The store customers see, rebuilt</h3><p>Home, collection and product pages redesigned inside your theme or a new one. Hero product first, promotions where they persuade, reviews where they work. Admin untouched.</p></article>
+   <article class="st-offer"><svg class="st-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="5"/><circle cx="16" cy="12" r="3" fill="currentColor" stroke="none"/></svg><span class="cap">03 · Promotions system</span><h3>Run a sale without calling anyone</h3><p>Gift-with-purchase, seasonal pricing, free-shipping bars and badges set up as switches you flip yourself, with a one-page playbook for the year’s holidays.</p></article>
   </div>
   <ul class="st-keys">
    <li><b>I never see your password.</b> Shopify gives me a collaborator code; you can remove me in one click.</li>
@@ -261,36 +353,23 @@
   <span class="cap">Storefront reads · one new read a month</span>
   <h2 id="rd-h">I read stores the way a customer <em>shops</em> them.</h2>
   <p class="st-lede">Public stores, read on a phone: what works, what leaks, one thing worth copying. Yours gets the same read, privately.</p>
-  <div class="st-reads">
-  <details><summary><span><span class="cap">Storefront read 01 · Golden Nest · read on a phone, September 2026</span><strong>The category leader runs a calendar, not a discount</strong></span></summary><div class="rd"><p>Golden Nest has sold bird’s nest in America since the nineties and it shows in the storefront: every promotion has a date, every gift has a price tier, and 2,144 reviews do the talking. It also leaves two doors open that a smaller store can walk through.</p>
-  <h4>What works</h4>
-  <p>The homepage bar reads “12% off sitewide through 9/25/26.” A sale with an end date is the opposite of a strikethrough that never ends; it gives the buyer a reason to act today and the brand a reason to reset the price on the 26th. Under $200 you get free shipping over $100; over $200 you get a gift of syrups. Two thresholds, two nudges.</p><p>Gifts are sorted the way people shop for them: “Under $100,” “Under $150,” and a “Build Your Gift Box.” Thirty-one items sit under $100. The subscription is a ladder, 5% then 10% then 15%, placed below the buy button on the product page where it belongs, not above it.</p><p>The product page carries the answer to the question every first-time buyer has: what is this, how do I prepare it, why does it cost this much (“about 30% of a harvest passes”). Reviews, with a distribution, sit right after the description.</p>
-  <h4>What leaks</h4>
-  <p>There is no gift message and no gift wrap on a product that is bought as a gift most of the year. The contact page has an address and a phone number and nothing else: no hours, no map, no pickup. For a brand with a physical presence in Southern California, that is a customer standing outside a locked door. And the site is English only in a category where three of the five strongest local sellers run Vietnamese or Chinese storefronts.</p>
-  <div class="steal"><h4>Steal this</h4><p>Give every promotion an end date and say it in the bar. A “through 9/25” beats a “36% off” that has been there since spring, and it costs nothing but a calendar.</p></div>
-  <p class="meta">A read is commentary on a public storefront as it appeared on the date above. Not affiliated with the brand. Facts from the live site; see <a href="https://www.goldennest.com/">https://www.goldennest.com/</a>. Your store gets the same read, privately: <a href="#read">ask for one</a>.</p></div></details>
-  <details><summary><span><span class="cap">Storefront read 02 · Bokksu · read on a phone, September 2026</span><strong>Gift wrap as a product, and a plan selector too early</strong></span></summary><div class="rd"><p>Bokksu sells a monthly box of Japanese snacks to a lot of people who are buying it for someone else. Two things it does are worth copying by any store that sells gifts; one thing it does is only right at its price.</p>
-  <h4>What works</h4>
-  <p>The product page treats gifting as a product line. “Make It Special” offers paid gift wrap (about $15) and a washi box (about $20), with a 200-character message field right there, before checkout. That is where the gift buyer decides, so that is where the option lives. Gift plans do not auto-renew, which removes the fear that stops people from gifting a subscription.</p><p>The plan tiers show the saving in dollars, “Save $12 / $36 / $84,” with one plan labelled “Popular” and one “Best Value.” Twelve thousand reviews sit below the description with an AI summary on top so nobody has to read all of them. Rewards and a referral program feed the next order.</p>
-  <h4>What leaks</h4>
-  <p>The plan selector sits above the fold, before the gallery, the description or the reviews. At $33 to $40 a month with twelve thousand reviews, a buyer arrives already convinced and the selector is a convenience. A store selling one $160 gift box with two dozen reviews cannot do this: the visitor needs to see the product, the servings, the flavors and the proof before being asked to commit. The same layout on that store would be the first thing to remove.</p>
-  <div class="steal"><h4>Steal this</h4><p>Put the gift message and the paid wrap on the product page, next to the price. Not at checkout, not in an app, not later. Gift buyers decide at the moment they picture the recipient opening it.</p></div>
-  <p class="meta">A read is commentary on a public storefront as it appeared on the date above. Not affiliated with the brand. Facts from the live site; see <a href="https://www.bokksu.com/products/classic-bokksu">https://www.bokksu.com/products/classic-bokksu</a>. Your store gets the same read, privately: <a href="#read">ask for one</a>.</p></div></details>
-  <details><summary><span><span class="cap">Storefront read 03 · Fly By Jing · read on a phone, September 2026</span><strong>One hero jar, nine named gift sets, every pack size on one page</strong></span></summary><div class="rd"><p>Fly By Jing is a store built around one product that carries it, which is the situation most small food brands are in and most small food storefronts refuse to admit. The chili crisp page is the model.</p>
-  <h4>What works</h4>
-  <p>Pack sizes are variants on a single product page: one jar, a two-pack, three, four, a 16-ounce. The buyer never leaves the page to buy more. The list price sits beside a member price (20% off through the “Tastemaker Club”), so the discount is a reason to join, not a permanent markdown.</p><p>The page order is the order a buyer thinks: gallery, title with 4.9 stars and the review count, one line of what it is, three feature bullets, the pack selector, the price, the club, the button. Then, for the people who scroll, ingredients and nutrition, shipping, certification badges, a heat meter, lifestyle images, the origin story, reviews.</p><p>Gifting is nine named sets from $25 to $175, “Jing’s Favorites,” “Chili Crisp Trio, Gift-Ready,” and a limited edition with a date (an advent calendar on pre-order). The announcement bar rotates three messages: the pre-order, free shipping over $75, the club.</p>
-  <h4>What leaks</h4>
-  <p>The rotating bar is three messages in one slot, which means a visitor sees one of them and it may not be the one that matters to them. And the first-order popup offers 20% before the visitor has seen a single product; on a $30 jar that is a habit, on a $160 box it would be margin given away to someone who was going to buy anyway.</p>
-  <div class="steal"><h4>Steal this</h4><p>Make the pack sizes variants on the hero product’s page, and show the member price beside the list price. One page, every way to buy it, and a reason to join instead of a reason to wait for a sale.</p></div>
-  <p class="meta">A read is commentary on a public storefront as it appeared on the date above. Not affiliated with the brand. Facts from the live site; see <a href="https://flybyjing.com/products/sichuan-chili-crisp">https://flybyjing.com/products/sichuan-chili-crisp</a>. Your store gets the same read, privately: <a href="#read">ask for one</a>.</p></div></details>
+  <div class="st-readcards">
+  <a class="st-readcard" href="stores-reads#golden-nest"><span class="rc-art"><span>A <em>calendar,</em> not a discount</span></span><span class="rc-body"><span class="cap">Golden Nest · bird’s nest, premium gifting</span><strong>The category leader runs a calendar, not a discount</strong><p>Give every promotion an end date and say it in the bar.</p><i>Read it →</i></span></a>
+  <a class="st-readcard" href="stores-reads#bokksu"><span class="rc-art"><span>Gift wrap as a <em>product</em></span></span><span class="rc-body"><span class="cap">Bokksu · Japanese snack boxes</span><strong>Gift wrap as a product, and a plan selector too early</strong><p>Put the gift message and the paid wrap on the product page, next to the price.</p><i>Read it →</i></span></a>
+  <a class="st-readcard" href="stores-reads#fly-by-jing"><span class="rc-art"><span>Nine gift sets, <em>one</em> page</span></span><span class="rc-body"><span class="cap">Fly By Jing · chili crisp</span><strong>One hero jar, nine named gift sets, every pack size on one page</strong><p>Make the pack sizes variants on the hero product’s page, and show the member price beside the list price.</p><i>Read it →</i></span></a>
   </div>
+  <p class="st-fine"><a href="stores-reads">All three reads in full <i>→</i></a> · A read is commentary on a public storefront; not affiliated with the brand.</p>
  </section>
 
  <section class="st-sec rv" id="proof" aria-labelledby="pr-h">
   <span class="cap">Before stores</span>
   <h2 id="pr-h">Eleven years where <em>money</em> changes hands.</h2>
   <p class="st-lede">Checkouts, trade-ins and marketplaces for T-Mobile and Western Union. Same problems as a gift-box store, bigger numbers.</p>
-  <div class="st-actions"><a class="st-btn" href="case-studies/tmobile-trade-in">T-Mobile trade-in <i>→</i></a><a class="st-btn" href="case-studies/western-union">Western Union locator <i>→</i></a><a class="st-btn" href="case-studies/api-marketplace">API marketplace <i>→</i></a></div>
+  <div class="st-proof">
+   <a class="st-ptile" href="case-studies/tmobile-trade-in"><img src="images/tile-tradein.webp" alt="" loading="lazy"><span class="cap">T-Mobile for Business</span><b>Trade-in, four surfaces, one flow</b><i>~10% more orders completed →</i></a>
+   <a class="st-ptile" href="case-studies/western-union"><img src="images/tile-wu.webp" alt="" loading="lazy"><span class="cap">Western Union</span><b>Finding money in a city you just landed in</b><i>200+ countries, 40+ languages →</i></a>
+   <a class="st-ptile" href="case-studies/api-marketplace"><img src="images/tile-api.webp" alt="" loading="lazy"><span class="cap">T-Mobile API marketplace</span><b>Designed for customers who might not be human</b><i>10+ launch partners →</i></a>
+  </div>
  </section>
 
  <section class="cta rv" id="read">
@@ -332,6 +411,14 @@
   var flip=document.getElementById('flip-all');
   if(flip)flip.addEventListener('click',function(){var allOn=sw.every(function(s){return s.checked;});sw.forEach(function(s,i){setTimeout(function(){s.checked=!allOn;render();if(!allOn)show(s);},allOn?0:i*160);});flip.textContent=allOn?'Flip all five':'Reset';});
   render();
+  /* hero loop (v5.13): the mini phone flips the five switches on its own; reduced motion shows them all on */
+  var mini=document.getElementById('phone-mini'),steps=document.getElementById('loop-steps'),lc=document.getElementById('loop-count');
+  if(mini){
+    var order=['hero','gift','ship','sale','reviews'];
+    function setMini(n){order.forEach(function(k,i){mini.setAttribute('data-'+k,i<n?'1':'0');});if(steps)Array.prototype.forEach.call(steps.children,function(li,i){li.classList.toggle('on',i<n);});if(lc)lc.textContent=n+' of 5';}
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){setMini(5);}
+    else{var n=0;setMini(0);(function tick(){n=n>=5?0:n+1;setMini(n);setTimeout(tick,n===5?3000:(n===0?700:1300));})();}
+  }
 })();
 </script>
 </body>

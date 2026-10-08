@@ -34,8 +34,9 @@
 /* product page */
 .pdp{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 @media (max-width:900px){.pdp{grid-template-columns:1fr;gap:32px}}
-.pdp-art{aspect-ratio:1/1;border-radius:var(--r-tile);background:var(--ink);background-image:radial-gradient(circle at 40% 40%,#4a3bff 0,#141412 62%);position:relative;overflow:hidden;display:grid;place-items:center}
-.pdp-art span{font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,56px);color:#fff;letter-spacing:-.02em;text-align:center;padding:24px}
+.pdp-art{aspect-ratio:1/1;border-radius:var(--r-tile);background:#F7F6F1;position:relative;overflow:hidden;display:grid;place-items:center}
+.pdp-art img{width:100%;height:100%;object-fit:cover;display:block}
+
 .pdp-cap{margin-top:12px;font-size:13px;color:var(--muted)}
 .pdp h1{font-size:clamp(34px,5vw,64px);line-height:1.02;letter-spacing:-.03em;margin:8px 0 12px}
 .pdp h1 em{color:var(--acc)}
@@ -74,8 +75,8 @@
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:900px){.grid3{grid-template-columns:1fr}}
 .prod{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-card);padding:14px 18px 20px;display:flex;flex-direction:column;gap:8px}
-.prod-art{aspect-ratio:4/3;border-radius:12px;margin-bottom:6px;position:relative}
-.prod-art.a1{background:var(--tint-sand)}.prod-art.a2{background:var(--tint-sage)}.prod-art.a3{background:var(--tint-clay)}
+.prod-art{aspect-ratio:4/3;border-radius:12px;margin-bottom:6px;position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
+.prod-art.a1,.prod-art.a2,.prod-art.a3{background-color:#F7F6F1}
 .badge{position:absolute;top:10px;left:10px;background:#FF5A3C;color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px}
 .prod h3{font-size:18px;letter-spacing:-.01em;line-height:1.2}
 .prod p{font-size:14.5px;line-height:1.5;color:var(--body);flex:1}
@@ -143,8 +144,8 @@
   <span class="cap">Step 1 · Product page</span>
   <div class="pdp">
    <div>
-    <div class="pdp-art"><span>Signature Gift Box<br>four flavors</span></div>
-    <p class="pdp-cap">Product photo goes here. On a real store this is the one photo that earns its place above the fold.</p>
+    <div class="pdp-art"><img src="images/store/box.webp" alt="The Signature Gift Box: a kraft box with a blue ribbon, lid open, four snack bags inside." width="1000" height="1000"></div>
+    <p class="pdp-cap">Invented product, generated photo. On a real store this is the one photo that earns its place above the fold.</p>
    </div>
    <div>
     <span class="cap">Nest &amp; Grove · the gift box</span>
@@ -177,9 +178,9 @@
   <span class="cap">Step 2 · Collection</span>
   <h2 class="dm-h2" id="shop-h">Add-ons that get a cart past <em>$100.</em></h2>
   <div class="grid3">
-   <article class="prod" data-sku="mango"><div class="prod-art a1"><span class="badge">Most added</span></div><span class="cap">Snack · 120g</span><h3>Dried mango</h3><p>Sweet, a little sour, no sugar added.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="mango">Add to cart</button></article>
-   <article class="prod" data-sku="matcha"><div class="prod-art a2"></div><span class="cap">Snack · 85g</span><h3>Matcha chocolate cashews</h3><p>Roasted cashews, dark chocolate, ceremonial matcha.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="matcha">Add to cart</button></article>
-   <article class="prod" data-sku="ginger"><div class="prod-art a3"></div><span class="cap">Snack · 80g</span><h3>Candied ginger</h3><p>Soft, warm, the one grandparents ask for.</p><p class="prod-price"><b>$6</b></p><button type="button" class="btn-ghost" data-add="ginger">Add to cart</button></article>
+   <article class="prod" data-sku="mango"><div class="prod-art a1" style="background-image:url(images/store/mango.webp)"><span class="badge">Most added</span></div><span class="cap">Snack · 120g</span><h3>Dried mango</h3><p>Sweet, a little sour, no sugar added.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="mango">Add to cart</button></article>
+   <article class="prod" data-sku="matcha"><div class="prod-art a2" style="background-image:url(images/store/matcha.webp)"></div><span class="cap">Snack · 85g</span><h3>Matcha chocolate cashews</h3><p>Roasted cashews, dark chocolate, ceremonial matcha.</p><p class="prod-price"><b>$5</b></p><button type="button" class="btn-ghost" data-add="matcha">Add to cart</button></article>
+   <article class="prod" data-sku="ginger"><div class="prod-art a3" style="background-image:url(images/store/ginger.webp)"></div><span class="cap">Snack · 80g</span><h3>Candied ginger</h3><p>Soft, warm, the one grandparents ask for.</p><p class="prod-price"><b>$6</b></p><button type="button" class="btn-ghost" data-add="ginger">Add to cart</button></article>
   </div>
   <p class="dm-note"><span class="dm-pin">3</span><b>Collection cards carry a price, one line, and a button.</b> Shoppers who add from a collection skip a page. Shopify’s average add-to-cart rate is 4.6%; the top 10% of stores clear 9.6%.<cite>Littledata</cite> <a class="dm-ret" href="stores#demo">↩ Back to the switches</a></p>
  </section>
