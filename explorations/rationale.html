@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<title>Explorations — the written rationale</title>
+<meta name="description" content="Inspirations, thought process and client verdicts for the fifteen alternate steveux.com directions, and what the set taught.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EFEFE7;--ink:#141412;--dim:#6B675E;--acc:#3425FF;--hair:#D8D4C8;--card:#FCFBF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,sans-serif;padding:70px 5vw 110px}
+.wrap{max-width:1100px;margin:0 auto}
+h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,5vw,58px);line-height:1.1;margin:10px 0 14px}
+h1 em{color:var(--acc)}
+.cap{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.lede{color:var(--dim);max-width:44em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:26px 28px;text-decoration:none;color:var(--ink);position:relative;transition:transform .35s cubic-bezier(.22,.9,.24,1),box-shadow .35s,border-color .3s;display:block}
+.card:hover{transform:translateY(-5px);border-color:var(--acc);box-shadow:0 3px 6px -2px rgba(20,20,18,.12),0 24px 50px -22px rgba(20,20,18,.25)}
+.card .n{font-family:'Instrument Serif',serif;font-style:italic;color:var(--acc);font-size:22px}
+.card b{display:block;font-size:21px;margin:8px 0 8px;letter-spacing:-.01em}
+.card p{margin:0;font-size:15px;color:var(--dim);line-height:1.6}
+.sw{display:inline-flex;gap:5px;margin-top:14px;margin-right:12px;vertical-align:middle}
+.sw i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.card .bet{margin-top:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.card.full{grid-column:1/-1}
+.note{margin-top:40px;padding:22px 26px;border:1px solid var(--hair);border-radius:14px;background:var(--card);font-size:14.5px;color:var(--dim)}
+.note a{color:var(--acc)}
+.card .verdict{display:block;margin-top:12px;padding-top:12px;border-top:1px solid var(--hair);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.card .verdict::before{content:"✓ ";color:var(--acc)}
+details.allfif summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:12px;border:1px solid var(--hair);background:var(--card);border-radius:99px;padding:13px 24px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);transition:border-color .25s,color .25s;user-select:none}
+details.allfif summary::-webkit-details-marker{display:none}
+details.allfif summary::after{content:"+";font-size:16px;color:var(--acc);font-weight:400}
+details.allfif[open] summary::after{content:"–"}
+details.allfif summary:hover{border-color:var(--acc);color:var(--acc)}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+#srail{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:20}
+#srail button{position:relative;width:26px;height:10px;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:flex-end;padding:0}
+#srail button i{display:block;width:16px;height:2px;background:var(--hair);border-radius:2px;transition:all .3s cubic-bezier(.22,.9,.24,1)}
+#srail button.on i{width:26px;height:3px;background:var(--acc)}
+#srail button span{position:absolute;right:34px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:6px 12px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+#srail button:hover span,#srail button.on:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+#sprog{position:fixed;top:0;left:0;height:3px;background:var(--acc);width:0;z-index:21;transition:width .15s linear}
+@media(max-width:900px){#srail{display:none}}
+</style>
+<style>
+.rat{max-width:46em;margin-top:34px}
+.rat h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:52px 0 10px;letter-spacing:-.01em}
+.rat h2:first-child{margin-top:0}
+.rat p{margin:0 0 12px}
+.rat p strong{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:600;margin-bottom:2px}
+.rat ol,.rat ul{padding-left:1.3em}
+.rat li{margin-bottom:8px}
+.rat a{color:var(--acc)}
+.rat hr{border:0;border-top:1px solid var(--hair);margin:48px 0}
+.rat em{font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <p class="cap" style="display:flex;gap:18px;flex-wrap:wrap;margin:0 0 18px"><a href="./" style="color:var(--acc);text-decoration:none">← The fifteen explorations</a><a href="../" style="color:var(--dim);text-decoration:none">steveux.com</a></p>
+ <span class="cap">design explorations · the written rationale · 2026-07-06</span>
+ <h1>Fifteen bets, <em>graded</em></h1>
+ <p class="lede">Inspirations, thought process and the client verdict for each of the fifteen directions, then what the set taught. "Client" here is the person deciding to hire me: recruiters, hiring managers, design directors, founders.</p>
+ <article class="rat">
+<p>Inspiration links are the genre sources each direction descends from — worth visiting before judging the exploration.</p>
+<hr />
+<h2>01 · The Terminal</h2>
+<p><strong>Inspirations:</strong> <a href="https://berkeleygraphics.com" rel="noopener">Berkeley Graphics</a> (engineering-tool austerity) · <a href="https://gwern.net" rel="noopener">gwern.net</a> (credibility through density) · <a href="https://owickstrom.github.io/the-monospace-web/" rel="noopener">The Monospace Web</a> · classic MUD/BBS interfaces.
+<strong>Thought process:</strong> Your buyers increasingly include engineers and AI-literate founders; a designer who presents like a shell says "I live where you live." The working prompt is the differentiator — most terminal-themed sites are costumes; this one accepts commands and returns honest errors, which is your whole brand in one interaction.
+<strong>Will it work for clients?</strong> Works hard for technical founders and platform teams; filters OUT non-technical recruiters instantly (a dark monospace wall reads as "developer," and they'll misfile you). Verdict: killer as a hidden easter egg or /terminal route, wrong as the front door.</p>
+<h2>02 · The Broadsheet</h2>
+<p><strong>Inspirations:</strong> <a href="https://www.nytimes.com" rel="noopener">NYT front page grammar</a> · [The Deck-era editorial sites] · <a href="https://www.reuters.com/graphics/" rel="noopener">Reuters Graphics</a> · David Hillman's Guardian redesign (print grid discipline).
+<strong>Thought process:</strong> Case studies are literally stories with outcomes — the newspaper genre converts claims into headlines and forces deck-quality summarization. It also flatters your copy system: claims-not-labels IS headline writing.
+<strong>Will it work for clients?</strong> Strong for brand-side and content-heavy orgs; hiring managers get instant scannability. Risks: reads "concept project" to conservative enterprise buyers, and the genre steals attention from the work itself. Verdict: viable front door with restraint; best borrowed as an annual-review artifact ("Year in Untangling").</p>
+<h2>03 · The Gallery</h2>
+<p><strong>Inspirations:</strong> <a href="https://www.davidzwirner.com" rel="noopener">David Zwirner</a> / <a href="https://gagosian.com" rel="noopener">Gagosian</a> exhibition pages · museum wall-label conventions · <a href="https://cargo.site" rel="noopener">Cargo</a> portfolio culture.
+<strong>Thought process:</strong> You now own a 21-piece illustration system — the gallery direction asks "what if the images ARE the argument?" One plate per viewport imposes the slowest reading pace of all 15; wall labels force one-line claims.
+<strong>Will it work for clients?</strong> Beautiful for design-director audiences who judge taste in 10 seconds. Weak for recruiters who need evidence fast — outcomes are a click deeper than they'll go. Verdict: the pacing and label discipline should be stolen (the main site's dossier could end in one full-bleed plate); as a whole site it's style over proof.</p>
+<h2>04 · The Ledger</h2>
+<p><strong>Inspirations:</strong> <a href="https://brutalistwebsites.com" rel="noopener">Brutalist Websites</a> · <a href="https://craigslist.org" rel="noopener">craigslist</a> (density as honesty) · [Frank Chimero's writing on tables] · annual-report typography.
+<strong>Thought process:</strong> The inverse bet from 03: kill all art direction, let volume speak. A sortable table says "I have enough work that it needs sorting" — quantity as the qualitative claim. Expandable receipts keep the evidence rule.
+<strong>Will it work for clients?</strong> Excellent for skeptical engineering leaders and procurement-minded enterprise buyers; the AI-native sort column quietly tells your strategic story. Risky for design-led shops — they may read "no craft." Verdict: closest to shippable of the wild ones; also the best print/PDF version of you.</p>
+<h2>05 · The Map</h2>
+<p><strong>Inspirations:</strong> [Compas itself] (your thesis, applied reflexively) · <a href="https://museapp.com" rel="noopener">Muse's spatial canvas</a> · Figma/FigJam boards · open-world game maps · <a href="https://poolsuite.net" rel="noopener">poolsuite.net</a> (play as brand).
+<strong>Thought process:</strong> If your bet is "until we see everything on a map, nothing makes sense," the portfolio should be able to prove it. Islands = projects, regions = domains, you at the center. Drag-to-travel makes the visitor DO the untangling.
+<strong>Will it work for clients?</strong> The most memorable of all 15 — and memorability is the scarcest resource in a hiring pipeline. Fails keyboard users, fails hurried recruiters, fails mobile halfheartedly. Verdict: never the only door; extraordinary as a "view work as a map" toggle on the main site, where it doubles as a live Compas demo.</p>
+<h2>06 · The Slides</h2>
+<p><strong>Inspirations:</strong> conference-talk culture (<a href="https://speakerdeck.com" rel="noopener">speakerdeck</a>) · Stripe's early pitch pages · [Spotify Wrapped] pacing (one fact per screen).
+<strong>Thought process:</strong> Hiring conversations end in a panel room anyway — this direction skips ahead. One claim per slide enforces your front-loading rule ruthlessly; the progress bar creates completion pressure a scrolling page never does.
+<strong>Will it work for clients?</strong> Recruiters finish it — that alone is rare. But it hides depth: no skimming, no jumping, and design leaders may want the craft between the claims. Verdict: wrong as the site, PERFECT as steveux.com/deck for the "send us something before the panel" email.</p>
+<h2>07 · The Interview (chat)</h2>
+<p><strong>Inspirations:</strong> AI chat UIs (the genre your buyers now live in) · [poke.com]-style conversational sites · Interactive fiction (choice-driven pacing).
+<strong>Thought process:</strong> Every visitor arrives with questions; this direction admits it and answers them in order of their choosing. Pre-written honesty ("replies are canned, obviously") turns the gimmick into a trust move. Quick-reply chips are the depth system reborn as conversation.
+<strong>Will it work for clients?</strong> Charming for founders; demonstrates conversational-UX literacy natively. Dangerous ambiguity: visitors may think it's a live model and probe it — the "pre-written" label must stay loud. Verdict: strong candidate for the About page's alter ego; as the whole portfolio it caps how much evidence you can show.</p>
+<h2>08 · The Annotated One-Pager</h2>
+<p><strong>Inspirations:</strong> <a href="https://gwern.net/sidenote" rel="noopener">gwern.net sidenotes</a> · <a href="https://practicaltypography.com" rel="noopener">Butterick's Practical Typography</a> · legal redlines / track changes · director's-commentary tracks.
+<strong>Thought process:</strong> Every hiring loop ends at the résumé anyway — so make the résumé the site, and let the margins carry the voice. The two-register trick (formal document + handwritten commentary) shows judgment AND personality without mixing them.
+<strong>Will it work for clients?</strong> Recruiters feel instantly at home (it's the artifact they wanted), and the annotations reward the ones who linger. The handwriting font risks cuteness; margin notes vanish poorly on mobile. Verdict: highest hire-signal per pixel of all 15 — the strongest real challenger to the current site for a job-search season.</p>
+<h2>09 · The Mixtape</h2>
+<p><strong>Inspirations:</strong> <a href="https://poolsuite.net" rel="noopener">poolsuite.net</a> · <a href="https://teenage.engineering" rel="noopener">teenage.engineering</a> (hardware-as-interface) · Winamp/cassette skeuomorph nostalgia.
+<strong>Thought process:</strong> Pure charm play: projects as tracks, sides A/B mapping enterprise/AI-native, a fake progress bar making people WAIT with a project title on screen (enforced attention, disguised as play).
+<strong>Will it work for clients?</strong> Founders and brand teams smile; enterprise hiring managers wonder if you're serious. Zero evidence surface — everything is a link out. Verdict: won't work as the portfolio; would work brilliantly as a Side Quest tile or a conference-bio link. Keep the A/B side conceit — it's a smart taxonomy.</p>
+<h2>10 · The Blueprint</h2>
+<p><strong>Inspirations:</strong> <a href="https://berkeleygraphics.com" rel="noopener">Berkeley Graphics</a> · real engineering title blocks · patent drawings · NASA schematic culture.
+<strong>Thought process:</strong> Reframes design as ENGINEERING — parts, tolerances, revision blocks, "checked by: the taste file." For orgs that respect rigor over vibes, the genre itself argues you're a systems person. The inverted-image filter proves the illustration system survives any ground.
+<strong>Will it work for clients?</strong> Resonates hard with platform/infrastructure companies (your actual target). Downsides: text-dense at small sizes, and the blue monoculture flattens the work's variety. Verdict: niche front door, superb case-study TEMPLATE — imagine the API study drawn as DET.01…DET.06.</p>
+<h2>11 · The Pinboard</h2>
+<p><strong>Inspirations:</strong> detective evidence walls (True Detective, It's Always Sunny meme) · <a href="https://www.are.na" rel="noopener">are.na</a> · <a href="https://milanote.com" rel="noopener">Milanote</a> · studio crit walls.
+<strong>Thought process:</strong> Research culture made visible: the portfolio as an investigation into complexity, with you as the person of interest. Draggable exhibits + red string that follows = the one interaction people will screen-record and share.
+<strong>Will it work for clients?</strong> Design teams (your peers-as-gatekeepers) love it; it looks like how work is done. Recruiters get lost — no order, no hierarchy of importance. The meme association cuts both ways. Verdict: not the front door; ideal as the Compas or research-methods page, where "evidence wall" is literal.</p>
+<h2>12 · One Sentence</h2>
+<p><strong>Inspirations:</strong> <a href="https://html.energy" rel="noopener">HTML Energy</a> · <a href="https://lynnandtonic.com" rel="noopener">lynnandtonic.com</a> (radical smallness) · [justfuckingusehtml]-genre minimalism, done politely · print poster typography.
+<strong>Thought process:</strong> The maximal restraint test: if your positioning sentence is truly load-bearing, it should function as the entire site — six phrases, six doors. It stress-tests copy the way the terminal stress-tests credibility.
+<strong>Will it work for clients?</strong> Confidence reads instantly; design directors respect the nerve. But it demands curiosity — a tired recruiter sees one sentence and leaves. Verdict: the best LANDING state of all 15. Serious option: this AS the homepage hero moment before the bento reveals on first scroll.</p>
+<h2>13 · StevenOS (desktop)</h2>
+<p><strong>Inspirations:</strong> [poolsuite.net] · <a href="https://www.windows93.net" rel="noopener">windows93.net</a> · Susan Kare-era Mac nostalgia · portfolio-as-OS microgenre (kernel.style etc.).
+<strong>Thought process:</strong> You literally run a "personal OS" — the metaphor is already in your positioning, so the desktop makes it visible. Draggable windows show interaction chops with zero framework; the Trash is the best joke on any of the 15 ("gradients — do not restore").
+<strong>Will it work for clients?</strong> Memorable and shareable; proves front-end fluency. But genre-saturated (many indie portfolios do OS bits) and the playfulness can undercut "enterprise-grade." Verdict: won't beat the main site for hiring; WOULD make a legendary 404 page or /os easter egg. The Trash window should be stolen immediately.</p>
+<h2>14 · The Wiki</h2>
+<p><strong>Inspirations:</strong> <a href="https://en.wikipedia.org" rel="noopener">Wikipedia</a>'s neutral-voice authority · [gwern.net] citations · fan-wiki culture.
+<strong>Thought process:</strong> The most subversive bet: write about yourself in the third-person neutral voice, and let the CITATION apparatus carry the evidence rule — every [n] links to a real case study. Familiar genre = zero learning curve, instant scannability (infobox = your facts row).
+<strong>Will it work for clients?</strong> Recruiters parse it faster than any custom design (they read Wikipedia daily). The self-aware jokes ("citation cheekily needed") keep it from feeling delusional. Risks: borrowed authority can read as borrowed authority. Verdict: sneaky-strong for a about/press page; the infobox pattern deserves a place on the real About.</p>
+<h2>15 · End Credits</h2>
+<p><strong>Inspirations:</strong> <a href="https://www.artofthetitle.com" rel="noopener">Art of the Title</a> · film end-crawl conventions · [Semi-Permanent] title sequences · the "no modals were harmed" footer, expanded to a genre.
+<strong>Thought process:</strong> A career as filmography: roles instead of pitches, collaborators credited (including the AI pair and the dog), auto-motion doing the pacing. Hover-to-speed-up hands the projector to the visitor.
+<strong>Will it work for clients?</strong> Emotionally the warmest of all 15 — it's the one that makes people finish and email. Terrible for skimming, invisible to SEO, useless on a second visit. Verdict: not a portfolio; a perfect FINALE — the last section of the main site's About page, or the page you send with a resignation letter.</p>
+<hr />
+<h2>The meta-read (what 15 explorations taught us)</h2>
+<ol>
+<li><strong>The strongest single challengers to the current site:</strong> 08 (annotated one-pager) for a job-search season, 04 (ledger) for enterprise credibility, 12 (one sentence) as an opening state.</li>
+<li><strong>Steal, don't switch:</strong> 03's closing plate, 05 as a work-map toggle, 06 as /deck, 13's Trash joke as the 404, 14's infobox on About, 15 as the About finale.</li>
+<li><strong>The pattern in the verdicts:</strong> directions fail when they hide EVIDENCE behind charm. The current site wins because depth/evidence/honesty are structural — every exploration that kept those (04, 08, 14) got a "shippable" verdict; every one that traded them for delight (09, 13, 15) got "easter egg."</li>
+<li><strong>Client lens, condensed:</strong> recruiters need scannable proof in 30s (04, 08, 14 deliver); design directors need taste signals (03, 12); founders need memorability (05, 07, 13). The standing site is the only artifact serving all three — which is itself the argument for keeping it as the front door.</li>
+</ol>
+<hr />
+<h2>Rebrand pass (2026-07-06, second edition)</h2>
+<p>Every exploration now carries a distinct visual identity — no two share a palette, and none default to the house system:
+01 phosphor-CRT green/amber on near-black · 02 newsprint white + oxblood (Playfair) · 03 white-cube + terracotta (Cormorant) · 04 banker's green on ivory, typewriter mono · 05 parchment atlas + compass red (Fraunces, sepia plates) · 06 keynote black + signal yellow (Space Grotesk) · 07 iOS messenger grays + system blue · 08 manila folder + blue/red pens · 09 vaporwave violet/pink/cyan with glow · 10 graphite chalkboard + safety orange · 11 true corkboard + white cards · 12 vermillion poster + cream (Archivo 800) · 13 platinum-Mac grayscale + cobalt · 14 Wikipedia dark mode · 15 black &amp; gold (Cormorant).
+The lesson available here: branding is a variable, not a constant — the content survived fifteen identities without a single copy change, which is the strongest evidence yet that the copy system is doing the heavy lifting.</p>
+<hr />
+<h2>The matrix (2026-07-06, third edition)</h2>
+<p>Every page now carries a skin switcher (bottom-left, "◐ Skin"): any of the 15 layouts can wear any of the 15 brand identities — 225 combinations, choice persists as you move between explorations. This works because every layout was built on CSS custom properties from the start: one 4KB engine (skins.js) remaps ~20 token names and the entire identity swaps live, no reload. Native restores each page's own brand. Some combinations clash on purpose — a matrix that only produced tasteful output would be lying about the search space. Point demonstrated: separating structure (layout), identity (tokens), and content (copy) means iteration cost approaches zero on any single axis.</p>
+ </article>
+ <p class="note" style="margin-top:56px">Written 2026-07-06 alongside the explorations; the three editions at the end record the rebrand pass and the skin matrix. <a href="./">Back to the fifteen</a> · <a href="../side-quests">Side quests</a></p>
+</div>
+</body>
+</html>
