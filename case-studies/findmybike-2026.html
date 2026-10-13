@@ -79,14 +79,20 @@
   <h2 id="sec-the-2026-reframe-location-is-evidence-no"><span class="num">02</span>The 2026 reframe: location is evidence, not a destination</h2>
   <p>Recovery is a workflow with institutional steps — police report with a serial number, insurance claim with documentation, community eyes with verification. Every step is bureaucratic, time-sensitive, and miserable to do while adrenalized. That&rsquo;s exactly the shape of work an agent should run and a human should approve. The tracker&rsquo;s coordinates stop being a destination for the owner and become evidence in a channel built to use it.</p>
 
+  <figure class="phone" data-file="screen-fmb-01.webp"><img src="../images/screen-fmb-01.webp" onerror="this.closest('figure').style.display='none'" alt="Mobile theft report. A detailed bike description, a coarse last-known area, and three filings to be drafted from one submission." loading="lazy"><figcaption>Mobile theft report. A detailed bike description, a coarse last-known area, and three filings to be drafted from one submission.</figcaption></figure>
+
   <h2 id="sec-the-three-design-decisions"><span class="num">03</span>The three design decisions</h2>
   <p><strong>No live dot for the owner.</strong> This is the decision the whole rebuild hangs on. Owners see recovery <em>status</em> — report filed, sighting verified, police notified — while precise, current location routes to the police channel. The 2015 design quietly invited confrontation; the 2026 design makes de-escalation structural. Some users will hate this. It&rsquo;s still right.</p>
   <p><strong>The agent drafts; the owner approves.</strong> Police report pre-filled from registration and tracker data; insurance claim assembled from receipts and photos; community alert composed without doxxing anyone. Each lands as a preview the owner confirms or edits — the confirm-what-you-see pattern, at the moment a person is least capable of paperwork and most in need of it.</p>
   <p><strong>Sightings must survive verification.</strong> A community report only surfaces when its photo matches the registered bike above a confidence threshold. Below it, nothing is shown and nobody is accused. False accusations are the community feature&rsquo;s failure mode; the threshold is its k-anonymity.</p>
   <div class="callout">The dot told owners where their anger should go. The agent tells the system where the evidence should go.</div>
 
+  <figure data-file="screen-fmb-02.webp"><img src="../images/screen-fmb-02.webp" onerror="this.closest('figure').style.display='none'" alt="Recovery as an approval queue: police report approved, community alert awaiting approval, insurance claim blocked until the case number returns. The location-withholding rule is stated in the interface." loading="lazy"><figcaption>Recovery as an approval queue: police report approved, community alert awaiting approval, insurance claim blocked until the case number returns. The location-withholding rule is stated in the interface.</figcaption></figure>
+
   <h2 id="sec-the-tension"><span class="num">04</span>The tension</h2>
   <p>Taking the live dot away from the person who owns the bike is paternalistic by design, and a real segment of users will experience it as the product siding with the thief. The counterweight is transparency: the owner sees everything the agent does, everything the police received, and every verified sighting — total visibility of the process, zero targeting information. Whether that trade survives contact with real users is precisely what a pilot would test.</p>
+
+  <figure class="phone" data-file="screen-fmb-03.webp"><img src="../images/screen-fmb-03.webp" onerror="this.closest('figure').style.display='none'" alt="Verified sighting. Match confidence and a coarse neighborhood; the exact location went only to police." loading="lazy"><figcaption>Verified sighting. Match confidence and a coarse neighborhood; the exact location went only to police.</figcaption></figure>
  </div>
 
  <section class="proto" id="proto" aria-label="Interactive prototype">

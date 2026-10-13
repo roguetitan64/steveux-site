@@ -112,6 +112,12 @@ figure{margin:2.4em 0}
 figure img{width:100%;display:block;border-radius:14px;border:1px solid var(--hair)}
 figure svg{width:100%;height:auto;display:block}
 figcaption{font-size:calc(16px*var(--fs,1));color:var(--muted);margin-top:10px}
+/* v5.14: screens strips in case studies — phones sit narrow and centred, pairs side by side */
+figure.phone{max-width:360px;margin-left:auto;margin-right:auto;text-align:center}
+figure.phone img{border-radius:28px}
+.shots-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:2.4em 0;max-width:760px;margin-left:auto;margin-right:auto}
+.shots-pair figure{margin:0}
+@media (max-width:600px){.shots-pair{grid-template-columns:1fr}}
 figure.missing img{display:none}
 figure.missing::before{content:"Image slot — " attr(data-file) " (see IMAGES.md)";display:flex;align-items:center;justify-content:center;height:240px;border:1px dashed var(--hair);border-radius:14px;color:var(--muted);font-size:calc(16px*var(--fs,1));letter-spacing:.04em;background:var(--card)}
 /* footer */

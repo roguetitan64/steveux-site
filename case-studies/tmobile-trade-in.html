@@ -51,6 +51,8 @@
   <h2 id="sec-what-shipped-what-changed"><span class="num">01</span>What shipped, what changed</h2>
   <p>The end-to-end flow shipped across all four surfaces inside the two-month window, and trade-in went from the most broken part of TFB e-commerce to a working, promotable capability. Order completion per client rose roughly 10% — from ~180 to ~200 monthly orders per client at ~$50 per order — which, across roughly 2,000 business clients a month, compounded into a material revenue impact.</p>
 
+  <figure data-file="screen-tradein-01.webp"><img src="../images/screen-tradein-01.webp" onerror="this.closest('figure').style.display='none'" alt="Sanitized recreation: the in-store associate terminal. The trade-in condition check runs as an in-page step strip, no overlay, with the guaranteed offer updating beside it." loading="lazy"><figcaption>Sanitized recreation: the in-store associate terminal. The trade-in condition check runs as an in-page step strip, no overlay, with the guaranteed offer updating beside it.</figcaption></figure>
+
 
   <h2 id="sec-the-system-problem"><span class="num">02</span>The system problem</h2>
   <p>Trade-in wasn't a page; it was an obligation spread across an ecosystem. Account Hub, the Education portal, the e-commerce purchase flow, and Salesforce-based rep tooling all needed customers and reps to move devices through the same underlying trade-in machinery — legacy systems with strict data formats, built long before anyone imagined a business customer trading in hundreds of devices at once.</p>
@@ -81,6 +83,8 @@
   <p>I designed a <strong>spreadsheet-based bulk upload</strong> instead: a template that matched our data systems' expectations exactly, with validation that caught format errors before submission rather than after failure. Less glamorous than a wizard; dramatically more honest about what the back end could digest and what a business customer managing 200 devices actually does — they live in spreadsheets already.</p>
   <div class="callout">The senior move wasn't inventing a clever input. It was admitting the constraint and designing the most respectful version of it.</div>
 
+  <figure data-file="screen-tradein-03.webp"><img src="../images/screen-tradein-03.webp" onerror="this.closest('figure').style.display='none'" alt="Sanitized recreation: enterprise bulk upload. 240 parsed device rows, six validation errors with inline fixes, and the credit total for the 234 valid devices." loading="lazy"><figcaption>Sanitized recreation: enterprise bulk upload. 240 parsed device rows, six validation errors with inline fixes, and the credit total for the 234 valid devices.</figcaption></figure>
+
   <h2 id="sec-decision-the-modal-argument"><span class="num">04</span>Decision: the modal argument</h2>
   <p>The sharpest disagreement was structural. For the interactive trade-in steps, the other codebases wanted <strong>modals</strong> — dialogs layered over the page. I argued for <strong>in-page micro-flows</strong>: the trade-in sequence living in the page itself, as addressable steps.</p>
   <p>My case, then and now:</p>
@@ -92,6 +96,8 @@
   </ul>
   <p>Engineering pushed for modals for local reasons; my design lead sided with them, and modals shipped. The system worked — until businesses needed to trade in more than 25 devices at once, exactly the scale-driven failure the in-page architecture was designed to absorb. When I left, the team was scoping a more robust Salesforce trade-in that integrated directly with client databases — solving, at much greater cost, the bulk problem the original architecture had capped.</p>
   <div class="callout">I was right about the pattern and unpersuasive about the stakes. Those are different skills, and the second one is what I upgraded next.</div>
+
+  <figure data-file="screen-tradein-02.webp"><img src="../images/screen-tradein-02.webp" onerror="this.closest('figure').style.display='none'" alt="Sanitized recreation: the version I argued against. A centered modal dims the order page and hides the cart lines and totals." loading="lazy"><figcaption>Sanitized recreation: the version I argued against. A centered modal dims the order page and hides the cart lines and totals.</figcaption></figure>
 
   <h2 id="sec-what-i-d-do-differently"><span class="num">05</span>What I'd do differently</h2>
   <p>Escalate the architecture argument beyond my design lead. I treated the modal decision as a pattern preference and let it be settled as one; it was actually a scalability decision wearing a UI costume. Today I'd write the one-page consequence memo — "here is the entry-count ceiling this creates, here is who hits it, here is the rebuild cost" — and put it in front of the people who'd own that cost.</p>
