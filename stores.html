@@ -236,6 +236,13 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .more .row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .more .row.two a{padding:24px 26px}
 .more .row.two a b{font-size:17px}
+.more .row.two a{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:22px;row-gap:4px;align-items:start;align-content:start}
+.more .row.two a .mi{grid-row:1/3;width:52px;height:52px;color:var(--acc)}
+.more .row.two a b,.more .row.two a span{grid-column:2}
+.more .row.two a:hover .mi{transform:translateY(-2px)}
+.more .mi{transition:transform .3s var(--ease)}
+.scenes h2{margin-bottom:28px}
+#misses h2 + .st-stats{margin-top:36px}
 @media (max-width:560px){.more .row.two{grid-template-columns:1fr}}
 footer{padding:28px 0 40px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 footer a{text-decoration:none}
@@ -289,7 +296,6 @@ footer a{text-decoration:none}
 
  <section class="scenes" id="scenes">
   <h2>Features I could build <em>with you.</em></h2>
-  <p class="intro">Three that food and gift shops ask for most, each one working, not a picture. Your products, orders and payments never move.</p>
   <div class="tabs" role="tablist">
    <button role="tab" aria-selected="true" data-s="checkout"><b>1</b> Checkout that does not surprise</button>
    <button role="tab" aria-selected="false" data-s="holiday"><b>2</b> Holidays that switch themselves on</button>
@@ -403,7 +409,6 @@ footer a{text-decoration:none}
 
  <section class="offers" id="misses">
   <h2>Things people miss <em>in store design.</em></h2>
-  <p class="sub">The numbers I design against, with the source. Each one maps to a feature above.</p>
   <div class="st-stats">
    <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64" aria-hidden="true"><rect x="18" y="4" width="28" height="56" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="18" y="29.6" width="28" height="30.4" rx="6" fill="currentColor"/></svg><b>56.4%</b><span>Share of US online holiday spending done on a phone, Nov to Dec 2025. Design for the phone first; desktop is for people with time to sit down.</span><cite><a href="https://news.adobe.com/news/downloads/pdfs/2026/01/010726-holiday-shopping-season-2025.pdf" rel="noopener">Adobe Digital Economy Index</a>, holiday 2025</cite></div>
    <div class="st-stat"><svg class="st-glyph" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="6" width="48" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="8" y="6" width="48" height="29.6" rx="6" fill="currentColor" opacity=".9"/><line x1="8" y1="35.6" x2="56" y2="35.6" stroke="#141412" stroke-width="2" stroke-dasharray="3 3"/></svg><b>57%</b><span>Share of viewing time spent above the fold. If your best seller isn’t there, the fold is wasted.</span><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" rel="noopener">NN/g eyetracking</a></cite></div>
@@ -428,7 +433,7 @@ footer a{text-decoration:none}
   <div class="askbox">
    <div>
     <h2>Let's talk about your store. <em>Pick a day that works.</em></h2>
-    <p>Tell me who you are and where your store lives online. I'll message you on WhatsApp to set a time. English, Tiếng Việt or Español.</p>
+    <p>Tell me who you are and where your store lives online. I'll message you on WhatsApp to set a time.</p>
    </div>
    <form name="chat-request" method="POST" data-netlify="true" netlify-honeypot="company" id="visit">
     <input type="hidden" name="form-name" value="chat-request">
@@ -439,7 +444,7 @@ footer a{text-decoration:none}
     <label for="f-wa">WhatsApp number</label><input id="f-wa" name="whatsapp" type="tel" autocomplete="tel" placeholder="+1 714 555 0100" required>
     <label for="f-day">A day that works to chat</label><input id="f-day" name="day" type="date" required>
     <button class="btn" type="submit">Let's chat <i>→</i></button>
-    <small>Or write to hello@steveux.com.</small>
+    <small>Or write to hello@steveux.com</small>
    </form>
    <div class="sent" id="sent" hidden><h3>Thanks, got it.</h3><p>I'll message you on WhatsApp before that day to set a time.</p></div>
   </div>
@@ -447,8 +452,8 @@ footer a{text-decoration:none}
 
  <section class="more">
   <div class="row two">
-   <a href="/stores-demo"><b>Walk the demo store →</b><span>Product, collection, cart and checkout, with notes on each.</span></a>
-   <a href="/work"><b>11 years as a designer →</b><span>Checkouts, trade-ins, marketplaces and promotion engines for T-Mobile and Western Union. Bigger numbers, the same problems.</span></a>
+   <a href="/stores-demo"><svg class="mi" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="26" width="44" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="27" y="38" width="10" height="18" fill="currentColor"/><path d="M6 12h52l-3 14H9z" fill="currentColor"/><path d="M19 12l-2 14M32 12v14M45 12l2 14" stroke="#fff" stroke-width="2" opacity=".6"/></svg><b>Walk the demo store →</b><span>Product, collection, cart and checkout, with notes on each.</span></a>
+   <a href="/work"><svg class="mi" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 52C16 18 48 18 56 52" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M8 52L20 14M56 52L44 14" stroke="currentColor" stroke-width="1.5" opacity=".45"/><circle cx="20" cy="14" r="4" fill="currentColor" opacity=".45"/><circle cx="44" cy="14" r="4" fill="currentColor" opacity=".45"/><rect x="3" y="47" width="10" height="10" fill="currentColor"/><rect x="51" y="47" width="10" height="10" fill="currentColor"/></svg><b>11 years as a designer →</b><span>Checkouts, trade-ins, marketplaces and promotion engines for T-Mobile and Western Union. Bigger numbers, the same problems.</span></a>
   </div>
  </section>
 
